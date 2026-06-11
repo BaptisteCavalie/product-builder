@@ -33,8 +33,9 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
   Le contrat de catégories vit dans le plugin (`design-system/tokens.css`,
   chemin résolu en fin de ce contexte — template à ne jamais écraser) ; chaque
   projet en matérialise les valeurs dans le `@theme` de son entrypoint CSS —
-  le seul bloc que Tailwind v4 compile. Aucune couleur, taille, espacement
-  ou radius hors de ces tokens.
+  le seul bloc que Tailwind v4 compile (projet sans Tailwind : mêmes noms de
+  tokens dans le `:root` de l'entrypoint CSS — le contrat est agnostique du
+  framework). Aucune couleur, taille, espacement ou radius hors de ces tokens.
 
 ## Règles non négociables
 

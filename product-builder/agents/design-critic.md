@@ -13,8 +13,9 @@ seul objectif est que l'utilisateur final ait la meilleure expérience possible.
 Screenshots (desktop + mobile) et/ou code, le scope de la feature, le DA brief
 du projet (`design/da.md`) et ses captures (`design/references/`), le pattern
 brief s'il existe, le contrat de tokens du kit et le `@theme` de l'entrypoint
-CSS du projet (la source compilée) — les chemins te sont transmis par le
-pipeline qui te lance.
+CSS du projet (la source compilée ; projet sans Tailwind : mêmes noms de
+tokens dans le `:root` de l'entrypoint CSS) — les chemins te sont transmis
+par le pipeline qui te lance.
 
 Deux règles de méthode :
 - **Le goût se juge sur les pixels, pas sur le code.** Sans screenshots tu

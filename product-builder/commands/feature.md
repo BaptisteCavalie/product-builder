@@ -52,8 +52,9 @@ Construis le scope retenu en appliquant le DA brief et les skills
 `design-judgment`, `anti-slop`, `a11y` et `domain-knowledge` (qui charge la
 référence du domaine déclaré dans le CLAUDE.md du projet).
 - Tokens uniquement : le `@theme` de l'entrypoint CSS du projet matérialise
-  le contrat de tokens du kit (chemin injecté en début de session). S'il
-  manque, le créer d'abord ; ne jamais écraser le template, ne jamais
+  le contrat de tokens du kit (chemin injecté en début de session ; projet
+  sans Tailwind : mêmes noms de tokens dans le `:root` de l'entrypoint CSS).
+  S'il manque, le créer d'abord ; ne jamais écraser le template, ne jamais
   hardcoder une valeur.
 - L'élément signature du DA brief doit être présent sur les écrans clés —
   c'est un livrable, pas une option.

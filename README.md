@@ -73,7 +73,8 @@ les références du DA brief → boucle de correction (max 3 tours) → rapport 
 kit, Mobbin (produits réels), Awwwards/Godly/SiteInspire (direction
 artistique web), Dribbble (ambiance uniquement, jamais les layouts), Fonts
 In Use (typographie) — puis tranche UNE direction : ambiance, police nommée,
-palette, élément signature. Le `@theme` du projet en dérive.
+palette, élément signature. Le `@theme` du projet en dérive (projet sans
+Tailwind : mêmes noms de tokens dans le `:root` de l'entrypoint CSS).
 
 ## Comment le système apprend
 

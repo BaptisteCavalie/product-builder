@@ -29,8 +29,9 @@ Clone local du kit : <chemin absolu, ex. ~/product-builder-kit>
   signature. AUCUN build d'UI sans lui.
 - Le `@theme` de l'entrypoint CSS (ex. `app/globals.css`) dérive du DA brief
   et matérialise le contrat de tokens du kit — seule source de valeurs
-  visuelles du projet. Le chemin du contrat est injecté en début de session
-  par le plugin.
+  visuelles du projet (projet sans Tailwind : mêmes noms de tokens dans le
+  `:root` de l'entrypoint CSS). Le chemin du contrat est injecté en début de
+  session par le plugin.
 
 ## Spécificités projet
 

@@ -7,6 +7,8 @@ générique à valeurs placeholder — ne jamais l'écraser avec des valeurs pro
 Tailwind v4 ne génère aucun utilitaire depuis `:root` : la source compilée
 de chaque projet est le bloc `@theme` de son entrypoint CSS (`globals.css`),
 qui matérialise les catégories de ce contrat avec les valeurs du projet.
+Projets sans Tailwind : mêmes noms de tokens dans le `:root` de l'entrypoint
+CSS — le contrat est agnostique du framework.
 
 Trois règles d'usage :
 
