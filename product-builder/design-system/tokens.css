@@ -4,7 +4,9 @@
    Tailwind v4 ne compile rien depuis :root : chaque projet
    matérialise ces tokens (mêmes noms, valeurs concrètes) dans
    le bloc @theme de son entrypoint CSS (globals.css) — pour la
-   v3, les mapper dans tailwind.config.
+   v3, les mapper dans tailwind.config. Projets sans Tailwind :
+   matérialiser le même contrat dans le :root de l'entrypoint CSS
+   (mêmes noms de tokens) — le contrat est agnostique du framework.
    Aucune valeur visuelle hors de ces tokens.
    ============================================================ */
 

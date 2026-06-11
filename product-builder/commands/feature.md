@@ -77,6 +77,10 @@ npx playwright screenshot --viewport-size=1440,900 <url> /tmp/review-desktop.png
 npx playwright screenshot --viewport-size=390,844 <url> /tmp/review-mobile.png
 ```
 Si Playwright manque : `npm i -D playwright && npx playwright install chromium`.
+Prépare cet outillage dès les étapes 1-3 (installation du navigateur pendant
+la recherche, pas après le build). Si le projet n'a pas de script de capture
+committé (`tools/screenshots.*`), crées-en un au premier build et committe-le :
+les captures se rejouent à chaque tour de boucle de correction.
 Si la capture est réellement impossible après tentative : l'hygiène s'audite
 sur code, mais le goût N'EST PAS vérifié — le rapport le signale comme
 limitation et le verdict design ne peut pas être `ship`.

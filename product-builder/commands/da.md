@@ -19,6 +19,9 @@ demande, propose des amendements ciblés. Ne repars pas de zéro.
 
 Avant toute recherche, pose le cadre en 3 lignes :
 - Qui utilise ce produit, dans quel état d'esprit (pressé ? méfiant ? passionné ?).
+- Les 2-3 gestes utilisateurs prioritaires que les écrans doivent servir
+  (les actions répétées qui justifient l'outil) — la DA se juge sur eux, et
+  le brief présenté à la validation (étape 4) montre comment elle les sert.
 - Quelle est la culture visuelle du domaine — une app de pronos ne ressemble
   pas à une app d'épargne. Charge `domain-knowledge` si une référence existe.
 - 3 mots d'ambiance candidats + 3 anti-mots (ce que l'écran ne doit JAMAIS dégager).
