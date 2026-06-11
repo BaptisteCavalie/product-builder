@@ -5,7 +5,7 @@ argument-hint: [description du produit, ou vide si le CLAUDE.md du projet suffit
 
 # /da — Direction artistique
 
-Produit : $ARGUMENTS (sinon, déduis-le du CLAUDE.md du projet — domaine et contexte).
+Produit : $ARGUMENTS (sinon, lis le CLAUDE.md du projet — domaine, utilisateurs, contexte).
 
 Le DA brief est ce qui sépare un build "propre" d'un build qui a du caractère.
 Sans lui, le build retombe sur la moyenne statistique — le look par défaut,
@@ -22,6 +22,13 @@ Avant toute recherche, pose le cadre en 3 lignes :
 - Quelle est la culture visuelle du domaine — une app de pronos ne ressemble
   pas à une app d'épargne. Charge `domain-knowledge` si une référence existe.
 - 3 mots d'ambiance candidats + 3 anti-mots (ce que l'écran ne doit JAMAIS dégager).
+
+Ces réponses viennent du brief et du CLAUDE.md du projet (Domaine /
+Utilisateurs / Spécificités). Si une info manque, NE DEVINE PAS : pose les
+questions manquantes à Baptiste en une seule salve (4 max, fermées autant que
+possible), écris les réponses dans le CLAUDE.md du projet, puis continue.
+Un territoire deviné = une DA générique — exactement ce que ce pipeline
+existe pour empêcher.
 
 ## 2. Collecter des références — dans cet ordre
 

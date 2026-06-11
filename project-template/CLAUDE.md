@@ -6,10 +6,14 @@ session. Ce fichier ne contient QUE le contexte propre au projet.
 
 ## Domaine
 
-<!-- Le skill domain-knowledge lit cette section. Exemple :
+<!-- Le skill domain-knowledge lit cette section. /feature et /da demandent
+     ce qui manque ici au lieu de le deviner, et y écrivent les réponses.
+     Exemple :
      Domaine actif : fintech
-     Spécificités : B2C, épargne, clientèle 25-45 ans, réglementation AMF -->
+     Utilisateurs : B2C, épargnants 25-45 ans, méfiants, mobile d'abord
+     Spécificités : épargne, réglementation AMF -->
 Domaine actif : (à déclarer — si absent, le système demande avant de construire)
+Utilisateurs : (qui + état d'esprit — demandé par /da et /feature si absent)
 
 ## Kit
 

@@ -43,6 +43,12 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
 - Aucun build d'UI sans DA brief (`design/da.md` du projet) : s'il manque,
   /da d'abord. Le goût se vérifie sur screenshots, en comparant aux
   références du brief — jamais sur le code seul.
+- Une information produit manquante ne se devine JAMAIS — utilisateurs cibles,
+  secteur, contexte d'usage, contrainte métier : on pose la question (une
+  seule salve, questions précises), puis on écrit la réponse dans le CLAUDE.md
+  du projet (ou `design/da.md` pour le goût) pour ne plus jamais la redemander.
+  L'autonomie porte sur l'exécution d'une direction déclarée, pas sur
+  l'invention des faits.
 - Tout composant interactif a ses états : hover, focus visible, disabled,
   loading, error, empty.
 - Le skill `anti-slop` s'applique à tout output visuel, sans exception.

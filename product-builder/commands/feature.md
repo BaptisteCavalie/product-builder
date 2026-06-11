@@ -12,9 +12,14 @@ livrable qui nourrit la suivante.
 
 ## Étape 1 — Challenge produit
 
-Lance le subagent `product-challenger` avec le brief.
+Lance le subagent `product-challenger` avec le brief ET le CLAUDE.md du
+projet (domaine, utilisateurs, spécificités — il ne reçoit pas ce contexte).
 - S'il rend un verdict `rethink`, STOP : présente son analyse à Baptiste et
   attends sa décision. Ne construis rien.
+- S'il liste des `infos_manquantes` : pose-les à Baptiste en UNE seule salve,
+  écris les réponses dans le CLAUDE.md du projet (Domaine / Utilisateurs /
+  Spécificités), puis relance le challenge si le scope en dépend. Ne comble
+  jamais un trou en devinant.
 - Sinon, récupère le **scope retenu** (la version minimale à forte valeur) et
   les critères de succès. C'est CE scope que tu construis, pas le brief initial.
 
@@ -51,10 +56,18 @@ référence du domaine déclaré dans le CLAUDE.md du projet).
 - Tous les états des composants interactifs dès le premier jet.
 - Commits atomiques avec messages clairs.
 
-## Étape 5 — Vérification visuelle (OBLIGATOIRE)
+## Étape 5 — Vérification (gates machine + visuel, OBLIGATOIRE)
 
-Le goût se juge sur les pixels, pas sur le code. Démarre le dev server et
-capture desktop + mobile :
+Lance d'abord les gates déterministes EXPLICITEMENT — ne présume jamais que
+les hooks ont tiré (ils ne se chargent qu'au démarrage de la session, pas si
+le plugin vient d'être installé ou rechargé) :
+- JS/TS : `npx tsc --noEmit && npm run -s lint && npm run -s build`
+- Python : `python3 -m py_compile` sur les fichiers modifiés, + `ruff`/`mypy`
+  s'ils sont configurés.
+Si une gate échoue, corrige avant d'aller plus loin.
+
+Puis le visuel. Le goût se juge sur les pixels, pas sur le code. Démarre le
+dev server et capture desktop + mobile :
 ```bash
 npx playwright screenshot --viewport-size=1440,900 <url> /tmp/review-desktop.png
 npx playwright screenshot --viewport-size=390,844 <url> /tmp/review-mobile.png
@@ -94,7 +107,9 @@ Termine par un rapport court :
 - **À décider** : ce qui mérite l'œil de Baptiste (ambiguïtés, dette notée, nits récurrents).
 - **Preview** : URL Vercel si déployé.
 
-Puis ajoute une ligne dans `telemetry/runs.jsonl` :
+Puis ajoute une ligne dans `telemetry/runs.jsonl`. Le champ `type` permet de
+loguer aussi les sessions `critique` / `fix` / `retro` (compteurs critics
+optionnels hors run de feature) — toute session de travail laisse une trace :
 ```json
-{"date":"<ISO>","feature":"<nom>","tours":N,"blockers":N,"majors":N,"minors":N,"nits":N,"escalade":false,"dimensions_faibles":["..."]}
+{"date":"<ISO>","type":"feature","feature":"<nom>","tours":N,"blockers":N,"majors":N,"minors":N,"nits":N,"escalade":false,"dimensions_faibles":["..."]}
 ```

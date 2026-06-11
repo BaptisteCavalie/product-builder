@@ -39,6 +39,8 @@ Si `references/<domaine>.md` n'existe pas :
 
 - `references/fintech.md` — banque, paiement, épargne, investissement,
   assurance, crypto, KYC, produits régulés financiers.
+- `references/paris-sportifs.md` — prédiction football & paris sportifs :
+  probabilité implicite/vig, calibration, value betting, Kelly, ANJ.
 <!-- Les nouveaux domaines s'ajoutent ici à mesure qu'ils sont bootstrappés -->
 
 ## Règle d'enrichissement

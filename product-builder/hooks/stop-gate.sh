@@ -2,6 +2,8 @@
 # Hook Stop — la gate finale. S'exécute quand Claude croit avoir terminé.
 # Si une vérification échoue : exit 2 → Claude est forcé de reprendre.
 # Garde-fou anti-boucle infinie : stop_hook_active + plafond d'itérations.
+# Polyglotte : JS/TS (typecheck, lint, knip) si package.json, Python
+# (py_compile, + ruff/mypy seulement s'ils sont configurés) si fichiers .py.
 
 set -uo pipefail
 INPUT=$(cat)
@@ -24,9 +26,6 @@ if [ "$ACTIVE" = "true" ] && [ "$ROUNDS" -ge "$MAX_ROUNDS" ]; then
 fi
 [ "$ACTIVE" != "true" ] && ROUNDS=0
 
-# 2. Rien à vérifier hors projet JS/TS
-[ -f "package.json" ] || exit 0
-
 FAILURES=""
 run_check() { # $1 = label, $2 = commande
   OUT=$(eval "$2" 2>&1)
@@ -35,21 +34,43 @@ run_check() { # $1 = label, $2 = commande
   fi
 }
 
-# Typecheck (script dédié ou tsc direct)
-if grep -q '"typecheck"' package.json; then
-  run_check "Typecheck" "npm run -s typecheck"
-elif [ -f "tsconfig.json" ] && [ -f "node_modules/.bin/tsc" ]; then
-  run_check "Typecheck" "npx tsc --noEmit"
+# 2. Gates JS/TS — si projet Node
+if [ -f "package.json" ]; then
+  # Typecheck (script dédié ou tsc direct)
+  if grep -q '"typecheck"' package.json; then
+    run_check "Typecheck" "npm run -s typecheck"
+  elif [ -f "tsconfig.json" ] && [ -f "node_modules/.bin/tsc" ]; then
+    run_check "Typecheck" "npx tsc --noEmit"
+  fi
+
+  # Lint global
+  if grep -q '"lint"' package.json; then
+    run_check "Lint" "npm run -s lint"
+  fi
+
+  # Code mort (knip, seulement s'il est configuré dans le projet)
+  if [ -f "knip.json" ] || grep -q '"knip"' package.json; then
+    run_check "Code mort (knip)" "npx knip --no-progress"
+  fi
 fi
 
-# Lint global
-if grep -q '"lint"' package.json; then
-  run_check "Lint" "npm run -s lint"
-fi
+# 3. Gates Python — si fichiers .py versionnés
+if command -v python3 >/dev/null 2>&1; then
+  PY_FILES=$(git ls-files '*.py' 2>/dev/null)
+  if [ -n "$PY_FILES" ]; then
+    # Syntaxe de tout le repo (déterministe, rapide, zéro faux positif)
+    run_check "Syntaxe (py_compile)" "echo \"$PY_FILES\" | xargs python3 -m py_compile"
 
-# Code mort (knip, seulement s'il est configuré dans le projet)
-if [ -f "knip.json" ] || grep -q '"knip"' package.json; then
-  run_check "Code mort (knip)" "npx knip --no-progress"
+    # Lint global — seulement si ruff configuré
+    if command -v ruff >/dev/null 2>&1 && { [ -f "pyproject.toml" ] || [ -f "ruff.toml" ] || [ -f ".ruff.toml" ]; }; then
+      run_check "Lint (ruff)" "ruff check ."
+    fi
+
+    # Types — seulement si mypy configuré
+    if command -v mypy >/dev/null 2>&1 && { [ -f "mypy.ini" ] || [ -f ".mypy.ini" ] || grep -q "\[tool.mypy\]" pyproject.toml 2>/dev/null; }; then
+      run_check "Types (mypy)" "mypy ."
+    fi
+  fi
 fi
 
 if [ -n "$FAILURES" ]; then

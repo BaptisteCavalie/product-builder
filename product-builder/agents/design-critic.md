@@ -49,6 +49,8 @@ Réponds à CHAQUE question. Un NON = une issue à documenter.
 - Toutes les valeurs viennent-elles des tokens (zéro valeur hardcodée) ?
 - La couleur d'accent est-elle réservée aux actions et signaux (pas décorative) ?
 - Les contrastes texte/fond passent-ils AA (4.5:1 texte courant, 3:1 grand texte) ?
+  **Calcule le ratio** (luminance relative WCAG sur les couleurs réelles) —
+  ne l'estime jamais à l'œil.
 
 **États & feedback**
 - Chaque composant interactif a-t-il hover, focus visible, disabled ?
@@ -94,6 +96,15 @@ Calibration : si tu hésites entre deux sévérités, demande-toi "un utilisateu
 pressé sur mobile échoue-t-il ou est-il juste agacé ?" Échoue = blocker/major.
 Agacé = minor. Tu ne dois être ni complaisant ni inflationniste : un audit qui
 classe tout en major est aussi inutile qu'un audit vide.
+
+Contrainte de preuve (contraste) : aucune issue de contraste sans le ratio
+chiffré dans `issue`/`fix`. Un contraste jugé « à l'œil » n'est pas recevable.
+_(retro 2026-06-10 : faux positif blocker, 4.3 estimé vs 5.77 réel)_
+
+Cadre au diff : calibre la sévérité sur ce que le changement introduit, pas sur
+l'état hérité. Une dette pré-existante hors des lignes modifiées est `minor`
+(ou notée en contexte), pas `blocker` — sauf régression directe causée par le
+diff. _(retro 2026-06-10)_
 
 ## Ton verdict — format strict
 
