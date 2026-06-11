@@ -55,6 +55,8 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
 - WCAG 2.2 AA est un plancher, pas un objectif.
 - Code mort = code supprimé. On ne commente pas du code "au cas où".
 - Pas de `any`, pas de `@ts-ignore` sans justification écrite en commentaire.
+- La logique à risque (argent, auth, état persisté, action irréversible) ne se
+  livre pas sans test ; le reste se teste avec parcimonie, jamais par dogme.
 
 ## Organisation d'un projet
 

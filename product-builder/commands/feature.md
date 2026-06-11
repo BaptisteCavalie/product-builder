@@ -22,6 +22,10 @@ projet (domaine, utilisateurs, spécificités — il ne reçoit pas ce contexte)
   jamais un trou en devinant.
 - Sinon, récupère le **scope retenu** (la version minimale à forte valeur) et
   les critères de succès. C'est CE scope que tu construis, pas le brief initial.
+- Si le challenger rend une `suite` (le brief était plusieurs features), tu ne
+  construis que le premier maillon — le `scope_retenu`. La séquence restante
+  remonte au rapport final ; chaque maillon sera lancé comme son propre
+  /feature, en s'appuyant sur la mémoire `patterns/` accumulée entre-temps.
 
 ## Étape 2 — Direction artistique
 
@@ -105,6 +109,8 @@ Termine par un rapport court :
   références du DA brief (en 1-2 lignes, factuel).
 - **Tranché** : les arbitrages faits en autonomie.
 - **À décider** : ce qui mérite l'œil de Baptiste (ambiguïtés, dette notée, nits récurrents).
+- **Suite** : si le brief était plusieurs features, la séquence ordonnée des
+  prochains /feature (dépendances d'abord). Sinon, sans objet.
 - **Preview** : URL Vercel si déployé.
 
 Puis ajoute une ligne dans `telemetry/runs.jsonl`. Le champ `type` permet de

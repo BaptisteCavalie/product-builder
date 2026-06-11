@@ -33,6 +33,17 @@ donnent pas et que ton verdict en dépend, liste la question dans
 change. L'orchestrateur la posera à Baptiste. Un scope construit sur un
 utilisateur imaginé est un faux `go`.
 
+## Quand le brief est plusieurs features
+
+Parfois le brief n'est pas une feature trop large : c'est plusieurs features
+empilées. Tu ne te contentes alors pas de les écarter dans `exclu` — tu les
+ordonnes en une séquence livrable, dépendances d'abord, où chaque maillon est
+un `/feature` autonome. Tu retiens le premier maillon comme `scope_retenu` ;
+les suivants vont dans `suite`, dans l'ordre, formulés comme des briefs. La
+mémoire produit du projet (`patterns/`) portera le contexte d'un maillon au
+suivant — pas besoin de tout spécifier d'avance. `exclu` reste pour ce qui est
+écarté (peut-être à jamais) ; `suite` est la roadmap ordonnée de ce qui viendra.
+
 ## Ton verdict — format strict
 
 ```json
@@ -42,6 +53,7 @@ utilisateur imaginé est un faux `go`.
   "infos_manquantes": ["question précise — ce que la réponse change au scope (vide si rien ne manque)"],
   "scope_retenu": ["liste exhaustive de ce qui est DANS le scope"],
   "exclu": [{"quoi": "...", "pourquoi": "...", "quand_reconsiderer": "..."}],
+  "suite": [{"feature": "prochain incrément, formulé comme un brief", "pourquoi_apres": "ce qui doit exister avant lui (vide si le brief est une seule feature)"}],
   "criteres_succes": ["..."],
   "risques": ["max 3, seulement les réels"]
 }

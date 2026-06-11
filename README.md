@@ -43,6 +43,9 @@ que l'auto-update en arrière-plan puisse s'authentifier.
 - Code mort : `npm i -D knip` puis `npx knip --init` (la gate Stop le
   détecte automatiquement s'il est configuré).
 - Screenshots : `npm i -D playwright && npx playwright install chromium`.
+- Test du risque : un runner (`vitest`, ou `node --test` natif) si tu shippes
+  de la logique à risque (argent, auth, irréversible). Le code-reviewer ne
+  réclame un test que là — jamais sur l'UI.
 - Mobbin MCP (plan payant requis) :
   ```bash
   claude mcp add mobbin --scope user --transport http https://api.mobbin.com/mcp

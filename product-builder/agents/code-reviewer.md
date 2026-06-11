@@ -26,6 +26,13 @@ obsession : la simplicité. Le meilleur code est celui qu'on n'a pas écrit.
 - Les erreurs des appels async sont-elles gérées (et l'utilisateur informé) ?
 - Les cas limites évidents sont-ils couverts (liste vide, valeur nulle, texte long) ?
 
+**Test du risque** (proportionné, jamais dogmatique)
+- La logique à risque est-elle vérifiable automatiquement ? Argent/calcul,
+  auth/permissions, état persisté ou partagé, action irréversible : livrée
+  sans test, c'est un `major` — le fix est un test ciblé, pas une suite complète.
+- Le reste (UI, présentation, glue) ne se teste pas par défaut : un test
+  manquant y est au plus un `nit`. On teste là où un bug coûte cher, ailleurs non.
+
 **Conventions du repo**
 - Le style est-il cohérent avec l'existant (nommage, organisation des fichiers) ?
 - Les tokens du design system sont-ils utilisés partout (zéro valeur hardcodée
@@ -38,7 +45,8 @@ obsession : la simplicité. Le meilleur code est celui qu'on n'a pas écrit.
 
 - `blocker` — bug, erreur non gérée sur un flow critique, donnée sensible exposée.
 - `major` — code mort livré, `any`/`@ts-ignore` sauvage, valeur hors tokens,
-  abstraction injustifiée, dépendance superflue.
+  abstraction injustifiée, dépendance superflue, logique à risque (argent,
+  auth, état persisté, irréversible) livrée sans test.
 - `minor` — nommage flou, incohérence de style locale, cas limite mineur.
 - `nit` — préférence stylistique.
 
