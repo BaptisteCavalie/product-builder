@@ -27,9 +27,13 @@ Si `references/<domaine>.md` n'existe pas :
    structurantes du domaine (réglementation et contraintes légales, attentes
    de confiance des utilisateurs, conventions sectorielles incontournables,
    données sensibles et leur affichage, erreurs/cas limites critiques du métier).
-3. Créer `references/<domaine>.md` sur le modèle de `references/_template.md`.
+3. Créer la référence dans le **clone local du kit** (chemin déclaré à la
+   section `## Kit` du CLAUDE.md du projet) :
+   `product-builder/skills/domain-knowledge/references/<domaine>.md`, sur le
+   modèle de `references/_template.md` — jamais dans le cache du plugin.
+   Utilise son contenu directement dans la session courante.
 4. Le faire valider par Baptiste avant le build — une référence métier fausse
-   est pire que pas de référence.
+   est pire que pas de référence — puis commit + push du kit pour la distribuer.
 
 ## Références disponibles
 

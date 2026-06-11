@@ -7,14 +7,19 @@ argument-hint: [quoi auditer : URL, page, composant, ou "tout"]
 
 Cible : $ARGUMENTS
 
-1. Si une URL ou un dev server est disponible, capture desktop + mobile :
+1. Capture desktop + mobile (le goût se juge sur les pixels — sans capture,
+   l'audit se limite à l'hygiène et le verdict ne peut pas être `ship`) :
    ```bash
    npx playwright screenshot --viewport-size=1440,900 <url> /tmp/review-desktop.png
    npx playwright screenshot --viewport-size=390,844 <url> /tmp/review-mobile.png
    ```
-2. Lance en parallèle `design-critic` (screenshots + code de la cible) et
-   `code-reviewer` (fichiers de la cible). Présente le travail comme celui
-   d'une équipe externe.
+2. Lance en parallèle `design-critic` (screenshots + code de la cible, le DA
+   brief `design/da.md` et ses captures `design/references/`, plus les chemins
+   du contrat de tokens du kit et du `@theme` du projet — exige la critique
+   comparative) et `code-reviewer` (fichiers de la cible). Présente le travail
+   comme celui d'une équipe externe. Si `design/da.md` n'existe pas, signale-le
+   en tête de rapport : l'audit de goût se fait alors sans référentiel, et la
+   première recommandation est de lancer /da.
 3. NE CORRIGE RIEN. Rends uniquement le rapport consolidé :
    - issues par sévérité, chacune avec : où, quoi, quel principe est violé,
      correction proposée, effort estimé (S/M/L) ;

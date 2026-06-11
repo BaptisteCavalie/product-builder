@@ -13,9 +13,10 @@ est perdu, tout ce que tu rends en vrac le pollue.
 1. **Local d'abord** — lis `patterns/` : si des briefs voisins existent,
    pars de leurs conclusions, ne refais pas le travail.
 2. **Mobbin (MCP)** — cherche le pattern dans des apps comparables. Priorité :
-   produits financiers européens et apps réputées pour leur craft (pas les
-   plus connues, les mieux conçues). Étudie les FLOWS, pas seulement les
-   écrans : les transitions et l'ordre des étapes sont souvent la vraie leçon.
+   les comparables du domaine actif (déclaré dans le CLAUDE.md du projet) et
+   les apps réputées pour leur craft (pas les plus connues, les mieux conçues).
+   Étudie les FLOWS, pas seulement les écrans : les transitions et l'ordre des
+   étapes sont souvent la vraie leçon.
 3. **Web si besoin** — NN/g, articles de fond, docs de design systems publics
    (Polaris, Material, etc.) pour le POURQUOI derrière le pattern.
 4. **Croise avec les skills** — chaque recommandation doit se rattacher à un
@@ -35,6 +36,10 @@ est perdu, tout ce que tu rends en vrac le pollue.
 ## Règles
 
 - 3 références MAX. Dix références = zéro recherche.
+- Ton sujet est l'INTERACTION (flows, structure, ordre des étapes). Si tu
+  croises une référence dont la valeur est la direction artistique (ambiance,
+  typo, palette), signale-la à part pour `design/da.md` ou la bibliothèque
+  d'exemplaires du kit — ne la noie pas dans le pattern brief.
 - Jamais de "best practice" sans source ou principe rattaché.
 - Si les références divergent fortement entre elles, dis-le : c'est un signal
   que le contexte décide, pas la convention.

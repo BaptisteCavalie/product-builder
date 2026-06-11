@@ -1,8 +1,11 @@
 /* ============================================================
-   Design tokens — SEULE source de valeurs visuelles du projet.
-   Aucune couleur, taille, espacement ou radius hors de ce fichier.
-   Compatible Tailwind v4 : importer dans globals.css via @theme,
-   ou mapper dans tailwind.config pour la v3.
+   Design tokens — CONTRAT de catégories (template générique).
+   Ne pas écraser ce fichier avec des valeurs projet.
+   Tailwind v4 ne compile rien depuis :root : chaque projet
+   matérialise ces tokens (mêmes noms, valeurs concrètes) dans
+   le bloc @theme de son entrypoint CSS (globals.css) — pour la
+   v3, les mapper dans tailwind.config.
+   Aucune valeur visuelle hors de ces tokens.
    ============================================================ */
 
 :root {

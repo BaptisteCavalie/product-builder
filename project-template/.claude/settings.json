@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "product-builder-kit": {
+      "source": {
+        "source": "github",
+        "repo": "BaptisteCavalie/product-builder"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "product-builder@product-builder-kit": true
+  }
+}

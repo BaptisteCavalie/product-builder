@@ -54,10 +54,26 @@ chaque correction de goût de Baptiste devient une règle ici.
   par défaut — encore une fois : possible si justifié, interdit par réflexe.
 - ❌ Sections alternées image-gauche/image-droite sur toute une landing.
 
-## Le test final
+**Défauts statistiques**
+- ❌ Le look "Tailwind par défaut" shippé tel quel : police système/Inter +
+  fond gray-50 + cards blanches + shadow-sm + rounded-xl + accent bleu.
+  Chaque élément est légal isolément ; l'ensemble par réflexe, sans DA brief
+  qui le justifie, est le slop le plus répandu — la propreté n'excuse pas
+  l'absence de direction.
+- ❌ Typographie subie "parce qu'elle est là" — la police du projet est NOMMÉE
+  dans `design/da.md`, choisie pour l'ambiance, jamais par défaut.
+- ❌ Construire de l'UI sans DA brief (`design/da.md`) : sans direction
+  déclarée, chaque choix retombe sur la moyenne statistique. /da d'abord.
 
-Avant de rendre un écran, pose la question : "Est-ce qu'on peut deviner que
-c'est généré par IA en 2 secondes ?" Si oui, identifie l'indice et supprime-le.
+## Le test final — deux questions
+
+Avant de rendre un écran :
+1. "Est-ce qu'on peut deviner que c'est généré par IA en 2 secondes ?"
+   Si oui, identifie l'indice et supprime-le.
+2. Test du logo masqué : "Logo caché, cet écran pourrait-il appartenir à
+   n'importe quelle app du genre ?" Si oui, il manque l'élément signature
+   du DA brief — le slop n'est pas que l'excès, c'est aussi la moyenne.
+
 Le but n'est pas la sobriété pour la sobriété — c'est que chaque choix visuel
 soit une décision, pas un réflexe statistique.
 

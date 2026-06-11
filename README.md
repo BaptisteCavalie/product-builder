@@ -1,23 +1,42 @@
 # Product Builder — équipe produit senior autonome
 
-Un système Claude Code qui transforme un brief de feature en produit shippé,
+Un plugin Claude Code qui transforme un brief de feature en produit shippé,
 avec une boucle qualité qui ne dépend pas de ta vigilance : challenge produit
 en amont, recherche de patterns distillée, build contraint par design system,
 gates machine déterministes, critics à sévérité, et apprentissage cumulatif
-de ton goût via `/retro`.
+de ton goût via `/product-builder:retro`.
 
-## Installation
+Ce repo est à la fois la **marketplace** (`.claude-plugin/marketplace.json`)
+et la **source du plugin** (`product-builder/`). Tu améliores le kit ici, tu
+push, et tous les projets qui l'utilisent reçoivent la mise à jour au prochain
+démarrage de session — aucune copie manuelle.
 
-### Sur un projet existant
-Copier `CLAUDE.md`, `.claude/`, `patterns/`, `design-system/`, `telemetry/`
-à la racine du projet. Si un `CLAUDE.md` existe déjà, fusionner.
+## Installation sur un projet
 
-### Sur un nouveau projet
+### Nouveau projet
 ```bash
 npx create-next-app@latest mon-projet --typescript --tailwind --app
-# puis copier le contenu de ce kit à la racine
-cd mon-projet && claude
+cd mon-projet
+# copier le contenu de project-template/ à la racine :
+#   CLAUDE.md (compléter domaine + chemin du clone du kit)
+#   .claude/settings.json, patterns/, design/, telemetry/
+claude   # propose automatiquement d'installer le plugin (via settings.json)
 ```
+
+### Projet existant
+Copier le contenu de `project-template/` à la racine (fusionner le CLAUDE.md
+s'il en existe un), ou installer manuellement :
+```
+/plugin marketplace add BaptisteCavalie/product-builder
+/plugin install product-builder@product-builder-kit
+```
+
+### Mise à jour
+Rien à faire : sans champ `version`, chaque commit poussé sur ce repo est une
+nouvelle version et l'auto-update tourne au démarrage des sessions. Pour
+forcer immédiatement : `/plugin marketplace update product-builder-kit` puis
+`/plugin update product-builder`. Repo privé : exporter `GITHUB_TOKEN` pour
+que l'auto-update en arrière-plan puisse s'authentifier.
 
 ### Prérequis & options
 - Hooks : `jq` recommandé (`brew install jq`) — fallback inclus sinon.
@@ -35,49 +54,66 @@ cd mon-projet && claude
 ## Usage quotidien
 
 ```
-/feature "onboarding KYC pour une app d'épargne"   # le pipeline complet
-/critique "la page /dashboard"                      # audit sans build
-/retro                                              # fin de session : apprentissage
+/product-builder:da "app de pronostics entre amis"                  # direction artistique (1x par projet)
+/product-builder:feature "onboarding KYC pour une app d'épargne"   # le pipeline complet
+/product-builder:critique "la page /dashboard"                      # audit sans build
+/product-builder:retro                                              # fin de session : apprentissage
 ```
 
-C'est tout. Le pipeline `/feature` enchaîne : challenge produit → recherche
-patterns (library locale puis Mobbin) → build → screenshots → critics en
-parallèle → boucle de correction (max 3 tours) → rapport final.
+C'est tout. Le pipeline `feature` enchaîne : challenge produit → DA brief
+(s'il manque, /da le crée — seul checkpoint humain) → recherche patterns
+(library locale puis Mobbin) → build → screenshots (obligatoires : le goût
+se juge sur les pixels) → critics en parallèle, critique comparative contre
+les références du DA brief → boucle de correction (max 3 tours) → rapport final.
+
+`/da` collecte les références multi-sources — bibliothèque d'exemplaires du
+kit, Mobbin (produits réels), Awwwards/Godly/SiteInspire (direction
+artistique web), Dribbble (ambiance uniquement, jamais les layouts), Fonts
+In Use (typographie) — puis tranche UNE direction : ambiance, police nommée,
+palette, élément signature. Le `@theme` du projet en dérive.
 
 ## Comment le système apprend
 
 1. **Pendant la session** : chaque correction ou reproche que tu fais est un signal.
-2. **`/retro`** les transforme en règles générales, proposées une par une.
-3. **Tu valides** → la règle est écrite dans le skill concerné, à jamais.
-4. **`telemetry/runs.jsonl`** trace les verdicts ; une faiblesse récurrente
-   sur ≥3 runs révèle un trou structurel dans un skill.
+2. **`/product-builder:retro`** les transforme en règles générales, proposées une par une.
+3. **Tu valides** → la règle est écrite dans le clone local du kit, puis
+   commit + push : elle est distribuée à tous tes projets, à jamais.
+4. **`telemetry/runs.jsonl`** (par projet) trace les verdicts ; une faiblesse
+   récurrente sur ≥3 runs révèle un trou structurel dans un skill.
 
 Plus tu l'utilises et fais `/retro`, plus les skills contiennent TON jugement.
-C'est l'actif du système — versionne-le en git comme du code.
+C'est l'actif du système — ce repo est sa mémoire versionnée.
 
 ## Architecture
 
 | Étage | Rôle | Où |
 |---|---|---|
-| Constitution | valeurs, arbitrages, non-négociables, **domaine actif** | `CLAUDE.md` |
-| Pipelines | l'orchestration, écrite noir sur blanc | `.claude/commands/` |
-| Critics | jugement isolé, verdicts par sévérité | `.claude/agents/` |
-| Connaissance universelle | design-judgment, anti-slop, a11y — agnostique au domaine | `.claude/skills/` |
-| Connaissance métier | une référence par domaine, routée par `domain-knowledge` | `.claude/skills/domain-knowledge/references/` |
-| Gates | vérifs déterministes, exit 2 = reboucle | `.claude/hooks/` |
-| Mémoire produit | pattern briefs cumulatifs | `patterns/` |
-| Contrat visuel | tokens, seule source de valeurs | `design-system/` |
+| Constitution | valeurs, arbitrages, non-négociables — injectée à chaque session (hook SessionStart) | `product-builder/constitution.md` |
+| Pipelines | l'orchestration, écrite noir sur blanc | `product-builder/commands/` |
+| Critics | jugement isolé, verdicts par sévérité | `product-builder/agents/` |
+| Connaissance universelle | design-judgment, anti-slop, a11y — agnostique au domaine | `product-builder/skills/` |
+| Connaissance métier | une référence par domaine, routée par `domain-knowledge` | `product-builder/skills/domain-knowledge/references/` |
+| Gates | vérifs déterministes, exit 2 = reboucle | `product-builder/hooks/` |
+| Contrat visuel | contrat de tokens (template) — valeurs compilées dans le `@theme` du projet | `product-builder/design-system/` |
+| Goût | bibliothèque d'exemplaires (écrans validés, annotés) + DA brief par projet | `product-builder/design-system/references/` + `design/` (projet) |
+| Côté projet | CLAUDE.md mince (domaine actif), pattern briefs, DA brief, télémétrie, `@theme` | `project-template/` |
 
 **Changer de domaine** = déclarer `Domaine actif : <x>` dans le CLAUDE.md du
 projet. Si la référence n'existe pas encore, le système la bootstrappe
-(pattern-researcher) et te la fait valider. `fintech.md` est fournie ;
-chaque nouveau projet dans un nouveau secteur enrichit le deck.
+(pattern-researcher), te la fait valider, puis l'écrit dans le kit pour la
+partager. `fintech.md` est fournie ; chaque nouveau projet dans un nouveau
+secteur enrichit le deck.
 
 Règle de calibration des critics : s'ils sont trop gentils ou trop sévères,
 ne corrige pas leurs verdicts à la main — amende leur rubrique via `/retro`.
 
-## Distribuer (le tamagotchi)
+## Développer le kit
 
-Quand le kit est calibré sur 2-3 projets, le packager en plugin Claude Code
-pour l'installer en une commande partout (et le partager au Dojo) :
-https://docs.claude.com/en/docs/claude-code/plugins
+```bash
+claude --plugin-dir ./product-builder   # tester sans installer
+/reload-plugins                          # recharger après une modif
+claude plugin validate ./product-builder # valider avant push
+```
+
+Pour le partager au-delà de tes machines (le Dojo) : soumettre le plugin à la
+marketplace communautaire — https://code.claude.com/docs/en/plugins

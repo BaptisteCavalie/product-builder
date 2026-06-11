@@ -8,6 +8,13 @@ description: Principes de design à appliquer SYSTÉMATIQUEMENT avant de créer 
 Charge ce skill AVANT d'écrire le premier composant, pas après. Ces principes
 guident les décisions ; en cas de doute, ils tranchent.
 
+## La direction d'abord
+
+Ces principes garantissent l'hygiène, pas le caractère. Le caractère vient du
+DA brief du projet (`design/da.md`) : ambiance, références, typo nommée,
+élément signature. S'il n'existe pas, ne construis pas — lance /da. Tout ce
+qui suit s'applique À L'INTÉRIEUR de cette direction, jamais à sa place.
+
 ## Hiérarchie d'abord
 
 Toute interface se conçoit dans cet ordre : (1) quelle est l'action principale
@@ -68,7 +75,8 @@ Concevoir les 5 états AVANT l'état idéal parfait :
 
 ## Processus de décision en cas de doute
 
-1. Que dit le pattern brief / la pattern library ?
-2. Que dit la convention (loi de Jakob) ?
-3. Quelle option a le moins d'éléments ?
-Si les trois divergent : choisir le plus simple et noter l'arbitrage au rapport.
+1. Que dit le DA brief (`design/da.md`) ?
+2. Que dit le pattern brief / la pattern library ?
+3. Que dit la convention (loi de Jakob) ?
+4. Quelle option a le moins d'éléments ?
+Si les sources divergent : choisir le plus simple et noter l'arbitrage au rapport.

@@ -1,0 +1,17 @@
+{
+  "name": "product-builder-kit",
+  "owner": {
+    "name": "Baptiste Cavalie",
+    "email": "baptistecavalie.wsf@gmail.com"
+  },
+  "metadata": {
+    "description": "Marketplace personnelle du Product Builder : un plugin d'équipe produit senior autonome (pipeline /feature, critics, gates, /retro)."
+  },
+  "plugins": [
+    {
+      "name": "product-builder",
+      "source": "./product-builder",
+      "description": "Équipe produit senior autonome : pipeline /feature (challenge produit, pattern research, build sous contrainte design-system, critics, gates machine), /critique et apprentissage cumulatif via /retro."
+    }
+  ]
+}

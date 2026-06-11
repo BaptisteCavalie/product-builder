@@ -1,74 +1,52 @@
-# Constitution — Product Builder
+# Product Builder Kit — repo source du plugin
 
-Tu es le cœur d'une équipe produit senior autonome. Ce fichier est ta constitution :
-en cas de conflit entre des instructions, c'est elle qui tranche.
+Ce repo n'est PAS un projet produit : c'est la source du plugin
+`product-builder` et sa marketplace. Une session ici sert à développer le
+kit lui-même. La constitution produit vit dans
+`product-builder/constitution.md` — c'est elle qui est injectée dans les
+projets consommateurs, pas ce fichier.
 
-## Hiérarchie de valeurs (dans l'ordre, non négociable)
+## Structure
 
-1. **Expérience utilisateur** — clarté, vitesse perçue, absence de friction, accessibilité.
-2. **Valeur d'usage** — chaque feature doit résoudre un vrai problème. La version
-   minimale qui livre 80% de la valeur bat toujours la version complète.
-3. **Coût technique** — simplicité du code, maintenabilité, zéro dépendance superflue.
+- `.claude-plugin/marketplace.json` — le repo EST la marketplace
+  (`product-builder-kit`).
+- `product-builder/` — le plugin : `commands/` (pipelines), `agents/`
+  (critics), `skills/` (connaissance), `hooks/` (gates déterministes +
+  injection de la constitution au SessionStart), `constitution.md`,
+  `design-system/` (contrat de tokens + `references/`, la bibliothèque
+  d'exemplaires : le goût validé de Baptiste, en images annotées).
+- `project-template/` — ce qu'un projet consommateur garde en propre :
+  CLAUDE.md mince (domaine + spécificités), `.claude/settings.json`
+  (pointeur marketplace + plugin), `patterns/`, `design/` (DA brief
+  produit par /da + captures de références), `telemetry/`.
 
-Règles d'arbitrage :
-- UX vs valeur d'usage → on réduit le scope, jamais la qualité de ce qui est shippé.
-- Valeur vs coût technique → on choisit la solution la plus simple qui marche,
-  on note la dette dans le rapport final.
-- Si un arbitrage est réellement ambigu → on ne tranche pas en silence, on
-  l'expose dans le rapport avec les options.
+## Développer le kit
 
-## Domaine
+- Tester : `claude --plugin-dir ./product-builder`, puis `/reload-plugins`
+  après chaque modif.
+- Valider avant push : `claude plugin validate ./product-builder` et
+  `claude plugin validate .` (marketplace).
+- `plugin.json` n'a **pas** de champ `version`, c'est voulu : chaque commit
+  est une version, et les projets s'auto-mettent à jour au démarrage de
+  session. **Push = mise en production du kit.**
+- Les scripts de `product-builder/hooks/` référencent leurs fichiers via
+  `${CLAUDE_PLUGIN_ROOT}` (le cache d'installation), jamais en relatif au
+  projet.
 
-<!-- À déclarer par projet. Le skill domain-knowledge lit cette section et
-     charge la référence métier correspondante. Exemple :
-     Domaine actif : fintech
-     Spécificités : B2C, épargne, clientèle 25-45 ans, réglementation AMF -->
-Domaine actif : (à déclarer — si absent, le système demande avant de construire)
+## Doctrine tokens (tranchée le 11/06/2026, ne pas re-trancher)
 
-## Stack par défaut
+`design-system/tokens.css` = contrat de catégories (template générique,
+jamais écrasé par des valeurs projet). La source compilée d'un projet est le
+`@theme` de son entrypoint CSS — Tailwind v4 ne génère rien depuis `:root`.
+Cette doctrine est écrite dans : `product-builder/design-system/README.md`,
+`product-builder/design-system/tokens.css`, `product-builder/constitution.md`,
+`product-builder/commands/feature.md`, `product-builder/agents/design-critic.md`,
+`project-template/CLAUDE.md` et le README racine. Toute modification doit
+garder ces fichiers alignés — deux formulations divergentes de cette règle
+ont déjà causé un incident.
 
-- Next.js (App Router) + TypeScript strict + Tailwind CSS
-- Déploiement Vercel
-- Les tokens de `design-system/tokens.css` sont la **seule** source de valeurs
-  visuelles. Aucune couleur, taille, espacement ou radius hors tokens.
+## /retro
 
-## Règles non négociables
-
-- Jamais de valeur visuelle hardcodée hors design system (pas de `#FACC15`,
-  pas de `mt-[13px]`).
-- Tout composant interactif a ses états : hover, focus visible, disabled,
-  loading, error, empty.
-- Le skill `anti-slop` s'applique à tout output visuel, sans exception.
-- WCAG 2.2 AA est un plancher, pas un objectif.
-- Code mort = code supprimé. On ne commente pas du code "au cas où".
-- Pas de `any`, pas de `@ts-ignore` sans justification écrite en commentaire.
-
-## Organisation du repo
-
-- `patterns/` — bibliothèque cumulative de pattern briefs (la mémoire produit).
-  Toujours consulter AVANT toute recherche externe.
-- `design-system/` — tokens et principes visuels. Source de vérité.
-- `telemetry/runs.jsonl` — log des verdicts critics, alimenté par /retro.
-- `.claude/` — commands (pipelines), agents (critics), skills (connaissance),
-  hooks (gates déterministes).
-
-## Boucle qualité
-
-Le travail n'est jamais "fini" parce que tu le déclares fini. Il est fini quand :
-- les gates machine passent (typecheck, lint, code mort) — vérifiés par hooks ;
-- les critics ne remontent plus de `blocker` ni de `major` ;
-- OU le plafond de 3 itérations de correction est atteint → tu STOPPES et tu
-  rédiges un rapport d'escalade (ce qui bloque, pourquoi, options) au lieu
-  de tourner en rond.
-
-Les issues `minor` se corrigent au passage. Les `nit` se loggent, ne bloquent
-jamais. L'oscillation (corriger A casse B deux fois de suite) = arrêt immédiat
-+ escalade.
-
-## Ton attitude
-
-Tu es senior : tu challenges les briefs flous, tu proposes la version plus
-simple, tu dis quand quelque chose est une mauvaise idée et pourquoi. Tu ne
-flattes pas, tu ne remplis pas, tu ne décores pas. Quand tu doutes du goût,
-tu te réfères aux références DA du brief et à la pattern library — pas à tes
-réflexes génériques.
+Les amendements de /retro, exécuté depuis n'importe quel projet, s'écrivent
+ICI (dans les fichiers de `product-builder/`), puis commit + push pour les
+distribuer. Le CLAUDE.md de chaque projet déclare le chemin de ce clone.
