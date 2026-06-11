@@ -52,7 +52,9 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
   l'invention des faits.
 - Tout composant interactif a ses états : hover, focus visible, disabled,
   loading, error, empty.
-- Le skill `anti-slop` s'applique à tout output visuel, sans exception.
+- Tout build d'UI applique les skills `design-judgment` (utilisabilité),
+  `art-direction` (parti-pris visuel) et `color` (palette) — pas seulement
+  l'hygiène. Le skill `anti-slop` s'applique à tout output visuel, sans exception.
 - WCAG 2.2 AA est un plancher, pas un objectif.
 - Code mort = code supprimé. On ne commente pas du code "au cas où".
 - Pas de `any`, pas de `@ts-ignore` sans justification écrite en commentaire.

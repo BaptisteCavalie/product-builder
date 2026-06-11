@@ -5,9 +5,11 @@ description: Liste des interdits visuels à vérifier sur TOUT output UI avant d
 
 # Anti-slop
 
-Le slop naît de l'absence de contraintes. Ce fichier EST la contrainte.
-Chaque interdit est vérifiable en oui/non. Ce fichier s'enrichit via /retro :
-chaque correction de goût de Baptiste devient une règle ici.
+Le slop naît de l'absence de contraintes. Ce fichier EST la contrainte (le
+plancher : ce qu'on ne fait jamais). Le plafond — ce qu'on fait bien — vit
+dans `art-direction` et `color`. Chaque interdit est vérifiable en oui/non. Ce
+fichier s'enrichit via /retro : chaque correction de goût de Baptiste devient
+une règle ici.
 
 ## Interdits absolus
 

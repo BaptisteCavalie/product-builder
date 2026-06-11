@@ -45,6 +45,16 @@ Cette doctrine est écrite dans : `product-builder/design-system/README.md`,
 garder ces fichiers alignés — deux formulations divergentes de cette règle
 ont déjà causé un incident.
 
+## Doctrine visual craft (ajoutée le 11/06/2026)
+
+La théorie générative du goût vit dans deux skills : `skills/color` (palette,
+OKLCH, rampes, sémantiques) et `skills/art-direction` (typo, composition,
+motion, retenue senior). Le format des valeurs couleur (oklch() web / HEX repli
+email) est aussi posé en en-tête de `design-system/tokens.css` et vérifié par
+les blocs « Couleur & système » et « Composition & motion » de
+`agents/design-critic.md`. Garder ces quatre points alignés — même règle que la
+doctrine tokens : deux formulations divergentes = incident.
+
 ## /retro
 
 Les amendements de /retro, exécuté depuis n'importe quel projet, s'écrivent

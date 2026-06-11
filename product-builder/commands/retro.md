@@ -29,8 +29,10 @@ mise à jour.
 
 Pour chaque signal, propose un amendement à UN fichier précis (chemins
 relatifs au clone du kit) :
-- goût visuel récurrent → `product-builder/skills/anti-slop/SKILL.md` ou
-  `product-builder/skills/design-judgment/SKILL.md`
+- goût visuel récurrent → le bon skill selon la nature :
+  interdit/réflexe à bannir → `anti-slop` ; principe d'utilisabilité →
+  `design-judgment` ; couleur/palette → `color` ; typo/composition/motion/
+  retenue → `art-direction` (tous dans `product-builder/skills/`)
 - écran que Baptiste a validé/aimé → capture (screenshot du rendu) +
   ligne d'index dans `product-builder/design-system/references/`
   (la bibliothèque d'exemplaires — le goût positif se capitalise en images,

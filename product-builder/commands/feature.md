@@ -49,8 +49,9 @@ projet (domaine, utilisateurs, spécificités — il ne reçoit pas ce contexte)
 ## Étape 4 — Build
 
 Construis le scope retenu en appliquant le DA brief et les skills
-`design-judgment`, `anti-slop`, `a11y` et `domain-knowledge` (qui charge la
-référence du domaine déclaré dans le CLAUDE.md du projet).
+`design-judgment`, `art-direction`, `color`, `anti-slop`, `a11y` et
+`domain-knowledge` (qui charge la référence du domaine déclaré dans le
+CLAUDE.md du projet).
 - Tokens uniquement : le `@theme` de l'entrypoint CSS du projet matérialise
   le contrat de tokens du kit (chemin injecté en début de session ; projet
   sans Tailwind : mêmes noms de tokens dans le `:root` de l'entrypoint CSS).

@@ -10,10 +10,12 @@ guident les décisions ; en cas de doute, ils tranchent.
 
 ## La direction d'abord
 
-Ces principes garantissent l'hygiène, pas le caractère. Le caractère vient du
-DA brief du projet (`design/da.md`) : ambiance, références, typo nommée,
-élément signature. S'il n'existe pas, ne construis pas — lance /da. Tout ce
-qui suit s'applique À L'INTÉRIEUR de cette direction, jamais à sa place.
+Ces principes garantissent l'hygiène (utilisabilité), pas le caractère. Le
+caractère vient du DA brief du projet (`design/da.md`) et des skills
+`art-direction` (typo, composition, motion, retenue senior) et `color`
+(palette) — charge-les en parallèle. Si le DA brief n'existe pas, ne construis
+pas — lance /da. Tout ce qui suit s'applique À L'INTÉRIEUR de cette direction,
+jamais à sa place.
 
 ## Hiérarchie d'abord
 

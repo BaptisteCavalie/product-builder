@@ -8,6 +8,11 @@
    matérialiser le même contrat dans le :root de l'entrypoint CSS
    (mêmes noms de tokens) — le contrat est agnostique du framework.
    Aucune valeur visuelle hors de ces tokens.
+
+   Les valeurs ci-dessous sont des PLACEHOLDERS illustratifs (HEX lisible).
+   En projet, on construit les valeurs du @theme via le skill `color`
+   (rampe OKLCH à pas réguliers) : oklch() pour le web/app, HEX/sRGB en
+   repli pour email & vieux webviews.
    ============================================================ */
 
 :root {

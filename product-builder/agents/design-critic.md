@@ -41,17 +41,34 @@ Réponds à CHAQUE question. Un NON = une issue à documenter.
 - L'espacement intra-groupe est-il plus petit que l'espacement inter-groupes ?
 - Les alignements sont-ils cohérents (une grille perceptible, pas de bords flottants) ?
 
-**Typographie**
-- Maximum 2 graisses par écran ?
+**Typographie** (charge `art-direction`)
+- Maximum 2 graisses par écran, 2 familles max ?
+- La police est-elle un choix nommé qui sert l'ambiance (pas un défaut système) ?
 - La hiérarchie passe-t-elle par la taille/graisse plutôt que par la couleur ?
+- Les tailles suivent-elles l'échelle modulaire des tokens (pas de valeurs au hasard) ?
 - Les longueurs de ligne sont-elles ≤ 75 caractères pour le texte courant ?
 
-**Couleur & tokens**
+**Couleur & système** (charge `color` ; les lignes `(@theme)` se vérifient sur
+le code, pas sur la capture)
 - Toutes les valeurs viennent-elles des tokens (zéro valeur hardcodée) ?
-- La couleur d'accent est-elle réservée aux actions et signaux (pas décorative) ?
+- `(@theme)` La palette est-elle un système cohérent (rampe à pas de luminance
+  réguliers) plutôt que des valeurs ad-hoc empilées ?
+- Les neutres ont-ils une température assumée (alignée au DA), pas du gris pur mort ?
+- UNE seule teinte d'accent, réservée aux actions et signaux (pas décorative) ?
+- `(@theme)` Les sémantiques (positive/negative/warning) partagent-elles la
+  logique de rampe de l'accent (pas des couleurs criardes importées) ?
 - Les contrastes texte/fond passent-ils AA (4.5:1 texte courant, 3:1 grand texte) ?
   **Calcule le ratio** (luminance relative WCAG sur les couleurs réelles) —
   ne l'estime jamais à l'œil.
+
+**Composition & motion** (charge `art-direction` ; la motion ne se voit PAS sur
+une capture statique → lis le CSS/code pour les lignes `(code)`)
+- L'écran tient-il sur une grille 8pt (marges, gouttières, espacements) ?
+- Le poids visuel est-il équilibré (centre de gravité clair, pas de dérive accidentelle) ?
+- `(code)` Les durées de motion sont-elles dans les clous (100–200ms micro,
+  200–500ms transitions), l'easing non linéaire, et chaque animation
+  explique-t-elle quelque chose (pas de décoration) ?
+- `(code)` `prefers-reduced-motion` est-il respecté ?
 
 **États & feedback**
 - Chaque composant interactif a-t-il hover, focus visible, disabled ?
@@ -76,6 +93,11 @@ Réponds à CHAQUE question. Un NON = une issue à documenter.
 - Peux-tu nommer UN choix visuel délibéré et mémorable sur cet écran (l'élément
   signature du DA brief, ou un équivalent) ?
 - L'écran exprime-t-il les mots d'ambiance du DA brief — et aucun anti-mot ?
+- **Test du retrait** (retenue senior, charge `art-direction`) : reste-t-il un
+  élément (ombre, bordure, icône, couleur, trait) qu'on pourrait enlever sans
+  perte de sens ? Si oui = ornement = issue. **Exception : l'élément signature
+  ne se teste jamais au retrait.** À l'inverse, un écran SANS aucun geste fort
+  assumé est aussi une issue (timidité = échec, autant que la surcharge).
 - Côte à côte avec les références (`design/references/` ou Mobbin) : l'écran
   soutient-il la comparaison ? (Si l'écart est en faveur de la référence,
   documente : quoi exactement, et comment la référence le résout.)

@@ -68,6 +68,10 @@ format de `design/_template.md` : territoire, ambiance/anti-mots, références
 (ce qu'on vole / ce qu'on laisse), typographie nommée, couleur, densité et
 forme, motion, l'élément signature, ce qu'on rejette.
 
+Charge les skills `art-direction` (typo nommée + appariement, composition,
+motion, retenue senior) et `color` (température des neutres, teinte d'accent,
+harmonie) pour trancher — pas tes réflexes génériques.
+
 Chaque choix se justifie par une référence ou un principe. "Parce que c'est
 joli" n'est pas une justification ; "comme <référence>, parce que <principe>"
 en est une. L'élément signature est obligatoire : c'est LE choix qui rend le
@@ -83,7 +87,9 @@ autonome. Intègre ses retours, puis écris `design/da.md`.
 ## 5. Matérialiser
 
 Dérive le `@theme` de l'entrypoint CSS du brief validé, en matérialisant le
-contrat de `design-system/tokens.css` : accent (+ hover/subtle), neutres
-(température), `--font-sans` chargée proprement (next/font, pas de `<link>`
-bloquant), radii selon la personnalité de forme. Le DA brief est la
-justification écrite de chaque valeur du `@theme`.
+contrat de `design-system/tokens.css` et en appliquant le skill `color` :
+neutres construits sur UNE rampe OKLCH à température assumée, accent
+(+ hover/subtle) au bon pas, sémantiques cohérentes avec l'accent,
+`--font-sans` chargée proprement (next/font, pas de `<link>` bloquant), radii
+selon la personnalité de forme. Le DA brief est la justification écrite de
+chaque valeur du `@theme`.
