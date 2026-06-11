@@ -69,6 +69,9 @@ C'est tout. Le pipeline `feature` enchaîne : challenge produit → DA brief
 se juge sur les pixels) → critics en parallèle, critique comparative contre
 les références du DA brief → boucle de correction (max 3 tours) → rapport final.
 
+Le détail du flux, en arbres de décision oui/non (vue d'ensemble + zooms sur
+challenge, /da, gates de goût du build, critique) : [`docs/pipeline.md`](docs/pipeline.md).
+
 `/da` collecte les références multi-sources — bibliothèque d'exemplaires du
 kit, Mobbin (produits réels), Awwwards/Godly/SiteInspire (direction
 artistique web), Dribbble (ambiance uniquement, jamais les layouts), Fonts
