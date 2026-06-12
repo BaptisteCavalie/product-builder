@@ -61,8 +61,13 @@ existe pour empêcher.
      pour NOMMER la police au lieu de subir celle par défaut.
 4. Pour chaque référence retenue, sauvegarde une **capture image** dans
    `design/references/` — c'est la norme, pas l'option :
-   - source web publique → `npx playwright screenshot --viewport-size=1440,900 <url> design/references/<source>-<app>.png` (rend la vraie page, là où `curl` d'og:image échoue souvent / renvoie un logo générique).
-   - app authentifiée (Linear, etc.) ou capture impossible → en DERNIER recours, URL + requête exacte, et le signaler comme limite dans le rapport.
+   - source web publique → le script de capture du kit (chemin injecté en début
+     de session) : `<chemin>/capture-ref.sh <url> design/references/<source>-<app>.png`
+     (Playwright headless, viewport 1440×900 : rend la vraie page, là où `curl`
+     d'og:image échoue souvent / renvoie un logo générique). En cas d'échec, il
+     le signale et bascule sur le repli ci-dessous.
+   - app authentifiée (Linear, etc.) ou capture impossible → en DERNIER recours,
+     URL + requête exacte, et le signaler comme limite dans le rapport.
 
 **3 références retenues MAX.** Dix moodboards = zéro direction.
 
