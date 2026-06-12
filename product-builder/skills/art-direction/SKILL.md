@@ -1,6 +1,6 @@
 ---
 name: art-direction
-description: Le métier de visual designer senior — direction artistique, choix et appariement typographique, composition/grille, motion, et le jugement qui distingue le senior du junior. Déclencher pour établir OU évaluer le parti-pris visuel : /da, build d'UI, critique. Complète design-judgment (utilisabilité), color (palette) et anti-slop (interdits).
+description: "Le métier de visual designer senior — direction artistique, choix et appariement typographique, composition/grille, motion, et le jugement qui distingue le senior du junior. Déclencher pour établir OU évaluer le parti-pris visuel : /da, build d'UI, critique. Complète design-judgment (utilisabilité), color (palette) et anti-slop (interdits)."
 ---
 
 # Direction artistique — le craft senior

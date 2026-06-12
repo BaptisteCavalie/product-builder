@@ -57,6 +57,11 @@ doctrine tokens : deux formulations divergentes = incident.
 
 ## /retro
 
-Les amendements de /retro, exécuté depuis n'importe quel projet, s'écrivent
-ICI (dans les fichiers de `product-builder/`), puis commit + push pour les
-distribuer. Le CLAUDE.md de chaque projet déclare le chemin de ce clone.
+Une session projet ne mute JAMAIS le kit. /retro, exécuté depuis un projet,
+écrit seulement les amendements PROPRES au projet (CLAUDE.md du projet,
+`design/da.md`, télémétrie) et produit un **rapport**
+(`telemetry/retro-AAAA-MM-JJ.md`) des amendements KIT. Baptiste copie-colle ce
+rapport dans une session dédiée à CE repo : c'est elle qui écrit les
+amendements dans les fichiers de `product-builder/` (et `docs/pipeline.md`),
+puis commit + push pour les distribuer. Les amendements kit arrivent donc ICI
+via un rapport collé, jamais via une session projet.

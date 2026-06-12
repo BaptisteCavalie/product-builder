@@ -1,6 +1,6 @@
 ---
 name: color
-description: Direction des couleurs — comment construire et matérialiser une palette (le @theme du projet) au lieu de poser des valeurs au hasard. Déclencher dès qu'on touche à la couleur : choix d'accent, neutres, états, sémantiques, dark mode, data-viz, ou remplissage du @theme. Complète design-judgment (couleur = signal) et a11y (contraste = plancher).
+description: "Direction des couleurs — comment construire et matérialiser une palette (le @theme du projet) au lieu de poser des valeurs au hasard. Déclencher dès qu'on touche à la couleur : choix d'accent, neutres, états, sémantiques, dark mode, data-viz, ou remplissage du @theme. Complète design-judgment (couleur = signal) et a11y (contraste = plancher)."
 ---
 
 # Direction des couleurs

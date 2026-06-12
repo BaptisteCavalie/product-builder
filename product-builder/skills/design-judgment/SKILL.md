@@ -65,6 +65,11 @@ de l'écran, (2) quelles informations la soutiennent, (3) tout le reste recule.
 - Système 4/8 strict (tokens). En cas de doute entre deux espacements : le plus grand.
 - L'espace blanc n'est pas du vide à remplir, c'est l'outil de hiérarchie le
   moins cher. Un écran "vide" qui respire bat un écran "riche" illisible.
+- Le rythme vertical s'applique à TOUT bloc empilé dans le flux, pas seulement
+  aux `.panel` : un conteneur custom (`<details>`, `<section>`, wrapper ad hoc)
+  ne "hérite" pas de la gouttière des cards — vérifier explicitement son
+  `margin` pour qu'il respire comme ses voisins. Symptôme à traquer : deux blocs
+  collés parce que l'un n'est pas une card et n'a pas reçu le `margin-bottom`.
 
 ## États — non négociable
 
@@ -74,6 +79,15 @@ Concevoir les 5 états AVANT l'état idéal parfait :
 3. **Error** — dit quoi faire, propose une issue (retry, support).
 4. **Partial** — peu de données : l'écran doit rester digne avec 1 seul item.
 5. **Ideal** — celui qu'on maquette toujours et qui est le plus rare en prod.
+
+## Survol — feedback, pas action
+
+- Le survol ne déclenche JAMAIS une action qui modifie la mise en page :
+  ouvrir/replier un bloc, pousser le contenu, révéler une section qui décale le
+  reste. C'est désorientant et "violent" au passage de souris.
+- Le hover se limite à du feedback non intrusif et réversible : tooltip,
+  surlignage léger, changement d'état d'un seul élément (bouton, ligne).
+- Toute action qui déplace ou réorganise le layout exige un **clic** explicite.
 
 ## Processus de décision en cas de doute
 

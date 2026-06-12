@@ -35,6 +35,11 @@ existe pour empêcher.
 
 ## 2. Collecter des références — dans cet ordre
 
+> Si une source MCP attendue (Mobbin) est indisponible dans la session
+> (serveur non monté), NE PAS faire semblant : signale-le explicitement dans le
+> rapport comme limitation, descends la chaîne de repli (exemplaires kit →
+> galeries web), et capture les références web retenues (point 4).
+
 1. **Bibliothèque d'exemplaires du kit** (`design-system/references/` du plugin,
    chemin injecté en début de session) : le goût déjà validé par Baptiste.
    Si un exemplaire couvre le territoire, pars de lui.
@@ -54,10 +59,15 @@ existe pour empêcher.
      composants (ça, c'est le rôle de Mobbin et de la pattern library).
    - **Fonts In Use** : typographies réelles classées par secteur — la source
      pour NOMMER la police au lieu de subir celle par défaut.
-4. Pour chaque référence retenue, sauvegarde la trace dans `design/references/` :
-   image téléchargée quand elle est accessible
-   (`curl -L -o design/references/<source>-<app>.png <url-image>`),
-   sinon URL + requête exacte pour la retrouver.
+4. Pour chaque référence retenue, sauvegarde une **capture image** dans
+   `design/references/` — c'est la norme, pas l'option :
+   - source web publique → le script de capture du kit (chemin injecté en début
+     de session) : `<chemin>/capture-ref.sh <url> design/references/<source>-<app>.png`
+     (Playwright headless, viewport 1440×900 : rend la vraie page, là où `curl`
+     d'og:image échoue souvent / renvoie un logo générique). En cas d'échec, il
+     le signale et bascule sur le repli ci-dessous.
+   - app authentifiée (Linear, etc.) ou capture impossible → en DERNIER recours,
+     URL + requête exacte, et le signaler comme limite dans le rapport.
 
 **3 références retenues MAX.** Dix moodboards = zéro direction.
 

@@ -51,7 +51,7 @@ flowchart TD
     S9b -->|oui| RX["STOP + escalade"]:::stop
     S9b -->|non| S7
     S9 -->|non| S10(["Shippé<br/>rapport + télémétrie"]):::ship
-    S10 --> RT["/retro<br/>corrections → kit → push"]:::human
+    S10 --> RT["/retro<br/>rapport kit → session kit → push"]:::human
     classDef dec fill:#FAEEDA,stroke:#BA7517,color:#633806
     classDef step fill:#F1EFE8,stroke:#888780,color:#2C2C2A
     classDef human fill:#EEEDFE,stroke:#534AB7,color:#26215C

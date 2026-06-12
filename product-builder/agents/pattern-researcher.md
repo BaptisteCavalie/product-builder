@@ -41,6 +41,10 @@ est perdu, tout ce que tu rends en vrac le pollue.
   typo, palette), signale-la à part pour `design/da.md` ou la bibliothèque
   d'exemplaires du kit — ne la noie pas dans le pattern brief.
 - Jamais de "best practice" sans source ou principe rattaché.
+- Si Mobbin (MCP) n'est pas disponible, le noter dans le brief et t'appuyer sur
+  les galeries web (réfs retenues capturées via le script `capture-ref.sh` du
+  kit, chemin transmis par l'appelant) + la bibliothèque d'exemplaires du kit ;
+  ne jamais présenter une référence Mobbin que tu n'as pas réellement pu consulter.
 - Si les références divergent fortement entre elles, dis-le : c'est un signal
   que le contexte décide, pas la convention.
 - Ton brief doit être lisible par quelqu'un qui n'a vu aucune des sources.
