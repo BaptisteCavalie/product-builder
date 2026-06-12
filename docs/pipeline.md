@@ -121,13 +121,16 @@ Le nœud « Build » éclaté en ses gates binaires. C'est ici que vivent les sk
 `design-judgment`, `color`, `anti-slop`, `art-direction` et `a11y` : le goût est
 devenu une suite de oui/non vérifiables, plus une intention vague. Un seul *non*
 sur n'importe quel gate → on corrige avant de continuer, jamais on shippe.
+L'anti-slop n'est pas un *vibe* : sa liste se parcourt interdit par interdit
+(rendu + CSS), au build comme en critique — un « ça respecte » global ne compte
+pas.
 
 ```mermaid
 flowchart TD
     A(["Build du scope<br/>skills en parallèle"]):::step --> G1{"Hiérarchie claire ?<br/>1 action primaire"}:::dec
     G1 -->|oui| G2{"Tout en tokens ?<br/>zéro valeur hardcodée"}:::dec
     G2 -->|oui| G3{"Palette = système ?<br/>rampe OKLCH · 1 accent · AA"}:::dec
-    G3 -->|oui| G4{"Aucun slop ?<br/>interdits + défaut Tailwind"}:::dec
+    G3 -->|oui| G4{"Aucun slop ?<br/>chaque interdit coché · rendu + CSS"}:::dec
     G4 -->|oui| G5{"Retenue + geste fort ?<br/>test du retrait · signature"}:::dec
     G5 -->|oui| G6{"États + a11y ?<br/>hover…error · clavier · focus"}:::dec
     G6 -->|oui| OK(["Écran prêt pour critique"]):::ship
