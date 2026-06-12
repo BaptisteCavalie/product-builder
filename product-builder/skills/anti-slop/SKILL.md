@@ -34,7 +34,11 @@ une règle ici.
 - ❌ Border + ombre + fond teinté cumulés sur un même conteneur (choisir UN
   séparateur, ou juste l'espace).
 - ❌ Coins arrondis incohérents (un seul radius de tokens par famille de composants).
-- ❌ Cards imbriquées dans des cards.
+- ❌ Conteneurs encadrés imbriqués — pas seulement les "cards" : un parent déjà
+  délimité (card, `.panel`, `<details>`/disclosure, modale, accordéon) ne
+  contient JAMAIS d'enfants avec leur propre bordure + radius. Les enfants sont
+  à plat ; pour différencier, on change le FOND (surface recessed), jamais on
+  ajoute une 2e bordure. Test : aucun coin arrondi à l'intérieur d'un coin arrondi.
 - ❌ La grille de 3 cards "features" avec icône centrée + titre + paragraphe,
   par réflexe — ce pattern doit être justifié, pas défaut.
 
