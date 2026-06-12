@@ -11,6 +11,20 @@ dans `art-direction` et `color`. Chaque interdit est vérifiable en oui/non. Ce
 fichier s'enrichit via /retro : chaque correction de goût de Baptiste devient
 une règle ici.
 
+## Comment utiliser cette liste
+
+Cette liste se PARCOURT ligne à ligne sur le rendu ET le CSS/markup — au build
+(avant de déclarer fini) ET en critique. On coche CHAQUE interdit, un par un.
+Un jugement global « ça respecte anti-slop » n'est PAS une vérification : sans
+énumération interdit par interdit, le verdict est invalide.
+
+**Interdits qui passent le plus souvent à travers les mailles** (vérifier en
+premier, sur le CSS autant que sur le rendu) :
+- ❌ **Bordure d'accent à gauche** d'une card/callout (`border-left` coloré).
+- ❌ **Card-in-card** : un coin arrondi à l'intérieur d'un coin arrondi — un
+  conteneur déjà délimité (card, panel, `<details>`, modale, accordéon) ne
+  contient jamais d'enfant avec sa propre bordure + radius.
+
 ## Interdits absolus
 
 **Couleur**

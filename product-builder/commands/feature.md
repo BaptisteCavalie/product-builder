@@ -60,6 +60,12 @@ CLAUDE.md du projet).
 - L'élément signature du DA brief doit être présent sur les écrans clés —
   c'est un livrable, pas une option.
 - Tous les états des composants interactifs dès le premier jet.
+- **Auto-passe anti-slop avant de déclarer le build fini.** Avant les captures
+  et la critique, reparcours la liste du skill `anti-slop` interdit par
+  interdit sur le CSS/markup produit, et corrige sur place. C'est un gate de
+  build au même titre que tsc/lint — pas une intention : le slop est le plus
+  souvent introduit AU build, pas hérité. Cocher chaque interdit ; un « ça
+  respecte » global ne compte pas.
 - Commits atomiques avec messages clairs.
 
 ## Étape 5 — Vérification (gates machine + visuel, OBLIGATOIRE)
