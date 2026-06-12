@@ -8,8 +8,9 @@ qu'il n'obéit à un adjectif.
 Règles :
 - Un exemplaire = une image (`<domaine>-<app>-<écran>.png`) + une ligne d'index
   ci-dessous. Sans le pourquoi, l'image ne vaut rien.
-- Alimentée par /retro (écrans shippés que Baptiste a validés) et /da
-  (références externes qui méritent de survivre à leur projet).
+- Alimentée par le rapport /retro (écrans shippés validés : capture + ligne
+  d'index, portés en session kit) et par /da (références externes qui méritent
+  de survivre à leur projet).
 - Consultée en PREMIER par /da, avant Mobbin et le web.
 - Curation : au-delà de ~20 lignes, regrouper l'index par domaine ; un
   exemplaire contredit par un retour de Baptiste se retire (l'index garde

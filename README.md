@@ -82,9 +82,13 @@ Tailwind : mêmes noms de tokens dans le `:root` de l'entrypoint CSS).
 ## Comment le système apprend
 
 1. **Pendant la session** : chaque correction ou reproche que tu fais est un signal.
-2. **`/product-builder:retro`** les transforme en règles générales, proposées une par une.
-3. **Tu valides** → la règle est écrite dans le clone local du kit, puis
-   commit + push : elle est distribuée à tous tes projets, à jamais.
+2. **`/product-builder:retro`** distille ces signaux : il applique sur place les
+   apprentissages propres au projet et rédige un **rapport ultra-détaillé** des
+   amendements destinés au kit (`telemetry/retro-AAAA-MM-JJ.md`). Une session
+   projet ne touche jamais le kit.
+3. **Tu portes le volet kit du rapport** dans une session dédiée à ce repo :
+   elle écrit les règles, commit + push — elles sont distribuées à tous tes
+   projets, à jamais.
 4. **`telemetry/runs.jsonl`** (par projet) trace les verdicts ; une faiblesse
    récurrente sur ≥3 runs révèle un trou structurel dans un skill.
 
@@ -107,9 +111,9 @@ C'est l'actif du système — ce repo est sa mémoire versionnée.
 
 **Changer de domaine** = déclarer `Domaine actif : <x>` dans le CLAUDE.md du
 projet. Si la référence n'existe pas encore, le système la bootstrappe
-(pattern-researcher), te la fait valider, puis l'écrit dans le kit pour la
-partager. `fintech.md` est fournie ; chaque nouveau projet dans un nouveau
-secteur enrichit le deck.
+(pattern-researcher), te la fait valider, puis l'inscrit dans le rapport /retro
+pour l'ajouter au kit (session dédiée) et la partager. `fintech.md` est fournie ;
+chaque nouveau projet dans un nouveau secteur enrichit le deck.
 
 Règle de calibration des critics : s'ils sont trop gentils ou trop sévères,
 ne corrige pas leurs verdicts à la main — amende leur rubrique via `/retro`.

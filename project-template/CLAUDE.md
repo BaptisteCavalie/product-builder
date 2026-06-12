@@ -18,9 +18,11 @@ Utilisateurs : (qui + état d'esprit — demandé par /da et /feature si absent)
 ## Kit
 
 Clone local du kit : <chemin absolu, ex. ~/product-builder-kit>
-<!-- Utilisé par /product-builder:retro et le bootstrap de références métier :
-     les amendements s'écrivent dans le clone du kit (puis commit + push),
-     jamais dans le cache du plugin. -->
+<!-- Repère humain : où ouvrir une session pour appliquer les rapports /retro.
+     Une session projet n'écrit JAMAIS dans le kit (ni cache du plugin, ni
+     clone). /retro et le bootstrap métier (domain-knowledge) produisent un
+     rapport (telemetry/retro-AAAA-MM-JJ.md) que tu portes dans cette session
+     kit, seule habilitée à écrire et push le kit. -->
 
 ## Design
 

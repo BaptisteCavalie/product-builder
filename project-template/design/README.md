@@ -7,6 +7,7 @@
 - `references/` — captures des références retenues (Mobbin, Awwwards, Godly,
   Dribbble…). Le design-critic les ouvre pour la critique comparative : rendu
   du projet et référence côte à côte.
-- Le brief s'amende via /retro (goût propre au projet) ; les écrans validés
-  qui méritent de survivre au projet remontent dans la bibliothèque
-  d'exemplaires du kit (`design-system/references/`).
+- Le brief s'amende via /retro (goût propre au projet, écrit directement ici) ;
+  les écrans validés qui méritent de survivre au projet sont remontés par le
+  rapport /retro (capture + ligne d'index) vers la bibliothèque d'exemplaires
+  du kit (`design-system/references/`), appliquée en session kit.

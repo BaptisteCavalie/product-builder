@@ -71,8 +71,9 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
 - `telemetry/runs.jsonl` — log des verdicts critics, alimenté par /retro.
 - Le `@theme` de l'entrypoint CSS — la matérialisation projet du contrat de tokens.
 - Les pipelines, critics, skills et gates vivent dans le plugin, pas dans le
-  projet. Leurs amendements (/retro) s'écrivent dans le clone local du kit
-  (chemin déclaré dans le CLAUDE.md du projet), jamais dans le cache du plugin.
+  projet. Une session projet ne les amende JAMAIS : /retro en produit un
+  rapport (`telemetry/retro-AAAA-MM-JJ.md`) que Baptiste porte dans une session
+  dédiée au repo du kit, seule habilitée à les écrire et à les distribuer (push).
 
 ## Boucle qualité
 
