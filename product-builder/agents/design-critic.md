@@ -80,8 +80,13 @@ une capture statique → lis le CSS/code pour les lignes `(code)`)
 - Les messages d'erreur disent-ils quoi faire, pas seulement ce qui a échoué ?
 - Zéro jargon technique exposé à l'utilisateur ?
 
-**Anti-slop** (charge le skill `anti-slop` et vérifie chaque interdit)
-- Aucun interdit de la liste n'est-il présent ?
+**Anti-slop** (charge le skill `anti-slop`)
+- Parcours la liste du skill interdit par interdit et réponds OUI/NON à CHACUN
+  contre le rendu — et contre le CSS/markup pour les lignes vérifiables sur
+  code (bordure-gauche, card-in-card, valeurs hors tokens, durées de motion…).
+  Un seul « ça respecte anti-slop » global, sans énumération, est un verdict
+  invalide : c'est l'absence d'énumération qui a laissé passer bordure d'accent
+  gauche et card-in-card sur deux passes. Chaque interdit présent = une issue.
 
 **Cohérence**
 - Le même problème est-il résolu de la même façon partout (patterns internes cohérents) ?
