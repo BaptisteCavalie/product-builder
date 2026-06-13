@@ -30,7 +30,9 @@ premier, sur le CSS autant que sur le rendu) :
 **Couleur**
 - ❌ Toute valeur hors tokens (`#FACC15`, `bg-yellow-400` hors système…).
 - ❌ Gradients décoratifs (sur CTA, titres, fonds de cards, bordures).
-- ❌ Le combo violet/indigo + fond sombre + glow "AI product".
+- ❌ L'accent violet/lavande en couleur "AI product" par défaut (famille
+  #7c6af7…) — en glow sur fond sombre comme en gradient pastel sur fond clair.
+  Accent délibéré et non-violet sauf justification écrite du DA brief.
 - ❌ Bordures colorées d'accent à gauche des cards/callouts.
 - ❌ Une couleur différente par item de liste/catégorie "pour faire vivant".
 - ❌ Accent utilisé en décoration (fonds, icônes passives) plutôt qu'en signal.
@@ -100,3 +102,11 @@ soit une décision, pas un réflexe statistique.
 ## Règles ajoutées par /retro
 
 <!-- Les amendements validés par Baptiste s'ajoutent ici, datés -->
+
+**2026-06-13 — Combo "AI-app générique" bannie.** Le défaut statistique 2024-25
+de l'app IA : fond en gradient pastel/lavande + glassmorphism (surfaces
+backdrop-blur) + grosses orbs floues en radial-gradient + accent violet/lavande
+(famille #7c6af7). Chaque trait peut être légal isolément ; l'ensemble par
+réflexe = absence de parti-pris (le pendant "AI" du look Tailwind par défaut).
+Défaut imposé à la place : surfaces plates + filets 1px + un accent délibéré,
+non-violet. (L'accent seul est aussi couvert ligne à ligne dans « Couleur ».)

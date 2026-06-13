@@ -13,6 +13,19 @@ Cible : $ARGUMENTS
    npx playwright screenshot --viewport-size=1440,900 <url> /tmp/review-desktop.png
    npx playwright screenshot --viewport-size=390,844 <url> /tmp/review-mobile.png
    ```
+   Si le host déployé est injoignable (egress bloqué, `403 host-not-allowed`),
+   NE SAUTE PAS l'audit visuel — c'est lui qui débloque le verdict `ship`.
+   Replie-toi sur un build de prod local et capture `localhost` :
+   ```bash
+   npm run build && npm run start &   # sert sur le port du projet (Next : 3000)
+   npx playwright screenshot --viewport-size=1440,900 http://localhost:3000 /tmp/review-desktop.png
+   ```
+   Si le download du navigateur Playwright est lui aussi bloqué, vise un
+   binaire Chromium déjà installé plutôt que d'abandonner :
+   ```bash
+   /opt/pw-browsers/chromium-*/chrome-linux/chrome --headless=new \
+     --window-size=1440,900 --screenshot=/tmp/review-desktop.png http://localhost:3000
+   ```
 2. Lance en parallèle `design-critic` (screenshots + code de la cible, le DA
    brief `design/da.md` et ses captures `design/references/`, plus les chemins
    du contrat de tokens du kit et du `@theme` du projet — exige la critique

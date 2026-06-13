@@ -19,3 +19,9 @@ Règles :
 ## Index
 
 <!-- - fichier.png — app/écran — pourquoi c'est bien (1 ligne) — domaine -->
+
+<!-- Portfolio Baptiste (fintech, dark) — captures à committer dans ce dossier ;
+     les deux lignes ci-dessous portent le « pourquoi » validé en /retro 2026-06-13.
+     L'exemplaire n'est complet qu'une fois les .png déposés ici. -->
+- portfolio-baptiste-home-dark.png — portfolio Baptiste / home (dark) — surfaces plates + filets 1px + métadonnées monospace (signature « fiche technique ») + accent petrol unique ; la retenue se lit comme de la précision, zéro déco — fintech
+- portfolio-baptiste-project-dark.png — portfolio Baptiste / fiche projet (dark) — même système (surfaces plates + filets + monospace + accent petrol), la fiche projet pousse la signature « fiche technique » ; précision = retenue — fintech
