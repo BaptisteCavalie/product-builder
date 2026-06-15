@@ -41,8 +41,14 @@ existe pour empêcher.
 > galeries web), et capture les références web retenues (point 4).
 
 1. **Bibliothèque d'exemplaires du kit** (`design-system/references/` du plugin,
-   chemin injecté en début de session) : le goût déjà validé par Baptiste.
-   Si un exemplaire couvre le territoire, pars de lui.
+   chemin injecté en début de session) : le goût déjà validé par Baptiste,
+   consultée EN PREMIER. Si un exemplaire couvre le territoire, pars de lui.
+   Si elle est VIDE (aucun `.png`, juste le README) ou qu'aucun exemplaire ne
+   couvre le territoire, NE DÉGRADE PAS EN SILENCE vers Mobbin/web : c'est une
+   limitation de premier ordre — même statut qu'une source MCP indisponible — à
+   signaler explicitement à la validation (étape 4). Sans exemplaire, la DA ne
+   s'ancre sur aucun goût validé du kit ; la porter à Baptiste à CHAQUE /da est
+   précisément ce qui finit par remplir la bibliothèque (via /retro).
 2. **Mobbin (MCP)** — produits réels shippés. Cherche des comparables du domaine
    ET 1-2 apps hors domaine réputées pour leur craft. REGARDE les images
    retournées (elles arrivent inline) : c'est l'image qui porte la leçon, pas
@@ -93,6 +99,12 @@ Présente le brief de façon compacte à Baptiste : ambiance, police nommée,
 palette, élément signature, les références avec liens. C'est LE moment où son
 goût ancre le projet — tout l'aval (builds, critiques, corrections) est
 autonome. Intègre ses retours, puis écris `design/da.md`.
+
+En tête de présentation, liste sans les noyer les **limitations de sourcing**
+rencontrées : bibliothèque d'exemplaires vide (le goût du kit ne s'est ancré sur
+rien) et/ou Mobbin indisponible. Une DA bâtie sans aucun exemplaire kit reste
+valide mais fragile — c'est le signal, répété à chaque /da tant que la
+bibliothèque reste vide, qu'il faut l'amorcer.
 
 ## 5. Matérialiser
 
