@@ -55,6 +55,9 @@ de l'écran, (2) quelles informations la soutiennent, (3) tout le reste recule.
 
 ## Typographie
 
+Ici l'hygiène typographique (tailles, graisses, longueur de ligne). Le CHOIX et
+l'appariement des polices — l'expression — vit dans `art-direction` ; ne le
+redouble pas ici.
 - 2 graisses max par écran, 3 niveaux de taille suffisent à 95% des écrans.
 - Texte courant : 16px minimum, interligne 1.5, lignes ≤ 75 caractères.
 - Hiérarchiser par la taille ET la graisse ensemble, jamais par la couleur seule.

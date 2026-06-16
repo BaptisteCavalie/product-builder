@@ -24,8 +24,10 @@ projets consommateurs, pas ce fichier.
 
 - Tester : `claude --plugin-dir ./product-builder`, puis `/reload-plugins`
   après chaque modif.
-- Valider avant push : `claude plugin validate ./product-builder` et
-  `claude plugin validate .` (marketplace).
+- Valider avant push : `claude plugin validate ./product-builder`,
+  `claude plugin validate .` (marketplace), ET
+  `./product-builder/scripts/check-doctrine.sh` (cohérence des doctrines
+  multi-fichiers — gate déterministe, pas seulement la vigilance).
 - `plugin.json` n'a **pas** de champ `version`, c'est voulu : chaque commit
   est une version, et les projets s'auto-mettent à jour au démarrage de
   session. **Push = mise en production du kit.**
@@ -65,3 +67,9 @@ rapport dans une session dédiée à CE repo : c'est elle qui écrit les
 amendements dans les fichiers de `product-builder/` (et `docs/pipeline.md`),
 puis commit + push pour les distribuer. Les amendements kit arrivent donc ICI
 via un rapport collé, jamais via une session projet.
+
+**Tracer l'intake (sinon un rapport non porté = apprentissage perdu).** À
+chaque rapport /retro appliqué dans une session kit, ajoute une ligne dans
+`docs/kit-intake.md` (date du rapport, projet d'origine, nb d'amendements,
+commit). C'est le registre qui rend détectable un rapport oublié — la couture
+copier-coller du /retro est manuelle, ce journal la rend auditable.

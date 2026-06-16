@@ -23,7 +23,9 @@ case "$FILE" in
     [ -f "package.json" ] || exit 0
     # ESLint sur le fichier seul (rapide)
     if [ -f "node_modules/.bin/eslint" ]; then
-      LINT_OUT=$(npx eslint "$FILE" 2>&1)
+      # --quiet : seules les ERREURS bloquent (exit 2). Les warnings préexistants
+      # d'un fichier touché pour une autre raison ne doivent pas couper la boucle.
+      LINT_OUT=$(npx eslint --quiet "$FILE" 2>&1)
       if [ $? -ne 0 ]; then
         ERRORS="${ERRORS}--- ESLint ---\n${LINT_OUT}\n"
       fi

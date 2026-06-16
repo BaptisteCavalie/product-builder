@@ -29,6 +29,10 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
 
 - Next.js (App Router) + TypeScript strict + Tailwind CSS
 - Déploiement Vercel
+- Les gates déterministes et l'outillage de capture couvrent **JS/TS et Python**.
+  Sur une autre stack (Vue/Svelte/natif…), le contrat de tokens reste valable
+  (agnostique du framework), mais les gates machine sont dégradées : le signaler
+  au rapport et auditer manuellement ce que les hooks ne couvrent pas.
 - Les tokens du design system sont la **seule** source de valeurs visuelles.
   Le contrat de catégories vit dans le plugin (`design-system/tokens.css`,
   chemin résolu en fin de ce contexte — template à ne jamais écraser) ; chaque

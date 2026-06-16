@@ -56,7 +56,9 @@ CLAUDE.md du projet).
   le contrat de tokens du kit (chemin injecté en début de session ; projet
   sans Tailwind : mêmes noms de tokens dans le `:root` de l'entrypoint CSS).
   S'il manque, le créer d'abord ; ne jamais écraser le template, ne jamais
-  hardcoder une valeur.
+  hardcoder une valeur. Vérifie que le `@theme` couvre TOUTES les catégories du
+  contrat avec le script du kit (chemin injecté en début de session) :
+  `<chemin>/check-theme.sh <entrypoint-css>` — une catégorie manquante = dérive.
 - L'élément signature du DA brief doit être présent sur les écrans clés —
   c'est un livrable, pas une option.
 - Tous les états des composants interactifs dès le premier jet.
@@ -116,6 +118,9 @@ Lance EN PARALLÈLE :
 
 Termine par un rapport court :
 - **Shippé** : ce qui a été construit, écart éventuel avec le brief initial et pourquoi.
+- **Critères de succès** : reprends ceux fixés par le challenger (étape 1) et
+  donne l'état de CHACUN (atteint / partiel / non vérifiable ici). On ne ferme
+  pas une feature sans rouvrir le contrat de succès qu'on a ouvert.
 - **Verdicts** : synthèse des critics (nombre d'issues par sévérité, tours de boucle).
 - **Goût** : le verdict du test du logo masqué et l'écart restant vs les
   références du DA brief (en 1-2 lignes, factuel).

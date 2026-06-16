@@ -8,7 +8,9 @@
 set -uo pipefail
 INPUT=$(cat)
 MAX_ROUNDS=3
-COUNTER_FILE="/tmp/claude-stop-gate-rounds"
+# Compteur scopé au projet courant : un fichier global collisionnerait entre
+# projets/sessions parallèles (cas courant en exécution distante).
+COUNTER_FILE="/tmp/claude-stop-gate-rounds-$(printf '%s' "$PWD" | cksum | cut -d' ' -f1)"
 
 # 1. Anti-boucle : si on est déjà dans une continuation déclenchée par ce hook
 #    ET que le plafond est atteint, on laisse passer (l'agent doit alors escalader).
