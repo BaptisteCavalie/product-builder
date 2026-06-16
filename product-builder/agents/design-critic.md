@@ -83,6 +83,9 @@ une capture statique → lis le CSS/code pour les lignes `(code)`)
 - La voix est-elle constante et le ton adapté au moment (sobre sur succès/erreur, pas de "Oops!") ?
 - Un même concept porte-t-il le même mot partout (cohérence terminologique) ?
 - Les placeholders ne servent-ils jamais de seul label (label visible présent) ?
+- Domaine régulé (charge `domain-knowledge`) : les mentions légales obligatoires
+  sont-elles présentes et lisibles à l'écran (avertissement de risque, mentions
+  réglementaires, consentements) — pas reléguées hors-vue ni en gris illisible ?
 
 **Anti-slop** (charge le skill `anti-slop`)
 - Parcours la liste du skill interdit par interdit et réponds OUI/NON à CHACUN

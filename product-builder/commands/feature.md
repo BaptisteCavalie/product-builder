@@ -7,8 +7,16 @@ argument-hint: [description de la feature]
 
 Feature demandée : $ARGUMENTS
 
-Exécute ce pipeline dans l'ordre, sans sauter d'étape. Chaque étape produit un
-livrable qui nourrit la suivante.
+**Avant de lancer quoi que ce soit — proportionnalité.** Ce pipeline est lourd
+(plusieurs critics, boucles, captures) : il est fait pour une VRAIE feature.
+Si la demande est triviale (changer un titre/une copie, ajuster un token, fix
+lint, renommage), NE lance PAS ce pipeline : édite directement, laisse les
+gates machine vérifier, fini. Pour auditer de l'existant sans reconstruire :
+`/critique`. Faire tourner le pipeline complet pour un titre est un gaspillage,
+pas de la rigueur.
+
+Pour une vraie feature : exécute ce pipeline dans l'ordre, sans sauter d'étape.
+Chaque étape produit un livrable qui nourrit la suivante.
 
 ## Étape 1 — Challenge produit
 
@@ -48,15 +56,20 @@ projet (domaine, utilisateurs, spécificités — il ne reçoit pas ce contexte)
 
 ## Étape 4 — Build
 
-Construis le scope retenu en appliquant le DA brief et les skills
-`design-judgment`, `art-direction`, `color`, `ux-writing`, `anti-slop`, `a11y`
-et `domain-knowledge` (qui charge la référence du domaine déclaré dans le
-CLAUDE.md du projet).
+Construis le scope retenu en appliquant le DA brief et les skills **pertinents
+à ce que tu construis** (pas les sept par réflexe — cf. constitution) :
+- socle, toujours : `design-judgment`, `a11y`, `anti-slop` ;
+- `art-direction` + `color` : dès qu'il y a une surface ou une direction visuelle ;
+- `ux-writing` : dès qu'il y a de la copie visible à l'utilisateur ;
+- `domain-knowledge` : si un domaine est déclaré dans le CLAUDE.md du projet
+  (il charge la référence métier correspondante).
 - Tokens uniquement : le `@theme` de l'entrypoint CSS du projet matérialise
   le contrat de tokens du kit (chemin injecté en début de session ; projet
   sans Tailwind : mêmes noms de tokens dans le `:root` de l'entrypoint CSS).
   S'il manque, le créer d'abord ; ne jamais écraser le template, ne jamais
-  hardcoder une valeur.
+  hardcoder une valeur. Vérifie que le `@theme` couvre TOUTES les catégories du
+  contrat avec le script du kit (chemin injecté en début de session) :
+  `<chemin>/check-theme.sh <entrypoint-css>` — une catégorie manquante = dérive.
 - L'élément signature du DA brief doit être présent sur les écrans clés —
   c'est un livrable, pas une option.
 - Tous les états des composants interactifs dès le premier jet.
@@ -116,6 +129,9 @@ Lance EN PARALLÈLE :
 
 Termine par un rapport court :
 - **Shippé** : ce qui a été construit, écart éventuel avec le brief initial et pourquoi.
+- **Critères de succès** : reprends ceux fixés par le challenger (étape 1) et
+  donne l'état de CHACUN (atteint / partiel / non vérifiable ici). On ne ferme
+  pas une feature sans rouvrir le contrat de succès qu'on a ouvert.
 - **Verdicts** : synthèse des critics (nombre d'issues par sévérité, tours de boucle).
 - **Goût** : le verdict du test du logo masqué et l'écart restant vs les
   références du DA brief (en 1-2 lignes, factuel).

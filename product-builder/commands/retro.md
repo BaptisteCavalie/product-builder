@@ -99,7 +99,9 @@ chaque changement sans rien deviner. C'est le critère de qualité du rapport.
 5. **Cohérence** — ne contredit pas une règle existante ? Si conflit, la
    résolution proposée. Si la règle touche une **doctrine multi-fichiers**
    (tokens, visual craft, /retro, pipeline), LISTER tous les fichiers à mettre
-   à jour dans le même commit côté kit — sinon, incident.
+   à jour dans le même commit côté kit — sinon, incident. La session kit
+   valide l'alignement avec `product-builder/scripts/check-doctrine.sh` avant
+   de pousser (gate déterministe, plus seulement la vigilance).
 
 ### Exemplaires (captures) — cas particulier
 Une image ne se copie-colle pas en texte. Pour chaque écran validé à
@@ -121,6 +123,16 @@ capitaliser :
 - Si la télémétrie récente montre un pattern (même dimension faible sur ≥3
   runs → trou structurel probable dans un skill), inscris-le comme amendement
   kit dans le rapport ET signale-le dans le bilan.
+- **Mesure (l'amendement a-t-il servi ?).** Si un amendement kit passé visait
+  une dimension faible, regarde si elle a bougé sur les runs suivants. Sans
+  effet après ≥3 runs : signale-le — la règle est mal ciblée, à reformuler ou
+  retirer, pas à empiler une règle de plus par-dessus.
+- **Élagage (le kit applique sa propre retenue).** Repère les règles candidates
+  au retrait : une interdiction `anti-slop` ou une ligne de skill qui ne s'est
+  jamais manifestée en critique sur de nombreux runs, ou deux règles
+  redondantes. Propose-les au retrait/fusion dans le rapport. Le kit n'a pas
+  qu'un chemin « ajouter » : « le junior ajoute, le senior retire » vaut aussi
+  pour la doctrine elle-même.
 - Termine la réponse par : le chemin du rapport, le nombre d'amendements kit
   qu'il contient, le nombre d'amendements projet appliqués, et la prochaine
   étape manuelle pour Baptiste — ouvrir une session dans le repo du kit, coller
