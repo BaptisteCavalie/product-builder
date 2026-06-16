@@ -36,6 +36,26 @@ conventions** (loi de Jakob). Le skeuomorphisme avait raison sur une chose
 ombres portées partout) que s'il sert un principe durable nommé. Sinon c'est
 une mode — tu la reconnaîtras dans 3 ans à la date. Justifie ou abstiens-toi.
 
+**Ce que les grands systèmes ont durablement raison** — à distiller, jamais à
+copier : leurs guidelines sont à ~80% de la conformité plateforme (tailles de
+cibles, composants natifs), pas du goût. On prend le principe, on laisse la peau.
+- **HIG (Apple) — la déférence.** Le chrome s'efface devant le contenu (clarté
+  > déférence > profondeur). C'est la colonne vertébrale de la retenue senior
+  ci-dessous, posée dès iOS 7. *Piège* : reprendre les composants natifs iOS
+  (barres système, switches, SF Symbols) sur le web → un écran qui ressemble à
+  un iPhone, pas à ton produit.
+- **Material (Google) — profondeur et motion portent du sens.** L'élévation
+  encode la hiérarchie et l'état (ce qui flotte est actif ou temporaire) ; la
+  transition d'élément partagé montre origine → destination (déjà dans
+  « Composition » et « Motion » plus bas). *Piège* : les valeurs dp, le FAB, le
+  ripple, l'accent indigo par défaut = look Android générique.
+- **Le fil commun, 40 ans** : un système cohérent (grille, échelle, tokens) bat
+  des écrans décidés un par un. C'est exactement pourquoi le kit a des tokens.
+
+**Garde-fou** : appliquer ces principes ne veut JAMAIS dire ressembler à iOS ou
+Material — c'est l'interchangeable que combat le test du logo masqué. Le
+principe est universel ; sa matérialisation reste celle du DA brief.
+
 ## Le réflexe senior : la retenue
 
 Le junior **ajoute** jusqu'à ce que ça « fasse design » ; le senior **retire**
