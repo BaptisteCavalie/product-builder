@@ -36,7 +36,8 @@ Pour chaque signal, décide sa cible — elle détermine son flux.
 - goût visuel récurrent → le bon skill selon la nature :
   interdit/réflexe à bannir → `anti-slop` ; principe d'utilisabilité →
   `design-judgment` ; couleur/palette → `color` ; typo/composition/motion/
-  retenue → `art-direction` (tous dans `product-builder/skills/`)
+  retenue → `art-direction` ; microcopy/voix/ton/terminologie → `ux-writing`
+  (tous dans `product-builder/skills/`)
 - écran que Baptiste a validé/aimé → nouvel exemplaire (capture + ligne
   d'index) dans `product-builder/design-system/references/`
   (la bibliothèque d'exemplaires — le goût positif se capitalise en images,

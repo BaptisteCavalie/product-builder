@@ -102,7 +102,7 @@ C'est l'actif du système — ce repo est sa mémoire versionnée.
 | Constitution | valeurs, arbitrages, non-négociables — injectée à chaque session (hook SessionStart) | `product-builder/constitution.md` |
 | Pipelines | l'orchestration, écrite noir sur blanc | `product-builder/commands/` |
 | Critics | jugement isolé, verdicts par sévérité | `product-builder/agents/` |
-| Connaissance universelle | design-judgment, art-direction, color, anti-slop, a11y — agnostique au domaine | `product-builder/skills/` |
+| Connaissance universelle | design-judgment, art-direction, color, ux-writing, anti-slop, a11y — agnostique au domaine | `product-builder/skills/` |
 | Connaissance métier | une référence par domaine, routée par `domain-knowledge` | `product-builder/skills/domain-knowledge/references/` |
 | Gates | vérifs déterministes, exit 2 = reboucle | `product-builder/hooks/` |
 | Contrat visuel | contrat de tokens (template) — valeurs compilées dans le `@theme` du projet | `product-builder/design-system/` |

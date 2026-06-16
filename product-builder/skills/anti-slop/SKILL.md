@@ -65,11 +65,20 @@ premier, sur le CSS autant que sur le rendu) :
 - ❌ Illustrations 3D génériques type "blob people" / memphis / isométrique stock.
 - ❌ Sparkles ✨ et toute imagerie "magie IA".
 
-**Copy**
+**Copy** (le plafond — le mot juste — vit dans `ux-writing` ; ici le plancher)
 - ❌ "Supercharge", "Unleash", "Seamless", "Effortless", "Élevez votre…",
   "Boostez", "révolutionnaire" et tout superlatif vide.
 - ❌ Point d'exclamation dans l'UI (réservé aux vraies célébrations, max 1).
 - ❌ Tirets cadratins en cascade et tournures "It's not just X, it's Y".
+- ❌ Bouton générique qui décrit le mécanisme : "Soumettre", "Submit", "OK",
+  "Valider" seul — le label dit l'action ("Créer mon compte", "Supprimer").
+- ❌ Erreur qui ne dit pas quoi faire : "Oops! Something went wrong", "Une
+  erreur est survenue", code brut exposé — toujours cause claire + issue.
+- ❌ Empty state qui constate au lieu de guider : "Aucune donnée", "Rien à
+  afficher" — sans l'action pour le remplir.
+- ❌ Placeholder utilisé comme seul label (disparaît à la saisie).
+- ❌ Title Case anglais sur un titre FR, "Editer" et autres calques de l'anglais.
+- ❌ Lorem ipsum ou texte de remplissage shippé tel quel.
 
 **Layout**
 - ❌ Hero centré + badge pilule "New ✨" + titre 3 lignes + 2 CTA côte à côte,

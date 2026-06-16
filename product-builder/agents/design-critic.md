@@ -75,10 +75,14 @@ une capture statique → lis le CSS/code pour les lignes `(code)`)
 - Les états loading, empty et error existent-ils et guident-ils vers une action ?
 - Toute action utilisateur a-t-elle un feedback < 100ms (au moins optique) ?
 
-**Copy**
+**Copy** (charge `ux-writing`)
 - Les labels décrivent-ils l'action ("Créer mon compte") plutôt que le mécanisme ("Soumettre") ?
 - Les messages d'erreur disent-ils quoi faire, pas seulement ce qui a échoué ?
 - Zéro jargon technique exposé à l'utilisateur ?
+- Les empty states guident-ils vers une action (pas un simple "Aucune donnée") ?
+- La voix est-elle constante et le ton adapté au moment (sobre sur succès/erreur, pas de "Oops!") ?
+- Un même concept porte-t-il le même mot partout (cohérence terminologique) ?
+- Les placeholders ne servent-ils jamais de seul label (label visible présent) ?
 
 **Anti-slop** (charge le skill `anti-slop`)
 - Parcours la liste du skill interdit par interdit et réponds OUI/NON à CHACUN

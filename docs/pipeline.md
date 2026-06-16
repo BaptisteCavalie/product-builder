@@ -118,8 +118,9 @@ flowchart TD
 ## 3. Build — les gates de goût
 
 Le nœud « Build » éclaté en ses gates binaires. C'est ici que vivent les skills
-`design-judgment`, `color`, `anti-slop`, `art-direction` et `a11y` : le goût est
-devenu une suite de oui/non vérifiables, plus une intention vague. Un seul *non*
+`design-judgment`, `color`, `anti-slop`, `art-direction`, `ux-writing` et
+`a11y` : le goût est devenu une suite de oui/non vérifiables, plus une intention
+vague. Un seul *non*
 sur n'importe quel gate → on corrige avant de continuer, jamais on shippe.
 L'anti-slop n'est pas un *vibe* : sa liste se parcourt interdit par interdit
 (rendu + CSS), au build comme en critique — un « ça respecte » global ne compte
@@ -132,13 +133,15 @@ flowchart TD
     G2 -->|oui| G3{"Palette = système ?<br/>rampe OKLCH · 1 accent · AA"}:::dec
     G3 -->|oui| G4{"Aucun slop ?<br/>chaque interdit coché · rendu + CSS"}:::dec
     G4 -->|oui| G5{"Retenue + geste fort ?<br/>test du retrait · signature"}:::dec
-    G5 -->|oui| G6{"États + a11y ?<br/>hover…error · clavier · focus"}:::dec
+    G5 -->|oui| Gc{"Copie juste ?<br/>action pas mécanisme · erreur guide"}:::dec
+    Gc -->|oui| G6{"États + a11y ?<br/>hover…error · clavier · focus"}:::dec
     G6 -->|oui| OK(["Écran prêt pour critique"]):::ship
     G1 -->|non| FIX["↻ corrige,<br/>puis re-vérifie tout"]:::stop
     G2 -->|non| FIX
     G3 -->|non| FIX
     G4 -->|non| FIX
     G5 -->|non| FIX
+    Gc -->|non| FIX
     G6 -->|non| FIX
     classDef dec fill:#FAEEDA,stroke:#BA7517,color:#633806
     classDef step fill:#F1EFE8,stroke:#888780,color:#2C2C2A
@@ -150,6 +153,7 @@ Ces gates correspondent aux skills : [`design-judgment`](../product-builder/skil
 [`color`](../product-builder/skills/color/SKILL.md) ·
 [`anti-slop`](../product-builder/skills/anti-slop/SKILL.md) ·
 [`art-direction`](../product-builder/skills/art-direction/SKILL.md) ·
+[`ux-writing`](../product-builder/skills/ux-writing/SKILL.md) ·
 [`a11y`](../product-builder/skills/a11y/SKILL.md).
 
 ---
