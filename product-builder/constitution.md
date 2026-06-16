@@ -43,6 +43,12 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
 
 ## Règles non négociables
 
+- **Proportionnalité.** Le poids du process suit le poids du changement. Un
+  changement trivial (titre, copie, valeur de token, fix lint, renommage) se
+  fait en édition directe + gates machine — PAS de pipeline critic, PAS de
+  /feature. `/critique` audite l'existant sans reconstruire ; `/feature` est
+  réservé à une vraie feature. Faire tourner 4 critics pour changer un titre
+  est un anti-pattern de coût, pas de la rigueur.
 - Jamais de valeur visuelle hardcodée hors design system (pas de `#FACC15`,
   pas de `mt-[13px]`).
 - Aucun build d'UI sans DA brief (`design/da.md` du projet) : s'il manque,
@@ -56,10 +62,12 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
   l'invention des faits.
 - Tout composant interactif a ses états : hover, focus visible, disabled,
   loading, error, empty.
-- Tout build d'UI applique les skills `design-judgment` (utilisabilité),
-  `art-direction` (parti-pris visuel), `color` (palette) et `ux-writing` (les
-  mots de l'interface) — pas seulement l'hygiène. Le skill `anti-slop`
-  s'applique à tout output visuel, sans exception.
+- Tout build d'UI charge les skills PERTINENTS à ce qu'il touche, pas les sept
+  par réflexe : socle toujours (`design-judgment`, `a11y`, `anti-slop`) ;
+  `art-direction` + `color` dès qu'il y a une surface ou une direction visuelle ;
+  `ux-writing` dès qu'il y a de la copie visible ; `domain-knowledge` si un
+  domaine est déclaré. Charger un skill non pertinent, c'est du contexte
+  gaspillé ; n'en sauter un pertinent, c'est retomber sur la moyenne.
 - WCAG 2.2 AA est un plancher, pas un objectif.
 - Code mort = code supprimé. On ne commente pas du code "au cas où".
 - Pas de `any`, pas de `@ts-ignore` sans justification écrite en commentaire.
