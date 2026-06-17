@@ -89,12 +89,15 @@ d'autres mondes (éditorial, photo, SaaS créatif).
    type specimens) avec le pourquoi « les galeries UI sont incestueuses ».
 5. **[FAIT]** `scripts/check-doctrine.sh` ✓ + `claude plugin validate` ✓ (warning
    « no version » attendu, cf. CLAUDE.md).
-6. **[AMORCÉ — 2026-06-17]** Hors-fintech ajoutés pour élargir l'œil : Linear
-   (`saas-linear-issues.png` — densité/retenue premium) et Airbnb
-   (`travel-airbnb-explore.png` — éditorial photo-led chaleureux). Deux registres
-   opposés à la fintech. À compléter au fil de l'eau (éditorial print, type
-   specimens) via /da et /retro.
+6. **[FAIT — 2026-06-17]** Base multi-domaines semée via Mobbin (12 exemplaires,
+   16 live au total sur 13 domaines) : crypto (Kraken), saas (Linear), landing
+   (Cursor), ai (ChatGPT, Pi), ecommerce (H&M PDP, Shop checkout), travel
+   (Airbnb), food (Glovo), productivité (Things 3), fitness (Tonal), wellness
+   (Calm), media (Spotify), booking (Cal.com). Chaque ligne porte un pattern + sa
+   source. Volontairement ~2/domaine max (règle de curation : « dix moodboards =
+   zéro direction »). RESTE pour vraiment élargir : du **hors-UI** (éditorial
+   print, affiche, type specimens) — non couvert par Mobbin, à sourcer via /da.
 
-> État au 2026-06-17 (session locale) : étalon fintech milieu+haute live (Qonto,
-> Revolut), borne basse (BNP) en attente côté Baptiste, paire portfolio en
-> attente. Bibliothèque amorcée hors-fintech (Linear, Airbnb). Gates ✓.
+> État au 2026-06-17 (session locale) : bibliothèque passée de 0 à 16 exemplaires
+> live, groupés par domaine. Étalon fintech milieu+haute live (Qonto, Revolut),
+> borne basse (BNP) + paire portfolio en attente côté Baptiste. Gates ✓.

@@ -27,16 +27,55 @@ Règles :
 
 <!-- live uniquement : - fichier.png — app/écran — pourquoi c'est bien (1 ligne) — domaine — source -->
 
-<!-- Étalon du curseur d'audace (fintech) — bornent le levier showcase/bold ↔
-     produit/sobre câblé dans /da et skills/art-direction. Borne BASSE (BNP)
-     encore en attente de capture ci-dessous ; milieu + haute live. -->
-- fintech-qonto-dashboard.png — Qonto / dashboard (product-tour) — MILIEU du curseur : rigueur B2B, grille stricte, typo nette, transactions denses sans surcharge, montants `tabular-nums`, accent sobre ; retenue *habitée* — fintech — source : https://qonto.com/en/product-tour
-- fintech-revolut-home.png — Revolut / home — borne HAUTE du curseur : parti-pris fort assumé, cartes produit différenciées (couleur signature), reconnaissable logo masqué ; registre « postable sur Dribbble » — fintech — source : https://mobbin.com/screens/8e9b49d9-6451-481a-bf05-06960c346197
+<!-- Groupé par domaine (règle de curation). SEUL le trio fintech calibre le
+     curseur d'audace (bornes basse/milieu/haute, câblé dans /da et
+     skills/art-direction) ; les autres domaines sont des exemplaires de
+     registre/pattern, pas des bornes. Captures via Mobbin (image_url → PNG) sauf
+     mention ; previews ~300px iOS / ~768px web. -->
 
-<!-- Hors-fintech — élargissent l'œil au-delà de l'étalon fintech, pour ne pas
-     calibrer le curseur trop étroit (cf. docs/wip-oeil-visuel.md). -->
-- saas-linear-issues.png — Linear / liste d'issues (web) — densité comme signature : dark monochrome + 1 accent, typo nette, lignes denses sans surcharge, hints clavier ; la retenue rend premium, pas mort — saas/devtools — source : https://mobbin.com/screens/cc5d476b-5ba1-4bc2-bcf3-d6dcc9a636a3
-- travel-airbnb-explore.png — Airbnb / explore (iOS) — éditorial photo-led chaleureux : la photographie en héros, cartes arrondies généreuses, blanc abondant, micro-copie amicale ; le contre-pied exact de la rigueur fintech — travel/éditorial — source : https://mobbin.com/screens/97fb6459-9591-43df-8142-dcc1fd99c04c
+### Fintech
+<!-- Étalon du curseur d'audace : Qonto (milieu) + Revolut (haute) live ;
+     borne BASSE (BNP) en attente de capture ci-dessous. -->
+- fintech-qonto-dashboard.png — Qonto / dashboard (product-tour) — MILIEU du curseur : rigueur B2B, grille stricte, typo nette, transactions denses sans surcharge, montants `tabular-nums`, accent sobre ; retenue *habitée* — fintech — source : https://qonto.com/en/product-tour
+- fintech-revolut-home.png — Revolut / home — borne HAUTE du curseur : parti-pris fort assumé, cartes produit différenciées (couleur signature), reconnaissable logo masqué ; « postable sur Dribbble » — fintech — source : https://mobbin.com/screens/8e9b49d9-6451-481a-bf05-06960c346197
+
+### Crypto
+- crypto-kraken-portfolio.png — Kraken / portfolio (iOS) — market list scannable : sparkline + delta vert/rouge par ligne, valeur totale en grand puis courbe, lavande de marque qui évite le dark générique ; dense mais lisible — crypto — source : https://mobbin.com/screens/f74e0d00-bd13-402a-8656-fdbb624a6a57
+
+### SaaS / outils
+- saas-linear-issues.png — Linear / liste d'issues (web) — densité comme signature : dark monochrome + 1 accent, typo nette, lignes denses sans surcharge, hints clavier ; la retenue rend premium, pas mort — saas — source : https://mobbin.com/screens/cc5d476b-5ba1-4bc2-bcf3-d6dcc9a636a3
+
+### Landing / marketing
+- landing-cursor-hero.png — Cursor / landing hero (web) — landing premium retenue : headline confiante alignée à gauche, UN seul CTA sombre, gros screenshot produit posé sur dégradé doux ; le produit *est* le visuel — landing — source : https://mobbin.com/screens/fe74d042-38df-4046-9bef-65533403e2d7
+
+### AI
+- ai-chatgpt-composer.png — ChatGPT 4o / chat (web) — le standard du composer IA : « Ask anything », chips d'action (Search / Deep research / Create image), switch de modèle, sidebar projets ; clarté avant tout — ai — source : https://mobbin.com/screens/3a13706c-8391-4bd4-8984-0bac68cc412a
+- ai-pi-chat.png — Pi / chat (web) — l'IA à personnalité : fond crème chaud, type humaine, bulles douces, ton conversationnel ; comment échapper au look ChatGPT générique — ai — source : https://mobbin.com/screens/a7d703a9-576c-47a8-acac-7f8de552a53b
+
+### E-commerce
+- ecommerce-hm-pdp.png — H&M / fiche produit (iOS) — PDP modèle : couleur (vignettes) → taille (grille, état sélectionné net) → CTA primaire plein → fulfillment magasin ; hiérarchie d'achat sobre — ecommerce — source : https://mobbin.com/screens/b73006c6-61de-4440-922f-3aacbf556df6
+- ecommerce-shop-checkout.png — Shop / Review & Pay (iOS) — checkout qui rassure : récap clair, frais détaillés (sous-total / livraison / taxes), montant SUR le bouton « Pay now », upsell discret ; zéro friction cachée — ecommerce — source : https://mobbin.com/screens/3079dcae-8672-4fda-83d3-40ed4c8345bf
+
+### Travel
+- travel-airbnb-explore.png — Airbnb / explore (iOS) — éditorial photo-led chaleureux : la photographie en héros, cartes arrondies généreuses, blanc abondant, micro-copie amicale ; le contre-pied de la rigueur fintech — travel — source : https://mobbin.com/screens/97fb6459-9591-43df-8142-dcc1fd99c04c
+
+### Food delivery
+- food-glovo-discovery.png — Glovo / découverte (iOS) — feed appétissant : grande photo qui vend, cartes scannables (match %, prix barré, délai) ; la décision tient dans une carte — food — source : https://mobbin.com/screens/1843d128-db24-4471-b132-47634c8a15ac
+
+### Productivité
+- productivity-things-today.png — Things 3 / Today (iOS) — to-do typographique : hiérarchie douce (Today / This Evening), espacement généreux, tags discrets, zéro chrome inutile ; le calme comme craft — productivité — source : https://mobbin.com/screens/724087de-2e95-47ec-926c-efbdab249a23
+
+### Fitness
+- fitness-tonal-target.png — Tonal / target (iOS) — métrique-héros : UN chiffre dans un grand anneau de progression, « WEEKLY TARGET EXCEEDED » en récompense, reste secondaire ; motiver = célébrer une donnée — fitness — source : https://mobbin.com/screens/5e9461c9-d902-4e37-ad82-906753bc7583
+
+### Wellness
+- wellness-calm-meditate.png — Calm / meditate (iOS) — registre serein : photographie nature plein cadre, dégradé bleu nuit, type douce, peu d'éléments ; le calme se *montre*, ne se décrit pas — wellness — source : https://mobbin.com/screens/0a477316-3bc1-490f-a3d8-e87ad22cd978
+
+### Media / musique
+- media-spotify-nowplaying.png — Spotify / now playing (iOS) — lecture immersive : pochette en héros, fond teinté par la couleur ambiante extraite de l'artwork, contrôles minimaux sur sombre ; l'écran s'efface devant le contenu — media — source : https://mobbin.com/screens/43a707cc-5c25-4bc8-8f7a-f24852d1f59b
+
+### Booking / scheduling
+- booking-calcom-scheduling.png — Cal.com / scheduling (web) — réservation lisible : 3 volets (qui / quelle date / quel créneau), calendrier net, créneau sélectionné mis en évidence, dark élégant ; un flux en une vue — booking — source : https://mobbin.com/screens/0a64d12e-0306-461a-8365-f7869cbb4efb
 
 ## En attente de capture
 
