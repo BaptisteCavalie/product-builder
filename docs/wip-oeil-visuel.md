@@ -59,25 +59,26 @@ Risque : calibrer l'œil trop étroit → le kit ferait ressembler un brief non-
 (ex. « tool de photographie ») à une néobanque. À terme, ajouter 2-3 exemplaires
 d'autres mondes (éditorial, photo, SaaS créatif).
 
-## Bloqueur Mobbin (environnement)
+## Mobbin (résolu en local le 2026-06-17)
 
-- `claude mcp add mobbin --scope user --transport http https://api.mobbin.com/mcp`
-  exécuté → ajouté à `/root/.claude.json`.
-- Statut : **`Needs authentication`** (OAuth interactif, lié au compte Mobbin).
-- Non utilisable depuis cette session remote : (a) les serveurs MCP se chargent au
-  **démarrage** de session (pas à chaud) ; (b) l'auth interactive ne passe pas en
-  headless.
-- **Chemin qui marche : poste local.** Au prochain lancement de `claude`, le serveur
-  se charge, auth une fois, puis `/da` interroge Mobbin normalement. Capturer
-  BNP/Qonto/Revolut, déposer les PNG dans `design-system/references/`.
+- En local le serveur Mobbin se charge au démarrage et `/da` l'interroge
+  normalement (`search_screens` renvoie images inline + `image_url`
+  téléchargeable + `mobbin_url`). Le bloqueur remote est levé.
+- **Limite de la bibliothèque Mobbin** : Revolut présent, mais **ni BNP ni Qonto**
+  (apps FR/EU absentes, vérifié en recherche au nom exact, ios ET web). Conséquence
+  sur l'étalon : Revolut capturé via Mobbin ; Qonto capturé depuis son **site
+  public** (`qonto.com/en/product-tour`, Playwright via `capture-ref.sh`) qui
+  montre le vrai dashboard ; BNP reste à fournir par Baptiste (capture perso).
+- Récupération PNG : `curl` l'`image_url` (renvoie du WebP) puis `sips -s format
+  png` pour un vrai PNG. Les previews MCP font ~300px de large (suffisant pour une
+  référence de goût, pas du haute-résolution).
 
 ## Prochaines étapes (session relancée)
 
-1. **[RESTE — local]** Capturer BNP/Qonto/Revolut via Mobbin (en local,
-   authentifié) → PNG dans `product-builder/design-system/references/`, nommage
-   `fintech-bnp-comptes.png`, `fintech-qonto-dashboard.png`,
-   `fintech-revolut-home.png` (les noms attendus par les lignes d'index déjà
-   écrites). Vérifier que les images rendent puis commit.
+1. **[FAIT en partie — 2026-06-17]** Revolut (Mobbin) + Qonto
+   (`qonto.com/en/product-tour`) capturés et **live** dans l'index.
+   `fintech-bnp-comptes.png` reste **en attente** : Baptiste fournira la capture
+   (BNP absent de Mobbin). Gate `check-exemplars.sh` ✓.
 2. **[FAIT]** Les 3 lignes d'index sont écrites dans `references/README.md` avec
    les « pourquoi » du tableau (bornes basse/milieu/haute). Il ne manque que les
    `.png` (étape 1) pour que les exemplaires soient complets.
@@ -88,8 +89,12 @@ d'autres mondes (éditorial, photo, SaaS créatif).
    type specimens) avec le pourquoi « les galeries UI sont incestueuses ».
 5. **[FAIT]** `scripts/check-doctrine.sh` ✓ + `claude plugin validate` ✓ (warning
    « no version » attendu, cf. CLAUDE.md).
-6. **[RESTE — plus tard]** Exemplaires hors-fintech pour élargir l'œil (éviter de
-   calibrer le curseur trop étroit).
+6. **[AMORCÉ — 2026-06-17]** Hors-fintech ajoutés pour élargir l'œil : Linear
+   (`saas-linear-issues.png` — densité/retenue premium) et Airbnb
+   (`travel-airbnb-explore.png` — éditorial photo-led chaleureux). Deux registres
+   opposés à la fintech. À compléter au fil de l'eau (éditorial print, type
+   specimens) via /da et /retro.
 
-> État au 2026-06-17 (session web) : tout le câblage texte/doctrine (2-5) est
-> fait. Seule la capture Mobbin (1) reste, bloquée en remote — à finir en local.
+> État au 2026-06-17 (session locale) : étalon fintech milieu+haute live (Qonto,
+> Revolut), borne basse (BNP) en attente côté Baptiste, paire portfolio en
+> attente. Bibliothèque amorcée hors-fintech (Linear, Airbnb). Gates ✓.

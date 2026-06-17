@@ -25,27 +25,29 @@ Règles :
 
 ## Index
 
-<!-- live uniquement : - fichier.png — app/écran — pourquoi c'est bien (1 ligne) — domaine -->
+<!-- live uniquement : - fichier.png — app/écran — pourquoi c'est bien (1 ligne) — domaine — source -->
 
-<!-- Vide tant qu'aucun .png n'est déposé. Les « pourquoi » validés attendent
-     dans ## En attente de capture ci-dessous ; dès qu'une capture arrive dans
-     ce dossier, déplacer sa ligne ici, dans le MÊME commit. -->
+<!-- Étalon du curseur d'audace (fintech) — bornent le levier showcase/bold ↔
+     produit/sobre câblé dans /da et skills/art-direction. Borne BASSE (BNP)
+     encore en attente de capture ci-dessous ; milieu + haute live. -->
+- fintech-qonto-dashboard.png — Qonto / dashboard (product-tour) — MILIEU du curseur : rigueur B2B, grille stricte, typo nette, transactions denses sans surcharge, montants `tabular-nums`, accent sobre ; retenue *habitée* — fintech — source : https://qonto.com/en/product-tour
+- fintech-revolut-home.png — Revolut / home — borne HAUTE du curseur : parti-pris fort assumé, cartes produit différenciées (couleur signature), reconnaissable logo masqué ; registre « postable sur Dribbble » — fintech — source : https://mobbin.com/screens/8e9b49d9-6451-481a-bf05-06960c346197
+
+<!-- Hors-fintech — élargissent l'œil au-delà de l'étalon fintech, pour ne pas
+     calibrer le curseur trop étroit (cf. docs/wip-oeil-visuel.md). -->
+- saas-linear-issues.png — Linear / liste d'issues (web) — densité comme signature : dark monochrome + 1 accent, typo nette, lignes denses sans surcharge, hints clavier ; la retenue rend premium, pas mort — saas/devtools — source : https://mobbin.com/screens/cc5d476b-5ba1-4bc2-bcf3-d6dcc9a636a3
+- travel-airbnb-explore.png — Airbnb / explore (iOS) — éditorial photo-led chaleureux : la photographie en héros, cartes arrondies généreuses, blanc abondant, micro-copie amicale ; le contre-pied exact de la rigueur fintech — travel/éditorial — source : https://mobbin.com/screens/97fb6459-9591-43df-8142-dcc1fd99c04c
 
 ## En attente de capture
 
 <!-- « Pourquoi » validés mais .png pas encore déposé : ne comptent pas (gate).
      Dès que la capture arrive dans ce dossier, déplacer la ligne dans ## Index.
 
+     Borne BASSE du curseur (fintech) — Baptiste fournira la capture lui-même
+     (BNP absent de Mobbin ; institutionnel français sobre dur à substituer) :
+     - fintech-bnp-comptes.png — BNP Mes Comptes / comptes — borne BASSE du curseur : rassurer par la sobriété, hiérarchie portée par le solde en grand, densité maîtrisée, accent institutionnel unique, zéro geste risqué (confiance = convention, loi de Jakob) — fintech
+
      Portfolio Baptiste (fintech, dark) — « pourquoi » validé en /retro 2026-06-13 :
      - portfolio-baptiste-home-dark.png — portfolio Baptiste / home (dark) — surfaces plates + filets 1px + métadonnées monospace (signature « fiche technique ») + accent petrol unique ; la retenue se lit comme de la précision, zéro déco — fintech
      - portfolio-baptiste-project-dark.png — portfolio Baptiste / fiche projet (dark) — même système (surfaces plates + filets + monospace + accent petrol), la fiche projet pousse la signature « fiche technique » ; précision = retenue — fintech
-
-     Étalon du curseur d'audace (fintech) — ces trois apps BORNENT le levier
-     showcase/bold ↔ produit/sobre câblé dans /da et skills/art-direction.
-     Capturer via Mobbin EN LOCAL (auth interactive impossible en remote, cf.
-     docs/wip-oeil-visuel.md), nommage fintech-<app>-<écran>.png, puis déposer
-     les .png ici :
-     - fintech-bnp-comptes.png — BNP Mes Comptes / comptes — borne BASSE du curseur : rassurer par la sobriété, hiérarchie portée par le solde en grand, densité maîtrisée, accent institutionnel unique, zéro geste risqué (confiance = convention, loi de Jakob) — fintech
-     - fintech-qonto-dashboard.png — Qonto / dashboard — MILIEU du curseur : rigueur B2B, grille stricte, typo nette, données denses sans surcharge, montants `tabular-nums`, accent sobre ; retenue *habitée* — fintech
-     - fintech-revolut-home.png — Revolut / home — borne HAUTE du curseur : parti-pris fort assumé, couleur/motion signature, cartes produit différenciées, reconnaissable logo masqué ; registre « postable sur Dribbble » — fintech
 -->
