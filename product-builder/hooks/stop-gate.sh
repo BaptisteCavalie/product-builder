@@ -75,6 +75,14 @@ if command -v python3 >/dev/null 2>&1; then
   fi
 fi
 
+# 4. Gate spécifique au repo du kit — cohérence de la bibliothèque d'exemplaires.
+#    Le script s'auto-garde (no-op hors du repo du kit), on peut l'appeler à sec.
+if [ -x "${CLAUDE_PLUGIN_ROOT:-}/scripts/check-exemplars.sh" ]; then
+  run_check "Bibliothèque d'exemplaires" "\"${CLAUDE_PLUGIN_ROOT}/scripts/check-exemplars.sh\""
+elif [ -x "product-builder/scripts/check-exemplars.sh" ]; then
+  run_check "Bibliothèque d'exemplaires" "product-builder/scripts/check-exemplars.sh"
+fi
+
 if [ -n "$FAILURES" ]; then
   echo $((ROUNDS + 1)) > "$COUNTER_FILE"
   printf "GATE ÉCHOUÉE (tour %s/%s). Le travail n'est pas terminé tant que ces vérifications ne passent pas :\n%b\nCorrige, puis le travail sera re-vérifié automatiquement. Si tour %s/%s atteint sans succès : rédige un rapport d'escalade au lieu de continuer.\n" "$((ROUNDS + 1))" "$MAX_ROUNDS" "$FAILURES" "$MAX_ROUNDS" "$MAX_ROUNDS" >&2

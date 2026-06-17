@@ -104,17 +104,27 @@ chaque changement sans rien deviner. C'est le critère de qualité du rapport.
    de pousser (gate déterministe, plus seulement la vigilance).
 
 ### Exemplaires (captures) — cas particulier
-Une image ne se copie-colle pas en texte. Pour chaque écran validé à
+Une image ne se copie-colle pas en texte, et une ligne d'index sans son `.png`
+est un exemplaire fantôme : annoncé, jamais utilisable. C'est l'incident que ce
+handoff existe pour empêcher (cf. les entrées « portfolio-baptiste » longtemps
+restées en attente faute de capture portée). Pour chaque écran validé à
 capitaliser :
 - sauve la capture côté projet dans
   `telemetry/retro-assets/<domaine>-<app>-<écran>.png` (crée le dossier au
   besoin) ;
 - dans le rapport : la ligne d'index prête à coller
   (`<fichier>.png — app/écran — pourquoi c'est bien (1 ligne) — domaine`), le
-  chemin du PNG sauvé, et l'URL déployée si elle existe ;
-- consigne explicite : porter le PNG dans
-  `product-builder/design-system/references/` de la session kit — le texte du
-  rapport seul ne suffit pas pour les exemplaires.
+  chemin du PNG sauvé côté projet, et l'URL déployée si elle existe ;
+- **checklist de portage pour la session kit, à exécuter dans le MÊME commit**
+  (sinon le gate `scripts/check-exemplars.sh`, branché sur le Stop hook, refuse
+  de finir) :
+  1. copier le `.png` depuis `telemetry/retro-assets/<fichier>` (repo projet)
+     vers `product-builder/design-system/references/` (repo kit) ;
+  2. coller la ligne dans `## Index` du README de la bibliothèque — elle ne
+     devient « live » qu'avec le fichier ; sans capture portée, la laisser dans
+     le bloc « En attente de capture » plutôt que dans l'index ;
+  3. vérifier : `product-builder/scripts/check-exemplars.sh` doit passer.
+  Le texte du rapport seul ne suffit JAMAIS pour un exemplaire.
 
 ## 5. Télémétrie + bilan
 
