@@ -19,6 +19,17 @@ Règles :
   d'index, portés en session kit) et par /da (références externes qui méritent
   de survivre à leur projet).
 - Consultée en PREMIER par /da, avant Mobbin et le web.
+- **Provenance du goût — proposé vs validé.** Un exemplaire entré par *sourcing*
+  (/da ou un agent) est **proposé** tant que Baptiste ne l'a pas validé à l'œil ;
+  un écran qu'il a approuvé en /retro entre **validé**. /da peut s'appuyer sur des
+  « proposés » mais doit le **signaler** dans son rapport (il s'ancre sur des
+  candidats, pas sur du goût gravé). La validation à l'œil promeut proposé →
+  validé. Le statut courant de chaque exemplaire est marqué dans `## Index`.
+- **Résolution.** Préfère une capture haute-déf via `scripts/capture-ref.sh` quand
+  l'écran est sur une page publique (landing, page produit type Qonto product-tour) ;
+  sinon accepte la preview Mobbin (~300px iOS / ~768px web) et note-le. Une preview
+  basse-déf ancre un registre/pattern, pas le micro-craft (filet 1px, calage typo) —
+  ne pas s'y fier pour juger la précision.
 - Curation : au-delà de ~20 lignes, regrouper l'index par domaine ; un
   exemplaire contredit par un retour de Baptiste se retire (l'index garde
   la trace, comme "On rejette" dans les pattern briefs).
@@ -27,7 +38,10 @@ Règles :
 
 <!-- live uniquement : - fichier.png — app/écran — pourquoi c'est bien (1 ligne) — domaine — source -->
 
-<!-- Curé sur le goût déclaré de Baptiste (2026-06-17) : penchant sharp/technique
+<!-- STATUT (2026-06-17) : les 8 ci-dessous sont PROPOSÉS — sourcés et alignés sur
+     le goût DÉCLARÉ de Baptiste, mais pas encore validés à l'œil un par un. À sa
+     relecture, les survivants passent « validé » ; les recalés se retirent.
+     Curé sur le goût déclaré : penchant sharp/technique
      + calme/minimal, distinctif > canonique, domaines data + outils. Les picks
      « lifestyle » et « transaction » et les AI canoniques (ChatGPT, Pi) ont été
      retirés à ce titre. SEUL le trio fintech calibre le curseur d'audace (bornes

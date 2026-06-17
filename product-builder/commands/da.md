@@ -41,8 +41,12 @@ existe pour empêcher.
 > galeries web), et capture les références web retenues (point 4).
 
 1. **Bibliothèque d'exemplaires du kit** (`design-system/references/` du plugin,
-   chemin injecté en début de session) : le goût déjà validé par Baptiste,
-   consultée EN PREMIER. Si un exemplaire couvre le territoire, pars de lui.
+   chemin injecté en début de session) : le goût de Baptiste, consultée EN
+   PREMIER. Chaque exemplaire a un statut (cf. README) : **validé** (approuvé à
+   l'œil / via /retro) ou **proposé** (sourcé, pas encore validé). Si tu pars
+   d'un « proposé », tu peux — mais signale-le à la validation (étape 4) : la DA
+   s'ancre alors sur un candidat, pas sur du goût gravé. Si un exemplaire couvre
+   le territoire, pars de lui.
    Si elle est VIDE (aucun `.png`, juste le README) ou qu'aucun exemplaire ne
    couvre le territoire, NE DÉGRADE PAS EN SILENCE vers Mobbin/web : c'est une
    limitation de premier ordre — même statut qu'une source MCP indisponible — à
@@ -81,6 +85,10 @@ existe pour empêcher.
      le signale et bascule sur le repli ci-dessous.
    - app authentifiée (Linear, etc.) ou capture impossible → en DERNIER recours,
      URL + requête exacte, et le signaler comme limite dans le rapport.
+   - **Résolution** : une page publique se capture en haute-déf
+     (`capture-ref.sh`, 1440×900) — préfère-la. Une preview Mobbin (~300px iOS /
+     ~768px web) ancre un registre/pattern mais pas le micro-craft (filet 1px,
+     calage typo) : utilisable, mais note-le et ne juge pas la précision dessus.
 
 **3 références retenues MAX.** Dix moodboards = zéro direction.
 
@@ -119,9 +127,10 @@ autonome. Intègre ses retours, puis écris `design/da.md`.
 
 En tête de présentation, liste sans les noyer les **limitations de sourcing**
 rencontrées : bibliothèque d'exemplaires vide (le goût du kit ne s'est ancré sur
-rien) et/ou Mobbin indisponible. Une DA bâtie sans aucun exemplaire kit reste
-valide mais fragile — c'est le signal, répété à chaque /da tant que la
-bibliothèque reste vide, qu'il faut l'amorcer.
+rien), exemplaires seulement *proposés* (sourcés, non validés à l'œil — la DA
+s'appuie sur des candidats), et/ou Mobbin indisponible. Une DA bâtie sans aucun
+exemplaire kit reste valide mais fragile — c'est le signal, répété à chaque /da
+tant que la bibliothèque reste vide, qu'il faut l'amorcer.
 
 ## 5. Matérialiser
 

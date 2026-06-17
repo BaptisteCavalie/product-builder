@@ -11,6 +11,7 @@ encore appliqué se note en `⏳ en attente` jusqu'à son application.
 
 | Date rapport | Projet d'origine | Amendements | Statut | Commit |
 |---|---|---|---|---|
+| 2026-06-17 | kit (self) | 3 (retro kit-self, proposé/validé, résolution captures) | ✅ appliqué | _(ce commit)_ |
 | _(exemple)_ 2026-06-13 | wc2026 | 3 (anti-slop, exemplaire, /critique) | ✅ appliqué | `aa34117` |
 
 <!-- Nouvelles lignes ajoutées en tête de tableau, plus récent d'abord. -->

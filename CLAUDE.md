@@ -68,6 +68,11 @@ amendements dans les fichiers de `product-builder/` (et `docs/pipeline.md`),
 puis commit + push pour les distribuer. Les amendements kit arrivent donc ICI
 via un rapport collé, jamais via une session projet.
 
+**Exception — /retro lancé DANS ce repo (kit-self).** Projet = kit : pas de
+frontière à franchir, donc pas de rapport/handoff. /retro applique alors ses
+amendements directement ici (validés un par un), puis commit + push. Voir le
+« Cas particulier » de `product-builder/commands/retro.md`.
+
 **Tracer l'intake (sinon un rapport non porté = apprentissage perdu).** À
 chaque rapport /retro appliqué dans une session kit, ajoute une ligne dans
 `docs/kit-intake.md` (date du rapport, projet d'origine, nb d'amendements,

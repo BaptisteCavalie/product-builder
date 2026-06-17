@@ -15,6 +15,14 @@ JAMAIS le kit. /retro distille les signaux en deux flux distincts :
   **rapport ultra-détaillé** que Baptiste copie-colle dans une session dédiée
   au repo du kit ; cette session-là applique, commit et push (= distribution).
 
+**Cas particulier — /retro sur le kit lui-même.** Si la session tourne déjà dans
+le repo du kit, il n'y a pas de frontière projet/kit à franchir : le flux
+rapport → session dédiée (§4) devient inutile. Applique alors les amendements kit
+**directement ici**, toujours validés amendement par amendement (§3), puis commit
++ push (= distribution). Le §4 (rapport autosuffisant) ne sert que depuis un repo
+projet. La « séparation non négociable » ci-dessus vise les sessions PROJET ;
+elle ne s'applique pas quand projet = kit.
+
 ## 1. Relis la session
 
 Parcours la conversation et identifie :
@@ -41,7 +49,10 @@ Pour chaque signal, décide sa cible — elle détermine son flux.
 - écran que Baptiste a validé/aimé → nouvel exemplaire (capture + ligne
   d'index) dans `product-builder/design-system/references/`
   (la bibliothèque d'exemplaires — le goût positif se capitalise en images,
-  pas seulement en interdits)
+  pas seulement en interdits). Un exemplaire issu de /retro entre **validé**
+  (Baptiste a approuvé l'écran) — par opposition aux exemplaires **proposés**
+  par sourcing (/da, agent), à valider à l'œil. Voir la discipline proposé/
+  validé du README de la bibliothèque.
 - accessibilité → `product-builder/skills/a11y/SKILL.md`
 - domaine métier → `product-builder/skills/domain-knowledge/references/<domaine actif>.md`
   (si un domaine a été bootstrappé pendant la session, sa référence complète est
