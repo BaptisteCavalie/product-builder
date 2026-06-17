@@ -89,15 +89,21 @@ d'autres mondes (éditorial, photo, SaaS créatif).
    type specimens) avec le pourquoi « les galeries UI sont incestueuses ».
 5. **[FAIT]** `scripts/check-doctrine.sh` ✓ + `claude plugin validate` ✓ (warning
    « no version » attendu, cf. CLAUDE.md).
-6. **[FAIT — 2026-06-17]** Base multi-domaines semée via Mobbin (12 exemplaires,
-   16 live au total sur 13 domaines) : crypto (Kraken), saas (Linear), landing
-   (Cursor), ai (ChatGPT, Pi), ecommerce (H&M PDP, Shop checkout), travel
-   (Airbnb), food (Glovo), productivité (Things 3), fitness (Tonal), wellness
-   (Calm), media (Spotify), booking (Cal.com). Chaque ligne porte un pattern + sa
-   source. Volontairement ~2/domaine max (règle de curation : « dix moodboards =
-   zéro direction »). RESTE pour vraiment élargir : du **hors-UI** (éditorial
-   print, affiche, type specimens) — non couvert par Mobbin, à sourcer via /da.
+6. **[FAIT — 2026-06-17]** Base semée via Mobbin (16 live) PUIS **curée sur le
+   goût déclaré de Baptiste** (interrogation 4 questions) → **8 live** :
+   - Goût : penchant sharp/technique + calme/minimal, distinctif > canonique,
+     domaines data + outils. Retirés à ce titre : lifestyle (Calm, Tonal,
+     Spotify, Glovo, Airbnb), transaction (H&M, Shop, Cal.com), et les AI
+     canoniques (ChatGPT, Pi).
+   - Gardés : Qonto + Revolut (étalon curseur), Kraken + Fey (data), Linear
+     (saas), Perplexity (ai), Cursor (landing), Things 3 (ancrage calme). Fey +
+     Perplexity sourcés pour remplacer les AI canoniques par du sharp/distinctif.
+   - Résolution : Cursor recapturé en 1440px (site public) ; écrans d'app
+     mobiles restent en preview Mobbin (non recapturables hors device).
+   - RESTE pour élargir par le haut : du **hors-UI** (éditorial print, affiche,
+     type specimens) — non couvert par Mobbin, à sourcer via /da.
 
-> État au 2026-06-17 (session locale) : bibliothèque passée de 0 à 16 exemplaires
-> live, groupés par domaine. Étalon fintech milieu+haute live (Qonto, Revolut),
-> borne basse (BNP) + paire portfolio en attente côté Baptiste. Gates ✓.
+> État au 2026-06-17 (session locale) : bibliothèque 0 → 16 → **8 live curés**,
+> alignés sur le goût déclaré. Étalon fintech milieu+haute live (Qonto, Revolut),
+> borne basse (BNP) + paire portfolio en attente côté Baptiste. Gates ✓. Les 8
+> survivants restent à valider à l'œil un par un par Baptiste.
