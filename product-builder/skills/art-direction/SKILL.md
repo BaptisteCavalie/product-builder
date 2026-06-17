@@ -74,6 +74,33 @@ parti-pris a échoué autant qu'un écran surchargé — c'est le SaaS beige, l'
 slop. Le test du retrait ne s'applique JAMAIS à l'élément signature : son
 intention *est* l'identité.
 
+## Le curseur d'audace : doser le geste
+
+La retenue dit de garder UN geste fort ; le curseur dit **jusqu'où le pousser**.
+C'est un lever explicite **showcase/bold ↔ produit/sobre**, tranché en `/da` et
+écrit dans le DA brief — une *décision*, pas un défaut. Ni borne n'est « mieux » :
+le slop guette aux deux bouts (surchargé d'un côté, correct-mais-mort de l'autre).
+Ce qui le règle vient de l'étape 1 du brief : qui utilise le produit, dans quel
+état d'esprit, et la convention du domaine (loi de Jakob — un domaine méfiant
+récompense la convention, pas l'audace).
+
+Trois exemplaires fintech le **calibrent** (bibliothèque
+`design-system/references/`, à regarder côte à côte) :
+- **Basse — BNP.** Rassurer par la convention : hiérarchie portée par une donnée
+  en grand, accent institutionnel unique, zéro geste risqué. L'audace serait une
+  faute (l'argent veut de la confiance).
+- **Milieu — Qonto.** Retenue *habitée* : grille stricte, typo nette, densité
+  maîtrisée, accent sobre mais présent. Le défaut senior pour un outil quotidien.
+- **Haute — Revolut.** Parti-pris signature assumé : couleur/motion tranchées,
+  reconnaissable logo masqué, « postable sur Dribbble ». Réservé aux produits qui
+  doivent séduire avant de rassurer.
+
+Conséquence opérationnelle : plus le curseur monte, plus l'élément signature est
+amplifié — et plus le sourcing doit sortir de la discipline (un geste fort se
+vole hors-UI : éditorial, affiche, photo ; cf. `/da` étape 2). Calibrer trop
+étroit est un risque connu : ces trois bornes sont fintech, un brief d'un autre
+monde se calibre sur ses propres exemplaires.
+
 ## Typographie : choisir et apparier
 
 (design-judgment tient l'hygiène — tailles, longueur de ligne, graisses ; ici

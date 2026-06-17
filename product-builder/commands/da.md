@@ -59,6 +59,13 @@ existe pour empêcher.
      composants (ça, c'est le rôle de Mobbin et de la pattern library).
    - **Fonts In Use** : typographies réelles classées par secteur — la source
      pour NOMMER la police au lieu de subir celle par défaut.
+   - **Hors-UI — l'adjacent** : éditorial print & magazines (Eye, It's Nice
+     That), affiche & identité (Brand New), photographie, type specimens des
+     fonderies. Les galeries ci-dessus sont incestueuses : tout le monde y
+     regarde les mêmes shots → on converge vers le trend = slop. **Un geste
+     signature fort se vole HORS de la discipline** (une grille de magazine, un
+     cadrage photo, un specimen) puis se traduit en UI. Au moins une référence
+     hors-UI dès qu'on vise le haut du curseur d'audace (étape 3).
 4. Pour chaque référence retenue, sauvegarde une **capture image** dans
    `design/references/` — c'est la norme, pas l'option :
    - source web publique → le script de capture du kit (chemin injecté en début
@@ -81,6 +88,16 @@ forme, motion, l'élément signature, ce qu'on rejette.
 Charge les skills `art-direction` (typo nommée + appariement, composition,
 motion, retenue senior) et `color` (température des neutres, teinte d'accent,
 harmonie) pour trancher — pas tes réflexes génériques.
+
+**Place le curseur d'audace** — showcase/bold ↔ produit/sobre — et écris sa
+position dans le brief. Ce n'est pas réglé par les références (c'est une
+*décision*, pas un exemple) : un même domaine se traite sobre ou tranché selon
+qui l'utilise et dans quel état d'esprit (étape 1). Calibre sur les trois
+bornes de la bibliothèque d'exemplaires (`design-system/references/`) :
+**BNP** (basse — rassurer par la convention), **Qonto** (milieu — retenue
+habitée), **Revolut** (haute — parti-pris signature « postable sur Dribbble »).
+Le curseur dose l'élément signature et conditionne le sourcing (haut du curseur
+⇒ au moins une référence hors-UI, étape 2). Voir `skills/art-direction`.
 
 Chaque choix se justifie par une référence ou un principe. "Parce que c'est
 joli" n'est pas une justification ; "comme <référence>, parce que <principe>"

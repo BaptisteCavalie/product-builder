@@ -73,11 +73,23 @@ d'autres mondes (éditorial, photo, SaaS créatif).
 
 ## Prochaines étapes (session relancée)
 
-1. Capturer BNP/Qonto/Revolut via Mobbin (en local, authentifié) → PNG dans
-   `product-builder/design-system/references/` (nommage `fintech-<app>-<écran>.png`).
-2. Écrire les 3 lignes d'index avec les « pourquoi » du tableau ci-dessus.
-3. Câbler le curseur d'audace dans `commands/da.md` et `skills/art-direction/SKILL.md`,
-   en nommant ces 3 apps comme bornes de calibration.
-4. Amender la liste de sources de `/da` vers le hors-UI.
-5. Vérifier alignement doctrine (`scripts/check-doctrine.sh`) + `claude plugin validate`.
-6. Plus tard : exemplaires hors-fintech pour élargir l'œil.
+1. **[RESTE — local]** Capturer BNP/Qonto/Revolut via Mobbin (en local,
+   authentifié) → PNG dans `product-builder/design-system/references/`, nommage
+   `fintech-bnp-comptes.png`, `fintech-qonto-dashboard.png`,
+   `fintech-revolut-home.png` (les noms attendus par les lignes d'index déjà
+   écrites). Vérifier que les images rendent puis commit.
+2. **[FAIT]** Les 3 lignes d'index sont écrites dans `references/README.md` avec
+   les « pourquoi » du tableau (bornes basse/milieu/haute). Il ne manque que les
+   `.png` (étape 1) pour que les exemplaires soient complets.
+3. **[FAIT]** Curseur d'audace câblé dans `commands/da.md` (étape 3, décision
+   explicite) et `skills/art-direction/SKILL.md` (section dédiée), les 3 apps
+   nommées comme bornes. Gate `check-doctrine.sh` étendu pour le rendre auditable.
+4. **[FAIT]** Sources `/da` amendées vers le hors-UI (éditorial, affiche, photo,
+   type specimens) avec le pourquoi « les galeries UI sont incestueuses ».
+5. **[FAIT]** `scripts/check-doctrine.sh` ✓ + `claude plugin validate` ✓ (warning
+   « no version » attendu, cf. CLAUDE.md).
+6. **[RESTE — plus tard]** Exemplaires hors-fintech pour élargir l'œil (éviter de
+   calibrer le curseur trop étroit).
+
+> État au 2026-06-17 (session web) : tout le câblage texte/doctrine (2-5) est
+> fait. Seule la capture Mobbin (1) reste, bloquée en remote — à finir en local.
