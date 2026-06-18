@@ -81,3 +81,26 @@ d'autres mondes (éditorial, photo, SaaS créatif).
 4. Amender la liste de sources de `/da` vers le hors-UI.
 5. Vérifier alignement doctrine (`scripts/check-doctrine.sh`) + `claude plugin validate`.
 6. Plus tard : exemplaires hors-fintech pour élargir l'œil.
+
+## Statut au 2026-06-18 (session REMOTE — Mobbin indispo)
+
+Mobbin n'est pas montable en remote (OAuth interactif). Tout le travail
+indépendant des images a été porté ; ne reste que la capture, à faire en local.
+
+- [ ] **Étape 1 — BLOQUÉE en remote.** Capture des 3 PNG : à faire au prochain
+      `claude` local avec Mobbin authentifié. Les noms de fichiers attendus sont
+      déjà câblés dans l'index : `fintech-bnp-comptes.png`,
+      `fintech-qonto-dashboard.png`, `fintech-revolut-home.png` → il suffit de
+      déposer les .png à ces noms dans `design-system/references/`.
+- [x] **Étape 2 — FAIT.** 3 lignes d'index écrites avec les « pourquoi » du
+      tableau, flaggées « PNG en attente » (précédent : lignes portfolio).
+- [x] **Étape 3 — FAIT.** Curseur d'audace câblé : théorie dans
+      `skills/art-direction` (section « Le curseur d'audace »), décision dans
+      `commands/da.md` §3, slot dans `project-template/design/_template.md`.
+      Bornes BNP (basse) / Qonto (milieu) / Revolut (haute) nommées partout.
+- [x] **Étape 4 — FAIT.** Source « Hors-UI — l'adjacent » ajoutée à `/da` §2
+      (éditorial print, affiche, photo/DA de marque, type specimens).
+- [x] **Gate — FAIT.** Marqueur `curseur d'audace` ajouté à `check-doctrine.sh`
+      (da.md + art-direction restent alignés, comme les autres doctrines).
+- [x] **Étape 5 — FAIT.** `check-doctrine.sh` + `claude plugin validate` passés.
+- [ ] **Étape 6 — plus tard.** Exemplaires hors-fintech.

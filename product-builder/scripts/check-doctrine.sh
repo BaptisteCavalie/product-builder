@@ -57,6 +57,10 @@ req product-builder/skills/art-direction/SKILL.md  'signature' "visual-craft"
 req product-builder/agents/design-critic.md 'Couleur & système'   "visual-craft"
 req product-builder/agents/design-critic.md 'Composition & motion' "visual-craft"
 
+echo "→ Doctrine curseur d'audace (da.md décide la position / art-direction théorise l'amplitude)"
+req product-builder/commands/da.md                 'curseur d.audace' "audace"
+req product-builder/skills/art-direction/SKILL.md  'curseur d.audace' "audace"
+
 echo "→ Doctrine /retro (une session projet ne mute jamais le kit)"
 req CLAUDE.md                          'ne mute JAMAIS le kit' "retro"
 req product-builder/commands/retro.md  'ne mute'               "retro"

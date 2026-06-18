@@ -59,7 +59,20 @@ existe pour empêcher.
      composants (ça, c'est le rôle de Mobbin et de la pattern library).
    - **Fonts In Use** : typographies réelles classées par secteur — la source
      pour NOMMER la police au lieu de subir celle par défaut.
-4. Pour chaque référence retenue, sauvegarde une **capture image** dans
+4. **Hors-UI — l'adjacent** (WebSearch + WebFetch, ou références physiques) : un
+   geste signature fort se vole rarement DANS la discipline (UI ↔ UI = endogamie,
+   tout le monde finit par converger vers le même défaut). Va le chercher à côté :
+   - **Éditorial print** (magazines, mise en page, kiosque) : grilles, hiérarchie
+     typographique, rapport texte/image — la source historique de la composition.
+   - **Affiche / graphisme** (école suisse, festival, expo) : le geste fort, la
+     couleur tranchée, la typo géante assumée.
+   - **Photographie / DA de marque** : palette, lumière, ambiance — pour nommer
+     une émotion, pas un composant.
+   - **Type specimens** (fonderies, Fonts In Use) : voir une police vivre avant
+     de la nommer.
+   Ne copie pas le layout (une affiche n'est pas une UI) : vole l'attitude, la
+   palette, le parti-pris typographique, puis transpose à l'ergonomie produit.
+5. Pour chaque référence retenue, sauvegarde une **capture image** dans
    `design/references/` — c'est la norme, pas l'option :
    - source web publique → le script de capture du kit (chemin injecté en début
      de session) : `<chemin>/capture-ref.sh <url> design/references/<source>-<app>.png`
@@ -86,6 +99,16 @@ Chaque choix se justifie par une référence ou un principe. "Parce que c'est
 joli" n'est pas une justification ; "comme <référence>, parce que <principe>"
 en est une. L'élément signature est obligatoire : c'est LE choix qui rend le
 produit reconnaissable logo masqué.
+
+**Pose le curseur d'audace** (théorie dans `art-direction`) : décide
+explicitement où ce projet se situe entre **sobre/produit** et **showcase/bold**,
+et écris la position dans le brief. Calibre sur trois bornes fintech — **BNP**
+(basse : rassurer par la convention, loi de Jakob), **Qonto** (milieu : retenue
+*habitée*, rigueur B2B), **Revolut** (haute : parti-pris signature, registre
+« postable sur Dribbble ») — d'après le territoire de l'étape 1 : état d'esprit
+de l'utilisateur et coût de l'erreur. Ce curseur règle l'**amplitude** de
+l'élément signature, jamais le plancher anti-slop. Sans raison de viser une
+borne, cale-toi au milieu : la rigueur ne se fait jamais insulter.
 
 ## 4. Validation — le seul checkpoint
 

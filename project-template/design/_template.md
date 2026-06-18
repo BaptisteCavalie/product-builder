@@ -37,5 +37,9 @@ culture visuelle du domaine impose.]
 [LE choix mémorable qui rend le produit reconnaissable logo masqué — ex. "les
 cotes en mono géant", "les transitions de score en flip". Un seul.]
 
+**Curseur d'audace** : [sobre/produit ↔ showcase/bold — calibre sur BNP (basse) /
+Qonto (milieu) / Revolut (haute)] — parce que [état d'esprit utilisateur + coût
+de l'erreur]. Règle l'amplitude du geste signature, jamais le plancher anti-slop.
+
 ## On rejette
 - [direction écartée] — parce que [raison]

@@ -74,6 +74,41 @@ parti-pris a échoué autant qu'un écran surchargé — c'est le SaaS beige, l'
 slop. Le test du retrait ne s'applique JAMAIS à l'élément signature : son
 intention *est* l'identité.
 
+## Le curseur d'audace : décider l'amplitude du geste
+
+La retenue retire l'ornement gratuit ; elle ne fixe PAS *à quel point* le geste
+signature est osé. Ça, c'est une décision de projet — un **curseur d'audace**
+explicite que le DA brief pose, du **sobre/produit** au **showcase/bold**. Sans
+ce curseur, le travail régresse vers sa pente naturelle (la retenue) et produit
+du *correct-mais-mort* : propre, accessible, oubliable. L'absence de geste est un
+échec autant que la surcharge — Dribbble récompense le geste signature, pas
+l'absence de faute.
+
+Le curseur ne touche JAMAIS au plancher : anti-slop tient, le test du retrait
+tient, l'hygiène tient à toutes les positions. Il règle l'**amplitude** du geste
+signature (taille, contraste, prise de risque du parti-pris) — pas la permission
+d'ajouter du bruit. Monter le curseur = un geste plus *tranché*, jamais plus de
+gestes.
+
+Trois bornes de calibration (fintech, du plus sobre au plus osé) :
+- **Borne basse — BNP** (finance grand public). Rassurer par la sobriété :
+  hiérarchie portée par le solde en grand, densité maîtrisée, accent
+  institutionnel unique, zéro geste risqué. La confiance se gagne par la
+  convention (loi de Jakob). Le registre des domaines où l'erreur coûte cher
+  (finance grand public, santé, démarches).
+- **Milieu — Qonto** (pro). Retenue *habitée* : grille stricte, typo nette,
+  données denses sans surcharge, `tabular-nums`, accent sobre mais assumé. Le
+  geste est dans la rigueur, pas dans l'effet. Le défaut B2B / outil.
+- **Borne haute — Revolut** (signature). Parti-pris fort assumé : couleur et
+  motion signature, cartes produit différenciées, reconnaissable logo masqué. Le
+  registre « postable sur Dribbble ». Pour les produits qui doivent séduire avant
+  de rassurer (consumer, créatif, marketing).
+
+Règle le curseur sur le **territoire** (qui utilise, dans quel état d'esprit,
+combien l'erreur coûte) : méfiant + enjeu élevé → bas ; veut être séduit → haut.
+En cas de doute, vise le milieu. Le test du logo masqué doit passer à TOUTE
+position : sobre ≠ interchangeable.
+
 ## Typographie : choisir et apparier
 
 (design-judgment tient l'hygiène — tailles, longueur de ligne, graisses ; ici
