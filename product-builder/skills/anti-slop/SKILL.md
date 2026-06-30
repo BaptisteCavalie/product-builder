@@ -1,6 +1,6 @@
 ---
 name: anti-slop
-description: Liste des interdits visuels à vérifier sur TOUT output UI avant de le considérer terminé — composants, pages, emails, slides, SVG. Déclencher systématiquement en phase de build ET de critique, sur toute génération visuelle sans exception.
+description: Liste des interdits à vérifier sur TOUT output avant de le considérer terminé — visuel (composants, pages, emails, slides, SVG) ET texte long-forme (articles, READMEs, posts, docs). Déclencher systématiquement en phase de build ET de critique, sur toute génération sans exception.
 ---
 
 # Anti-slop
@@ -79,6 +79,29 @@ premier, sur le CSS autant que sur le rendu) :
 - ❌ Placeholder utilisé comme seul label (disparaît à la saisie).
 - ❌ Title Case anglais sur un titre FR, "Editer" et autres calques de l'anglais.
 - ❌ Lorem ipsum ou texte de remplissage shippé tel quel.
+
+**Prose long-forme** (articles, READMEs, posts, docs — le plancher de la
+rédaction ; le plafond reste `ux-writing`). Ces tournures trahissent le texte
+généré : aucune n'est interdite à l'unité, c'est le RÉFLEXE systématique qui est
+le tell. Mesurées par fréquence sur le corpus de Baptiste (colonne « articles
+touchés ») — vérifier d'abord celles qui contaminent le plus d'articles.
+- ❌ **Deux-points explicatifs** en cascade pour poser puis « révéler » (« La clé : … »).
+- ❌ **Sous-titres H2/H3 systématiques** découpant un texte court qui n'en a pas besoin.
+- ❌ Formules **« de X à Y »** pour balayer un faux spectre (« de la stratégie à l'exécution »).
+- ❌ **Tricolons** réflexes — l'énumération à trois termes « X, Y et Z » par cadence, pas par sens.
+- ❌ Jargon **« agentique » / « agents »** plaqué là où un mot concret suffit.
+- ❌ **« vrai/vraie » + nom** pour fabriquer de l'enjeu (« le vrai problème », « la vraie question »).
+- ❌ **« signal »** en tic (« c'est un signal que… »).
+- ❌ **Questions rhétoriques** qui s'auto-répondent (« Pourquoi ça marche ? Parce que… »).
+- ❌ **Guillemets typographiques** en scare-quotes sur des mots ordinaires pour faire entendu.
+- ❌ **Tirets longs** (—) en ponctuation d'emphase à répétition (cf. « Copy » pour l'UI).
+- ❌ Structure **« pas X, mais Y »** et sa variante **« ce n'est pas…, c'est… »**, contraste fabriqué.
+- ❌ **« selon »** vague sans source réelle (« selon les experts »).
+- ❌ **Appel direct au lecteur** réflexe (« vous l'aurez compris », « imaginez que… »).
+- ❌ **« il faut »** impersonnel et injonctif à répétition.
+- ❌ **Puces** par défaut là où une phrase suffit — la liste découpe une vraie énumération, pas un paragraphe.
+- ❌ **Gras markdown** semé pour « guider l'œil » — l'emphase partout = emphase nulle part.
+- ❌ **« promesse »** en tic de pitch (« la promesse de… »).
 
 **Layout**
 - ❌ Hero centré + badge pilule "New ✨" + titre 3 lignes + 2 CTA côte à côte,
