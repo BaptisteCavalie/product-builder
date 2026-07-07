@@ -6,7 +6,10 @@ description: Checklist d'accessibilité WCAG 2.2 AA à appliquer pendant TOUT bu
 # Accessibilité — WCAG 2.2 AA opérationnel
 
 AA est le plancher de la constitution. Cette checklist s'applique PENDANT le
-build (concevoir accessible) puis se vérifie en gate (axe-core via le hook).
+build (concevoir accessible) puis se re-vérifie en critique (rubrique du
+design-critic). AUCUNE gate machine ne la vérifie : les hooks couvrent
+typecheck/lint/code mort, pas l'accessibilité — ne jamais la présumer
+« vérifiée par les gates ». C'est une vérification à l'œil et sur le code.
 Référence complète : https://www.w3.org/WAI/WCAG22/quickref/
 
 ## Structure & sémantique

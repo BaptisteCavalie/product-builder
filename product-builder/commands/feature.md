@@ -63,6 +63,13 @@ Construis le scope retenu en appliquant le DA brief et les skills **pertinents
 - `ux-writing` : dès qu'il y a de la copie visible à l'utilisateur ;
 - `domain-knowledge` : si un domaine est déclaré dans le CLAUDE.md du projet
   (il charge la référence métier correspondante).
+- **Ouvre les exemplaires AVANT d'écrire le premier composant.** Lis (Read) les
+  captures du DA brief (`design/references/`) et 1-2 exemplaires du registre
+  visé dans la bibliothèque du kit (chemin injecté en début de session). Un
+  modèle imite un bon exemple bien mieux qu'il n'obéit à un adjectif — c'est
+  la raison d'être de la bibliothèque, et elle vaut au build autant qu'en
+  critique. Un build lancé sans avoir regardé une seule image retombe sur la
+  moyenne statistique, DA brief ou pas.
 - Tokens uniquement : le `@theme` de l'entrypoint CSS du projet matérialise
   le contrat de tokens du kit (chemin injecté en début de session ; projet
   sans Tailwind : mêmes noms de tokens dans le `:root` de l'entrypoint CSS).

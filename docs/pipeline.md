@@ -117,7 +117,10 @@ flowchart TD
 
 ## 3. Build — les gates de goût
 
-Le nœud « Build » éclaté en ses gates binaires. C'est ici que vivent les skills
+Le nœud « Build » éclaté en ses gates binaires. Avant le premier composant, le
+build OUVRE les images : captures du DA brief + 1-2 exemplaires du registre visé
+(bibliothèque du kit) — l'imitation d'un bon exemple précède l'obéissance aux
+règles. C'est ici que vivent les skills
 `design-judgment`, `color`, `anti-slop`, `art-direction`, `ux-writing` et
 `a11y` : le goût est devenu une suite de oui/non vérifiables, plus une intention
 vague. Un seul *non*
