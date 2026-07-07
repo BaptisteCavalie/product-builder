@@ -22,6 +22,9 @@ projets consommateurs, pas ce fichier.
 
 ## Développer le kit
 
+- En début de session kit : lire `docs/en-attente.md` (les actions que seul
+  Baptiste peut faire — validations d'exemplaires, captures à fournir) et
+  signaler les lignes qui dorment. C'est le pendant humain des gates.
 - Tester : `claude --plugin-dir ./product-builder`, puis `/reload-plugins`
   après chaque modif.
 - Valider avant push : `claude plugin validate ./product-builder`,
