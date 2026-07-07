@@ -127,7 +127,9 @@ vague. Un seul *non*
 sur n'importe quel gate → on corrige avant de continuer, jamais on shippe.
 L'anti-slop n'est pas un *vibe* : sa liste se parcourt interdit par interdit
 (rendu + CSS), au build comme en critique — un « ça respecte » global ne compte
-pas.
+pas. Chaque interdit a un ID stable (`AS-…`, cité dans les verdicts et la
+télémétrie) et les interdits machine-vérifiables (⚙) sont en plus attrapés en
+continu par la gate `check-slop.sh` (hook PostToolUse).
 
 ```mermaid
 flowchart TD

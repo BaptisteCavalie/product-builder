@@ -20,9 +20,8 @@ ERRORS=""
 
 case "$FILE" in
   *.ts|*.tsx|*.js|*.jsx)
-    [ -f "package.json" ] || exit 0
-    # ESLint sur le fichier seul (rapide)
-    if [ -f "node_modules/.bin/eslint" ]; then
+    # ESLint sur le fichier seul (rapide) — seulement si le projet en a un
+    if [ -f "package.json" ] && [ -f "node_modules/.bin/eslint" ]; then
       # --quiet : seules les ERREURS bloquent (exit 2). Les warnings préexistants
       # d'un fichier touché pour une autre raison ne doivent pas couper la boucle.
       LINT_OUT=$(npx eslint --quiet "$FILE" 2>&1)
@@ -31,6 +30,8 @@ case "$FILE" in
       fi
     fi
     ;;
+  *.css|*.scss|*.html|*.svelte|*.vue)
+    : ;; # pas de lint dédié — mais la gate anti-slop ci-dessous s'applique
   *.py)
     # Syntaxe (déterministe, zéro faux positif, aucune config requise)
     COMPILE_OUT=$(python3 -m py_compile "$FILE" 2>&1)
@@ -46,6 +47,25 @@ case "$FILE" in
     fi
     ;;
   *) exit 0 ;;
+esac
+
+# Gate anti-slop machine-vérifiable (interdits ⚙ du skill anti-slop) — sur
+# les surfaces visuelles/copy. Le script s'auto-garde (extensions, @theme).
+case "$FILE" in
+  *.ts|*.tsx|*.js|*.jsx|*.css|*.scss|*.html|*.svelte|*.vue)
+    SLOP_SH=""
+    if [ -x "${CLAUDE_PLUGIN_ROOT:-}/scripts/check-slop.sh" ]; then
+      SLOP_SH="${CLAUDE_PLUGIN_ROOT}/scripts/check-slop.sh"
+    elif [ -x "product-builder/scripts/check-slop.sh" ]; then
+      SLOP_SH="product-builder/scripts/check-slop.sh"
+    fi
+    if [ -n "$SLOP_SH" ]; then
+      SLOP_OUT=$("$SLOP_SH" "$FILE" 2>&1)
+      if [ $? -ne 0 ]; then
+        ERRORS="${ERRORS}--- anti-slop (gate machine) ---\n${SLOP_OUT}\n"
+      fi
+    fi
+    ;;
 esac
 
 if [ -n "$ERRORS" ]; then
