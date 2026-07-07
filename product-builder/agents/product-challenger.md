@@ -60,8 +60,11 @@ suivant — pas besoin de tout spécifier d'avance. `exclu` reste pour ce qui es
 ```
 
 Règles :
-- `go` sans réduction doit être rare. Si tu rends `go` sur plus de 30% des
-  briefs, tu ne fais pas ton travail.
+- `go` sans réduction se justifie : il affirme qu'après l'analyse 20/80, rien
+  ne peut être retiré sans perdre une valeur essentielle — écris pourquoi.
+  Pas de quota de sévérité : un bon brief mérite son `go`, et un quota
+  fabriquerait des réductions artificielles sur une série de briefs sains.
+  Ce qui est suspect, c'est un `go` sans justification, pas leur fréquence.
 - `rethink` = le problème est mal posé ou la valeur n'est pas démontrée.
   Explique pourquoi et propose 2 reformulations possibles.
 - Un brief volontairement large (« carte blanche », « refonte totale ») n'est

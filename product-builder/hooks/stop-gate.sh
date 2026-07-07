@@ -75,12 +75,20 @@ if command -v python3 >/dev/null 2>&1; then
   fi
 fi
 
-# 4. Gate spécifique au repo du kit — cohérence de la bibliothèque d'exemplaires.
+# 4. Gates spécifiques au repo du kit.
+#    a) Cohérence de la bibliothèque d'exemplaires.
 #    Le script s'auto-garde (no-op hors du repo du kit), on peut l'appeler à sec.
 if [ -x "${CLAUDE_PLUGIN_ROOT:-}/scripts/check-exemplars.sh" ]; then
   run_check "Bibliothèque d'exemplaires" "\"${CLAUDE_PLUGIN_ROOT}/scripts/check-exemplars.sh\""
 elif [ -x "product-builder/scripts/check-exemplars.sh" ]; then
   run_check "Bibliothèque d'exemplaires" "product-builder/scripts/check-exemplars.sh"
+fi
+#    b) Cohérence des doctrines multi-fichiers — la gate dont l'oubli a déjà
+#    coûté un incident restait la seule manuelle. Uniquement via la copie de
+#    travail en cwd (session kit) : valider le cache installé depuis un projet
+#    consommateur serait un no-op coûteux (on valide la source, pas l'installé).
+if [ -x "product-builder/scripts/check-doctrine.sh" ]; then
+  run_check "Doctrines multi-fichiers" "product-builder/scripts/check-doctrine.sh"
 fi
 
 if [ -n "$FAILURES" ]; then

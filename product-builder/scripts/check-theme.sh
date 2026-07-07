@@ -25,10 +25,13 @@ if [ ! -f "$CONTRACT" ]; then
 fi
 
 MISSING=0
-# Noms de variables --xxx déclarés dans le contrat (catégories à matérialiser)
+# Noms de variables --xxx déclarés dans le contrat (catégories à matérialiser).
+# On exige la DÉCLARATION (token suivi de ':') : un match par sous-chaîne ne
+# suffit pas — --color-text est une sous-chaîne de --color-text-secondary, et
+# un projet où --color-text manque passerait la gate en silence.
 while IFS= read -r tok; do
   [ -z "$tok" ] && continue
-  grep -q -- "$tok" "$TARGET" || { echo "✗ catégorie de token absente du projet : $tok"; MISSING=1; }
+  grep -Eq -- "${tok}[[:space:]]*:" "$TARGET" || { echo "✗ catégorie de token absente du projet : $tok"; MISSING=1; }
 done < <(grep -oE '^[[:space:]]*--[a-z0-9-]+' "$CONTRACT" | sed -E 's/^[[:space:]]+//' | sort -u)
 
 if [ "$MISSING" -eq 0 ]; then
