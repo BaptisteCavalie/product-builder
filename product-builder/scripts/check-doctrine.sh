@@ -57,6 +57,17 @@ req product-builder/skills/art-direction/SKILL.md  'signature' "visual-craft"
 req product-builder/agents/design-critic.md 'Couleur & système'   "visual-craft"
 req product-builder/agents/design-critic.md 'Composition & motion' "visual-craft"
 
+echo "→ Doctrine motion (durées/easings en tokens --duration-*/--ease-*)"
+req product-builder/design-system/tokens.css      'duration-micro' "motion"
+req product-builder/skills/art-direction/SKILL.md 'duration-'      "motion"
+req product-builder/agents/design-critic.md       'duration-'      "motion"
+req product-builder/constitution.md               'easing'         "motion"
+
+echo "→ Doctrine dark (rampe sombre dédiée, jamais une inversion)"
+req product-builder/design-system/tokens.css      'inversion' "dark"
+req product-builder/design-system/README.md       'inversion' "dark"
+req product-builder/skills/color/SKILL.md         'inversion' "dark"
+
 echo "→ Doctrine curseur d'audace (lever showcase↔sobre, da + art-direction)"
 req product-builder/commands/da.md                 "curseur d'audace" "curseur-audace"
 req product-builder/skills/art-direction/SKILL.md  "curseur d'audace" "curseur-audace"

@@ -39,7 +39,8 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
   projet en matérialise les valeurs dans le `@theme` de son entrypoint CSS —
   le seul bloc que Tailwind v4 compile (projet sans Tailwind : mêmes noms de
   tokens dans le `:root` de l'entrypoint CSS — le contrat est agnostique du
-  framework). Aucune couleur, taille, espacement ou radius hors de ces tokens.
+  framework). Aucune couleur, taille, espacement, radius ni durée/easing de
+  motion hors de ces tokens.
 
 ## Règles non négociables
 
