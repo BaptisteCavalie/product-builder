@@ -85,7 +85,9 @@ Construis le scope retenu en appliquant le DA brief et les skills **pertinents
   interdit sur le CSS/markup produit, et corrige sur place. C'est un gate de
   build au même titre que tsc/lint — pas une intention : le slop est le plus
   souvent introduit AU build, pas hérité. Cocher chaque interdit ; un « ça
-  respecte » global ne compte pas.
+  respecte » global ne compte pas. (Les interdits marqués ⚙ sont en plus
+  attrapés en continu par `check-slop.sh` via le hook PostToolUse — la gate
+  rattrape l'oubli, elle ne remplace pas la passe énumérée.)
 - Commits atomiques avec messages clairs.
 
 ## Étape 5 — Vérification (gates machine + visuel, OBLIGATOIRE)
@@ -152,5 +154,9 @@ Puis ajoute une ligne dans `telemetry/runs.jsonl`. Le champ `type` permet de
 loguer aussi les sessions `critique` / `fix` / `retro` (compteurs critics
 optionnels hors run de feature) — toute session de travail laisse une trace :
 ```json
-{"date":"<ISO>","type":"feature","feature":"<nom>","tours":N,"blockers":N,"majors":N,"minors":N,"nits":N,"escalade":false,"dimensions_faibles":["..."]}
+{"date":"<ISO>","type":"feature","feature":"<nom>","tours":N,"blockers":N,"majors":N,"minors":N,"nits":N,"escalade":false,"dimensions_faibles":["..."],"regles_anti_slop":["AS-…"]}
 ```
+`regles_anti_slop` liste les IDs des interdits anti-slop effectivement
+déclenchés pendant le run (issues critics + auto-passe). Vide si aucun.
+C'est cette trace qui permet à /retro de mesurer quelles règles servent —
+et d'élaguer celles qui ne se déclenchent jamais.

@@ -66,8 +66,10 @@ une capture statique → lis le CSS/code pour les lignes `(code)`)
 - L'écran tient-il sur une grille 8pt (marges, gouttières, espacements) ?
 - Le poids visuel est-il équilibré (centre de gravité clair, pas de dérive accidentelle) ?
 - `(code)` Les durées de motion sont-elles dans les clous (100–200ms micro,
-  200–500ms transitions), l'easing non linéaire, et chaque animation
-  explique-t-elle quelque chose (pas de décoration) ?
+  200–500ms transitions), déclarées via les tokens (`--duration-*` /
+  `--ease-*` — une valeur ms en dur = valeur hors tokens), l'easing non
+  linéaire, et chaque animation explique-t-elle quelque chose (pas de
+  décoration) ?
 - `(code)` `prefers-reduced-motion` est-il respecté ?
 
 **États & feedback**
@@ -93,7 +95,9 @@ une capture statique → lis le CSS/code pour les lignes `(code)`)
   code (bordure-gauche, card-in-card, valeurs hors tokens, durées de motion…).
   Un seul « ça respecte anti-slop » global, sans énumération, est un verdict
   invalide : c'est l'absence d'énumération qui a laissé passer bordure d'accent
-  gauche et card-in-card sur deux passes. Chaque interdit présent = une issue.
+  gauche et card-in-card sur deux passes. Chaque interdit présent = une issue,
+  avec son ID stable (`AS-…`) dans le champ `principle` — c'est cet ID qui
+  alimente la télémétrie et rend l'élagage de /retro mesurable.
 
 **Cohérence**
 - Le même problème est-il résolu de la même façon partout (patterns internes cohérents) ?

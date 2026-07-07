@@ -13,6 +13,13 @@
    En projet, on construit les valeurs du @theme via le skill `color`
    (rampe OKLCH à pas réguliers) : oklch() pour le web/app, HEX/sRGB en
    repli pour email & vieux webviews.
+
+   Dark mode : même contrat, mêmes noms — les valeurs sombres se
+   redéclarent dans un bloc dédié de l'entrypoint ([data-theme="dark"] ou
+   @media (prefers-color-scheme: dark)), construites comme une rampe
+   sombre dédiée (skill `color`, § dark) — jamais une inversion de la
+   rampe claire. check-theme.sh vérifie les catégories, pas les modes :
+   le contraste se re-prouve séparément en sombre.
    ============================================================ */
 
 :root {
@@ -61,6 +68,13 @@
   --radius-sm: 6px;      /* inputs, boutons */
   --radius-md: 10px;     /* cards, conteneurs */
   --radius-full: 9999px; /* avatars, pilules — avec parcimonie */
+
+  /* --- Motion (l'intention vit dans art-direction ; AUCUNE durée ni easing
+         en dur dans un composant — même règle que les couleurs) --- */
+  --duration-micro: 150ms;  /* hover, toggle, press — clous : 100–200ms */
+  --duration-view: 300ms;   /* transition de vue/contexte — clous : 200–500ms */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* entrées : arrive vite, se pose */
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);  /* sorties : part vite */
 
   /* --- Élévation (RÉSERVÉE aux éléments flottants : modale, dropdown, toast) --- */
   --shadow-floating: 0 4px 16px rgb(0 0 0 / 0.10);

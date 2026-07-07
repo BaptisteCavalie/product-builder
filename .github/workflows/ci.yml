@@ -1,0 +1,65 @@
+# CI du kit — rejoue les gates déterministes à chaque push/PR.
+#
+# Pourquoi : push = mise en production du kit (pas de version, auto-update des
+# projets au démarrage de session). Sans CI, la discipline ne tenait qu'à la
+# machine locale qui pousse ; un push qui saute les gates distribue un kit
+# cassé à tous les projets. Ici, la même gate que le Stop hook, côté serveur.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Doctrines multi-fichiers (check-doctrine)
+        run: ./product-builder/scripts/check-doctrine.sh
+
+      - name: Bibliothèque d'exemplaires (check-exemplars)
+        run: ./product-builder/scripts/check-exemplars.sh
+
+      - name: Syntaxe bash — hooks et scripts
+        run: |
+          set -e
+          for f in product-builder/hooks/*.sh product-builder/scripts/*.sh; do
+            bash -n "$f"
+          done
+
+      # Non-bloquant pour l'instant : le niveau style/warning n'a jamais été
+      # appliqué au legacy. À passer bloquant (retirer continue-on-error)
+      # une fois les findings existants traités.
+      - name: ShellCheck (informatif)
+        continue-on-error: true
+        run: shellcheck product-builder/hooks/*.sh product-builder/scripts/*.sh
+
+      - name: Manifests et hooks JSON valides
+        run: |
+          set -e
+          for f in .claude-plugin/marketplace.json \
+                   product-builder/.claude-plugin/plugin.json \
+                   product-builder/hooks/hooks.json \
+                   project-template/.claude/settings.json; do
+            jq empty "$f"
+          done
+
+      - name: check-theme — autotest sur le contrat
+        run: |
+          grep -E '^\s*--' product-builder/design-system/tokens.css > /tmp/theme-autotest.css
+          ./product-builder/scripts/check-theme.sh /tmp/theme-autotest.css
+
+  # Validation officielle du plugin et de la marketplace via la CLI.
+  # Non-bloquant : dépend d'un npm install réseau et d'une CLI qui évolue —
+  # informatif tant que sa stabilité en CI n'est pas prouvée.
+  plugin-validate:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install -g @anthropic-ai/claude-code
+      - run: claude plugin validate ./product-builder
+      - run: claude plugin validate .

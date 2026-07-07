@@ -31,6 +31,10 @@ projets consommateurs, pas ce fichier.
   `claude plugin validate .` (marketplace), ET
   `./product-builder/scripts/check-doctrine.sh` (cohérence des doctrines
   multi-fichiers — gate déterministe, pas seulement la vigilance).
+- La CI (`.github/workflows/ci.yml`) rejoue ces gates à chaque push/PR :
+  check-doctrine, check-exemplars, syntaxe bash, JSON des manifests,
+  autotest check-theme. La production (push sur main) n'est plus gardée
+  par la seule machine locale.
 - `plugin.json` n'a **pas** de champ `version`, c'est voulu : chaque commit
   est une version, et les projets s'auto-mettent à jour au démarrage de
   session. **Push = mise en production du kit.**
@@ -59,6 +63,12 @@ email) est aussi posé en en-tête de `design-system/tokens.css` et vérifié pa
 les blocs « Couleur & système » et « Composition & motion » de
 `agents/design-critic.md`. Garder ces quatre points alignés — même règle que la
 doctrine tokens : deux formulations divergentes = incident.
+
+Même famille, ajoutées le 07/07/2026 (vérifiées par `check-doctrine.sh`) :
+**motion en tokens** (`--duration-*`/`--ease-*` dans le contrat ; posée dans
+`tokens.css`, `constitution.md`, `skills/art-direction`, `agents/design-critic`)
+et **dark = rampe sombre dédiée, jamais une inversion** (posée dans
+`tokens.css`, `design-system/README.md`, `skills/color`).
 
 ## /retro
 

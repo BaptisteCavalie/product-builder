@@ -140,7 +140,9 @@ c'est l'expression.)
 
 - **Durées.** Micro-interactions (hover, toggle, press) 100–200 ms ;
   transitions de vue/contexte 200–500 ms. La durée croît avec la distance
-  parcourue ou le changement de taille (Material, Carbon).
+  parcourue ou le changement de taille (Material, Carbon). Les valeurs se
+  déclarent dans les tokens (`--duration-*`, `--ease-*`) : une durée en ms
+  en dur dans un composant est une valeur hors tokens (anti-slop).
 - **Easing.** `ease-out` à l'entrée (arrive vite, se pose), `ease-in` à la
   sortie (part vite). Jamais `linear` pour de l'UI — ça paraît mécanique.
 - **Intention.** La motion sert la compréhension (montrer origine/destination,

@@ -149,9 +149,11 @@ capitaliser :
   effet après ≥3 runs : signale-le — la règle est mal ciblée, à reformuler ou
   retirer, pas à empiler une règle de plus par-dessus.
 - **Élagage (le kit applique sa propre retenue).** Repère les règles candidates
-  au retrait : une interdiction `anti-slop` ou une ligne de skill qui ne s'est
-  jamais manifestée en critique sur de nombreux runs, ou deux règles
-  redondantes. Propose-les au retrait/fusion dans le rapport. Le kit n'a pas
+  au retrait : une interdiction `anti-slop` dont l'ID (`AS-…`) n'apparaît dans
+  aucun `regles_anti_slop` de la télémétrie sur de nombreux runs, une ligne de
+  skill qui ne s'est jamais manifestée en critique, ou deux règles redondantes.
+  Propose-les au retrait/fusion dans le rapport — avec les compteurs d'IDs
+  comme preuve, pas une impression. Le kit n'a pas
   qu'un chemin « ajouter » : « le junior ajoute, le senior retire » vaut aussi
   pour la doctrine elle-même.
 - Termine la réponse par : le chemin du rapport, le nombre d'amendements kit
