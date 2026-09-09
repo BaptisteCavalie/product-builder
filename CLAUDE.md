@@ -17,8 +17,11 @@ projets consommateurs, pas ce fichier.
   d'exemplaires : le goût validé de Baptiste, en images annotées).
 - `project-template/` — ce qu'un projet consommateur garde en propre :
   CLAUDE.md mince (domaine + spécificités), `.claude/settings.json`
-  (pointeur marketplace + plugin), `patterns/`, `design/` (DA brief
-  produit par /da + captures de références), `telemetry/`.
+  (pointeur marketplace + plugin), `.claude/hooks/ensure-plugin.sh`
+  (bootstrap : installe le plugin en conteneur neuf — il ne peut pas vivre
+  dans le plugin, c'est lui qui l'installe ; à ne pas confondre avec
+  `product-builder/hooks/session-start.sh`), `patterns/`, `design/` (DA
+  brief produit par /da + captures de références), `telemetry/`.
 
 ## Développer le kit
 

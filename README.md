@@ -19,7 +19,8 @@ npx create-next-app@latest mon-projet --typescript --tailwind --app
 cd mon-projet
 # copier le contenu de project-template/ à la racine :
 #   CLAUDE.md (compléter domaine + chemin du clone du kit)
-#   .claude/settings.json, patterns/, design/, telemetry/
+#   .claude/settings.json, .claude/hooks/ensure-plugin.sh (⚠️ fichiers cachés),
+#   patterns/, design/, telemetry/
 claude   # propose automatiquement d'installer le plugin (via settings.json)
 ```
 
