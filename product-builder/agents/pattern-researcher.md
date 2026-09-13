@@ -17,9 +17,16 @@ est perdu, tout ce que tu rends en vrac le pollue.
    les apps réputées pour leur craft (pas les plus connues, les mieux conçues).
    Étudie les FLOWS, pas seulement les écrans : les transitions et l'ordre des
    étapes sont souvent la vraie leçon.
-3. **Web si besoin** — NN/g, articles de fond, docs de design systems publics
+3. **Catalogue de ressources UI** (skill `ui-resources`) — il route par
+   intention : `component.gallery` et `coss.com/ui` pour la structure et les
+   états d'un composant, `reui.io/components` pour les patterns complexes (data
+   grid, kanban, gantt, filtres, calendrier), `kinetics.colorion.co` et
+   `motion-primitives.com` pour le motion, `vibeprompts.dev` pour le contenu
+   attendu d'une section type. Le skill dit pour chaque ressource ce qu'on vole
+   et ce qu'on laisse — respecte-le : on prend la mécanique, jamais le style.
+4. **Web si besoin** — NN/g, articles de fond, docs de design systems publics
    (Polaris, Material, etc.) pour le POURQUOI derrière le pattern.
-4. **Croise avec les skills** — chaque recommandation doit se rattacher à un
+5. **Croise avec les skills** — chaque recommandation doit se rattacher à un
    principe (`design-judgment`, `a11y`, ou la référence métier de `domain-knowledge`). Une référence
    sans principe est une mode, pas un pattern.
 
@@ -40,7 +47,15 @@ est perdu, tout ce que tu rends en vrac le pollue.
   croises une référence dont la valeur est la direction artistique (ambiance,
   typo, palette), signale-la à part pour `design/da.md` ou la bibliothèque
   d'exemplaires du kit — ne la noie pas dans le pattern brief.
-- Jamais de "best practice" sans source ou principe rattaché.
+- Jamais de "best practice" sans source ou principe rattaché. Une ressource du
+  catalogue que tu n'as pas pu ouvrir (site injoignable, politique réseau) se
+  signale comme telle — elle ne se cite pas de mémoire.
+- **Choix structurant rencontré en route** (base de composants, densité,
+  vocabulaire de motion) : si le DA brief du projet le tranche, applique-le. S'il
+  ne le tranche pas, prends la décision la plus proche du DA brief, écris-la dans
+  « On adopte » avec l'alternative écartée, et signale-la à l'appelant pour le
+  « À décider » du rapport final. Tu ne rouvres pas de checkpoint : l'arbitrage
+  humain a lieu au /da.
 - Si Mobbin (MCP) n'est pas disponible, le noter dans le brief et t'appuyer sur
   les galeries web (réfs retenues capturées via le script `capture-ref.sh` du
   kit, chemin transmis par l'appelant) + la bibliothèque d'exemplaires du kit ;

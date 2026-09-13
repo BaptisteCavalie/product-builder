@@ -9,6 +9,11 @@ culture visuelle du domaine impose.]
 **Ambiance** : [mot 1] · [mot 2] · [mot 3]
 **Anti-mots** : [ce que l'écran ne doit jamais dégager — ex. "corporate", "jouet", "magie IA"]
 
+## Curseur d'audace
+[Position sur l'axe showcase/bold ↔ produit/sobre, calibrée sur les bornes de la
+bibliothèque du kit (BNP basse · Qonto milieu · Revolut haute), + la raison.
+C'est une décision, pas un exemple : elle dose l'élément signature.]
+
 ## Références (3 max)
 ### [App / site]
 - **Source** : [Mobbin / Awwwards / Godly / Dribbble / … + lien ou requête pour la retrouver]
@@ -36,6 +41,12 @@ culture visuelle du domaine impose.]
 ## L'élément signature
 [LE choix mémorable qui rend le produit reconnaissable logo masqué — ex. "les
 cotes en mono géant", "les transitions de score en flip". Un seul.]
+
+## Choix tranchés
+<!-- Un choix structurant par ligne : ce que Baptiste a tranché au /da, et la
+     piste écartée. C'est ce qui évite de re-explorer les mêmes options au
+     prochain /retro. Le détail des pistes ne survit pas ici — seul le verdict. -->
+- [choix] → **retenu** : [piste A] · écarté : [piste B], parce que [raison]
 
 ## On rejette
 - [direction écartée] — parce que [raison]

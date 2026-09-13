@@ -1,5 +1,5 @@
 ---
-description: Direction artistique du projet — recherche de références multi-sources puis rédaction de design/da.md, le parti-pris visuel qui gouverne tous les builds
+description: Direction artistique du projet — recherche de références multi-sources, pistes sourcées sur les choix structurants, arbitrage de Baptiste, puis rédaction de design/da.md
 argument-hint: [description du produit, ou vide si le CLAUDE.md du projet suffit]
 ---
 
@@ -12,6 +12,10 @@ Sans lui, le build retombe sur la moyenne statistique — le look par défaut,
 interdit par anti-slop. Il se rédige UNE fois par projet, s'amende via /retro,
 et le `@theme` de l'entrypoint CSS en dérive.
 
+C'est aussi le **seul checkpoint humain** du pipeline : tous les choix qui
+contraignent les écrans suivants se tranchent ICI, en une salve, pas au fil de
+l'eau pendant le build.
+
 Si `design/da.md` existe déjà : mode révision — relis-le, confronte-le à la
 demande, propose des amendements ciblés. Ne repars pas de zéro.
 
@@ -21,9 +25,11 @@ Avant toute recherche, pose le cadre en 3 lignes :
 - Qui utilise ce produit, dans quel état d'esprit (pressé ? méfiant ? passionné ?).
 - Les 2-3 gestes utilisateurs prioritaires que les écrans doivent servir
   (les actions répétées qui justifient l'outil) — la DA se juge sur eux, et
-  le brief présenté à la validation (étape 4) montre comment elle les sert.
+  la salve d'arbitrage (étape 4) montre comment chaque piste les sert.
 - Quelle est la culture visuelle du domaine — une app de pronos ne ressemble
-  pas à une app d'épargne. Charge `domain-knowledge` si une référence existe.
+  pas à une app d'épargne. Charge `domain-knowledge` si une référence existe :
+  elle ne donne plus de conventions UI, mais les **contraintes** que le métier
+  impose aux pistes (régulé, données sensibles, vocabulaire).
 - 3 mots d'ambiance candidats + 3 anti-mots (ce que l'écran ne doit JAMAIS dégager).
 
 Ces réponses viennent du brief et du CLAUDE.md du projet (Domaine /
@@ -44,13 +50,13 @@ existe pour empêcher.
    chemin injecté en début de session) : le goût de Baptiste, consultée EN
    PREMIER. Chaque exemplaire a un statut (cf. README) : **validé** (approuvé à
    l'œil / via /retro) ou **proposé** (sourcé, pas encore validé). Si tu pars
-   d'un « proposé », tu peux — mais signale-le à la validation (étape 4) : la DA
+   d'un « proposé », tu peux — mais signale-le à l'arbitrage (étape 4) : la DA
    s'ancre alors sur un candidat, pas sur du goût gravé. Si un exemplaire couvre
    le territoire, pars de lui.
    Si elle est VIDE (aucun `.png`, juste le README) ou qu'aucun exemplaire ne
    couvre le territoire, NE DÉGRADE PAS EN SILENCE vers Mobbin/web : c'est une
    limitation de premier ordre — même statut qu'une source MCP indisponible — à
-   signaler explicitement à la validation (étape 4). Sans exemplaire, la DA ne
+   signaler explicitement à l'arbitrage (étape 4). Sans exemplaire, la DA ne
    s'ancre sur aucun goût validé du kit ; la porter à Baptiste à CHAQUE /da est
    précisément ce qui finit par remplir la bibliothèque (via /retro).
 2. **Mobbin (MCP)** — produits réels shippés. Cherche des comparables du domaine
@@ -76,8 +82,13 @@ existe pour empêcher.
      signature fort se vole HORS de la discipline** (une grille de magazine, un
      cadrage photo, un specimen) puis se traduit en UI. Au moins une référence
      hors-UI dès qu'on vise le haut du curseur d'audace (étape 3).
-4. Pour chaque référence retenue, sauvegarde une **capture image** dans
-   `design/references/` — c'est la norme, pas l'option :
+4. **Catalogue de ressources UI** (skill `ui-resources`) — pas pour l'ambiance,
+   pour la **structure** : échelles de tokens, mécaniques de composants,
+   vocabulaire de motion, contenu attendu d'une section. C'est la matière
+   première des pistes de l'étape 3. Le skill route par intention et dit, pour
+   chaque ressource, ce qu'on vole et ce qu'on laisse.
+5. Pour chaque référence d'ambiance retenue, sauvegarde une **capture image**
+   dans `design/references/` — c'est la norme, pas l'option :
    - source web publique → le script de capture du kit (chemin injecté en début
      de session) : `<chemin>/capture-ref.sh <url> design/references/<source>-<app>.png`
      (Playwright headless, viewport 1440×900 : rend la vraie page, là où `curl`
@@ -90,49 +101,78 @@ existe pour empêcher.
      ~768px web) ancre un registre/pattern mais pas le micro-craft (filet 1px,
      calage typo) : utilisable, mais note-le et ne juge pas la précision dessus.
 
-**3 références retenues MAX.** Dix moodboards = zéro direction.
+**3 références d'ambiance retenues MAX.** Dix moodboards = zéro direction.
 
-## 3. Trancher UNE direction
-
-Commets-toi sur une direction unique — pas un menu d'options. Remplis le
-format de `design/_template.md` : territoire, ambiance/anti-mots, références
-(ce qu'on vole / ce qu'on laisse), typographie nommée, couleur, densité et
-forme, motion, l'élément signature, ce qu'on rejette.
+## 3. Préparer les pistes sur les choix structurants
 
 Charge les skills `art-direction` (typo nommée + appariement, composition,
-motion, retenue senior) et `color` (température des neutres, teinte d'accent,
-harmonie) pour trancher — pas tes réflexes génériques.
+motion, retenue senior), `color` (température des neutres, teinte d'accent,
+harmonie) et `ui-resources` (le catalogue) — pas tes réflexes génériques.
 
-**Place le curseur d'audace** — showcase/bold ↔ produit/sobre — et écris sa
-position dans le brief. Ce n'est pas réglé par les références (c'est une
-*décision*, pas un exemple) : un même domaine se traite sobre ou tranché selon
-qui l'utilise et dans quel état d'esprit (étape 1). Calibre sur les trois
-bornes de la bibliothèque d'exemplaires (`design-system/references/`) :
-**BNP** (basse — rassurer par la convention), **Qonto** (milieu — retenue
-habitée), **Revolut** (haute — parti-pris signature « postable sur Dribbble »).
-Le curseur dose l'élément signature et conditionne le sourcing (haut du curseur
-⇒ au moins une référence hors-UI, étape 2). Voir `skills/art-direction`.
+**Choix structurant** = un choix qui contraint les écrans suivants (base de
+composants, échelle typo, vocabulaire de motion, densité, convention
+sectorielle). Il se présente en 2-3 **pistes sourcées**, avec une
+recommandation ; Baptiste tranche. Un choix local et réversible (un radius, une
+copie, un espacement) se tranche seul — les tokens et les skills décident.
 
-Chaque choix se justifie par une référence ou un principe. "Parce que c'est
+Liste les choix structurants de CE projet (**5 maximum** dans la salve : au-delà,
+tu n'as pas fait le tri), et pour chacun rédige 2-3 pistes au format du skill
+`ui-resources` : ce que ça donne à l'écran, la source ouverte, le coût, ce que
+ça ferme, puis ta recommandation motivée.
+
+Si un principe du kit tranche déjà le choix (a11y, contrat de tokens, un
+interdit anti-slop, une contrainte du domaine), **il n'y a pas de piste** :
+tranche seul et n'encombre pas l'arbitrage.
+
+**Le curseur d'audace est le premier choix structurant** — showcase/bold ↔
+produit/sobre. Ce n'est pas réglé par les références (c'est une *décision*, pas
+un exemple) : un même domaine se traite sobre ou tranché selon qui l'utilise et
+dans quel état d'esprit (étape 1). Présente-le calibré sur les trois bornes de
+la bibliothèque d'exemplaires (`design-system/references/`) : **BNP** (basse —
+rassurer par la convention), **Qonto** (milieu — retenue habitée), **Revolut**
+(haute — parti-pris signature « postable sur Dribbble »). Le curseur dose
+l'élément signature et conditionne le sourcing (haut du curseur ⇒ au moins une
+référence hors-UI, étape 2). Voir `skills/art-direction`.
+
+Chaque piste se justifie par une référence ou un principe. "Parce que c'est
 joli" n'est pas une justification ; "comme <référence>, parce que <principe>"
-en est une. L'élément signature est obligatoire : c'est LE choix qui rend le
-produit reconnaissable logo masqué.
+en est une.
 
-## 4. Validation — le seul checkpoint
+## 4. L'arbitrage — le seul checkpoint
 
-Présente le brief de façon compacte à Baptiste : ambiance, police nommée,
-palette, élément signature, les références avec liens. C'est LE moment où son
-goût ancre le projet — tout l'aval (builds, critiques, corrections) est
-autonome. Intègre ses retours, puis écris `design/da.md`.
+Présente à Baptiste, de façon compacte et **en une seule salve** :
+- le territoire et l'ambiance candidate (3 mots + 3 anti-mots) ;
+- les références d'ambiance retenues, avec liens et captures ;
+- les **pistes** de l'étape 3, choix par choix, avec ta recommandation pour
+  chacun.
 
-En tête de présentation, liste sans les noyer les **limitations de sourcing**
+En tête de salve, liste sans les noyer les **limitations de sourcing**
 rencontrées : bibliothèque d'exemplaires vide (le goût du kit ne s'est ancré sur
 rien), exemplaires seulement *proposés* (sourcés, non validés à l'œil — la DA
-s'appuie sur des candidats), et/ou Mobbin indisponible. Une DA bâtie sans aucun
-exemplaire kit reste valide mais fragile — c'est le signal, répété à chaque /da
-tant que la bibliothèque reste vide, qu'il faut l'amorcer.
+s'appuie sur des candidats), Mobbin indisponible, et/ou ressource du catalogue
+injoignable (une piste dont la source n'a pas pu être ouverte se présente comme
+telle). Une DA bâtie sans aucun exemplaire kit reste valide mais fragile — c'est
+le signal, répété à chaque /da tant que la bibliothèque reste vide, qu'il faut
+l'amorcer.
 
-## 5. Matérialiser
+Baptiste tranche piste par piste. C'est LE moment où son goût ancre le projet —
+tout l'aval (builds, critiques, corrections) est autonome.
+
+## 5. Écrire LA direction
+
+Une fois l'arbitrage rendu, commets-toi sur une direction unique. **Le brief
+écrit ne contient jamais un menu** : les pistes meurent à l'arbitrage, `design/da.md`
+ne porte que ce qui a été tranché, plus la raison. Remplis le format de
+`design/_template.md` : territoire, ambiance/anti-mots, références (ce qu'on
+vole / ce qu'on laisse), typographie nommée, couleur, densité et forme, motion,
+position du curseur d'audace, l'élément signature, ce qu'on rejette.
+
+Note en une ligne, pour chaque choix tranché, la piste retenue et les pistes
+écartées — c'est ce qui évite de re-explorer les mêmes options au prochain
+/retro. L'élément signature est obligatoire : c'est LE choix qui rend le produit
+reconnaissable logo masqué.
+
+## 6. Matérialiser
 
 Dérive le `@theme` de l'entrypoint CSS du brief validé, en matérialisant le
 contrat de `design-system/tokens.css` et en appliquant le skill `color` :

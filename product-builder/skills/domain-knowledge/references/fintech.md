@@ -2,21 +2,30 @@
 
 Expérience condensée : banque de détail (millions de MAU), paiements
 européens (Wero/EPI), assurance-vie, gestion d'actifs. Dans un produit
-financier, la confiance EST le produit — chaque détail visuel la construit
-ou la détruit.
+financier, la confiance EST le produit — et elle se joue sur l'exactitude
+des chiffres et la lisibilité des engagements, pas sur le style.
 
-## Confiance
+## Ce que le domaine impose aux pistes
 
-- La confiance vient de la précision, pas de la décoration : alignements
-  parfaits, chiffres exacts, zéro incohérence. Une virgule mal placée dans
-  un montant détruit plus de confiance qu'un design daté.
-- Sobriété chromatique : la couleur signale (positif/négatif/attention),
-  elle ne décore pas. Pas de gamification visuelle sur l'argent des gens.
-- Jamais de dark pattern : pas d'option pré-cochée engageante, pas de
-  frais découverts en fin de tunnel, résiliation aussi simple que souscription.
+- La couleur **signale** (positif / négatif / attention), elle ne décore pas.
+- Aucune gamification sur l'argent des gens : pas de confettis sur un virement.
+- Un chiffre faux ou mal aligné détruit plus de confiance qu'un écran daté —
+  toute piste qui dégrade la lisibilité des montants est éliminée d'office.
+
+## Contraintes réglementaires & légales
+
+- **Jamais de dark pattern** : pas d'option pré-cochée engageante, pas de frais
+  découverts en fin de tunnel, résiliation aussi simple que souscription.
   Au-delà de l'éthique : en produit régulé, c'est un risque légal.
+- Mentions légales présentes mais hiérarchisées — le légal n'a pas à crier, il
+  doit être trouvable et lisible (pas de gris 3:1 en corps 10px).
+- Performances passées ≠ futures, risques produits (investissement) : intégrés
+  au flow, pas cachés dans un PDF.
+- RGPD : consentements granulaires, refus aussi simple que l'accord.
+- eIDAS 2.0 / EUDI Wallet : pour l'identité, anticiper les parcours de
+  vérification par wallet — pattern émergent à surveiller dans les briefs.
 
-## Montants & données financières
+## Données sensibles & affichage
 
 - `tabular-nums` partout où des chiffres s'empilent ou se comparent.
 - Format local strict (fr : `1 234,56 €` — espace insécable, virgule).
@@ -53,16 +62,6 @@ ou la détruit.
   avec votre application bancaire").
 - Solde insuffisant, plafond atteint, compte bloqué : prévoir ces écrans
   AVANT l'écran de succès. C'est eux que les utilisateurs stressés verront.
-
-## Conformité & design
-
-- Mentions légales : présentes mais hiérarchisées — le légal n'a pas à crier,
-  il doit être trouvable et lisible (pas de gris 3:1 en corps 10px).
-- Performances passées ≠ futures, risques produits (investissement) : intégrés
-  au flow, pas cachés dans un PDF.
-- RGPD : consentements granulaires, refus aussi simple que l'accord.
-- eIDAS 2.0 / EUDI Wallet : pour l'identité, anticiper les parcours de
-  vérification par wallet — pattern émergent à surveiller dans les briefs.
 
 ## Règles ajoutées par /retro
 

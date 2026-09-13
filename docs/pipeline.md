@@ -22,7 +22,8 @@ question à Baptiste, ou une action qui reprend ensuite le flux.
 ## Vue d'ensemble — `/feature`
 
 Le pipeline complet, du brief au ship. Un seul checkpoint humain dans tout le
-flux : la direction artistique (`/da`). Deux boucles se ferment seules — les
+flux : la direction artistique (`/da`), où les choix structurants se tranchent
+en une salve de pistes. Deux boucles se ferment seules — les
 gates machine qui renvoient au build, et la correction qui relance la critique
 (plafond 3 tours, sinon escalade).
 
@@ -33,7 +34,7 @@ flowchart TD
     S1 -->|oui| S2{"Infos produit manquantes ?"}:::dec
     S2 -->|oui| R2["Demande en 1 salve<br/>note CLAUDE.md, reprend"]:::human
     S2 -->|non| S3{"design/da.md existe ?"}:::dec
-    S3 -->|non| R3["/da → 1 direction<br/>Baptiste valide"]:::human
+    S3 -->|non| R3["/da → pistes sourcées<br/>Baptiste tranche → 1 direction"]:::human
     S3 -->|oui| S4{"Pattern ≥ 70 % couvert ?"}:::dec
     S4 -->|non| R4["pattern-researcher<br/>local → Mobbin → web"]:::step
     S4 -->|oui| S5["Build<br/>skills · tokens · signature"]:::step
@@ -91,20 +92,29 @@ flowchart TD
 ## 2. Direction artistique — `/da`
 
 Le seul checkpoint humain du build. Collecte multi-sources (exemplaires du kit,
-Mobbin, galeries web), puis on tranche **une** direction — pas un menu. Le
-`@theme` du projet en dérive. Source : [`commands/da.md`](../product-builder/commands/da.md).
+Mobbin, galeries web, catalogue `ui-resources`), puis les **choix structurants**
+partent en pistes sourcées — 2-3 options par choix, 5 choix max, groupés en une
+salve. Baptiste tranche, et **le brief écrit ne garde jamais le menu** : une
+seule direction. Le `@theme` du projet en dérive.
+Source : [`commands/da.md`](../product-builder/commands/da.md).
 
 ```mermaid
 flowchart TD
     A(["Lancer /da · 1× par projet"]):::step --> B{"Territoire cadré ?<br/>users · secteur · ambiance"}:::dec
     B -->|non| R1["Demande à Baptiste<br/>note, puis reprend"]:::human
-    B -->|oui| C["Collecte de références<br/>exemplaires → Mobbin → web"]:::step
+    B -->|oui| C["Collecte de références<br/>exemplaires → Mobbin → web<br/>+ catalogue ui-resources"]:::step
     R1 --> C
-    C --> D{"Une direction tranchée ?<br/>pas un menu d'options"}:::dec
-    D -->|non| R2["↻ Commits-toi<br/>un seul parti-pris"]:::stop
-    R2 --> D
-    D -->|oui| E["Baptiste valide<br/>seul checkpoint humain"]:::human
-    E --> F["Dérive le @theme<br/>via color · OKLCH"]:::step
+    C --> D{"Le choix est-il structurant ?<br/>contraint les écrans suivants"}:::dec
+    D -->|non| R2["Tranche seul<br/>tokens · skills décident<br/>(remonté, pas arbitré)"]:::step
+    D -->|oui| P{"Un principe du kit<br/>le tranche déjà ?"}:::dec
+    P -->|oui| R2
+    P -->|non| Q["2-3 pistes sourcées<br/>coût · ce que ça ferme<br/>+ recommandation"]:::step
+    Q --> E["Baptiste tranche<br/>1 salve · seul checkpoint"]:::human
+    R2 --> E
+    E --> F2{"Direction unique écrite ?<br/>le menu ne survit pas"}:::dec
+    F2 -->|non| R3["↻ Commits-toi<br/>un seul parti-pris"]:::stop
+    R3 --> F2
+    F2 -->|oui| F["Dérive le @theme<br/>via color · OKLCH"]:::step
     F --> G(["design/da.md écrit<br/>gouverne tous les builds"]):::ship
     classDef dec fill:#FAEEDA,stroke:#BA7517,color:#633806
     classDef step fill:#F1EFE8,stroke:#888780,color:#2C2C2A

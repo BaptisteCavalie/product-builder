@@ -72,6 +72,39 @@ echo "→ Doctrine curseur d'audace (lever showcase↔sobre, da + art-direction)
 req product-builder/commands/da.md                 "curseur d'audace" "curseur-audace"
 req product-builder/skills/art-direction/SKILL.md  "curseur d'audace" "curseur-audace"
 
+echo "→ Doctrine pistes (choix structurant = 2-3 pistes sourcées, Baptiste tranche)"
+PISTES_FILES="
+product-builder/constitution.md
+product-builder/commands/da.md
+product-builder/skills/ui-resources/SKILL.md
+"
+for f in $PISTES_FILES; do
+  req "$f" 'pistes sourcées'   "pistes"
+  req "$f" 'choix structurant' "pistes"
+done
+req product-builder/commands/feature.md 'choix structurant' "pistes"
+# Le menu meurt à l'arbitrage : le brief écrit ne porte qu'UNE direction.
+req product-builder/commands/da.md 'jamais un menu' "pistes"
+
+echo "→ Doctrine ressources UI (catalogue routé, ce qu'on vole / ce qu'on laisse)"
+req product-builder/skills/ui-resources/SKILL.md "ce qu'on vole"   "ressources"
+req product-builder/skills/ui-resources/SKILL.md "ce qu'on laisse" "ressources"
+req product-builder/commands/da.md               'ui-resources'    "ressources"
+req product-builder/commands/feature.md          'ui-resources'    "ressources"
+req product-builder/agents/pattern-researcher.md 'ui-resources'    "ressources"
+
+echo "→ Doctrine métier (référence = noyau régulé, les conventions UI passent en pistes)"
+req product-builder/constitution.md                                         'noyau régulé'     "metier"
+req product-builder/skills/domain-knowledge/SKILL.md                        'noyau régulé'     "metier"
+METIER_FILES="
+product-builder/skills/domain-knowledge/references/_template.md
+product-builder/skills/domain-knowledge/references/fintech.md
+product-builder/skills/domain-knowledge/references/paris-sportifs.md
+"
+for f in $METIER_FILES; do
+  req "$f" 'impose aux pistes' "metier"
+done
+
 echo "→ Doctrine /retro (une session projet ne mute jamais le kit)"
 req CLAUDE.md                          'ne mute JAMAIS le kit' "retro"
 req product-builder/commands/retro.md  'ne mute'               "retro"

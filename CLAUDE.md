@@ -70,6 +70,36 @@ Même famille, ajoutées le 07/07/2026 (vérifiées par `check-doctrine.sh`) :
 et **dark = rampe sombre dédiée, jamais une inversion** (posée dans
 `tokens.css`, `design-system/README.md`, `skills/color`).
 
+## Doctrine pistes & ressources UI (tranchée le 13/09/2026)
+
+Le kit ne définit plus de bonnes pratiques UI par secteur. Deux pièces :
+
+1. **Catalogue de ressources** — `skills/ui-resources/SKILL.md` : 15 ressources
+   externes routées par intention, chacune avec *ce qu'on vole* / *ce qu'on
+   laisse*. Elles fournissent la matière (échelles, mécaniques, vocabulaire),
+   jamais la forme : le contrat de tokens, le DA brief et anti-slop passent
+   devant. Une ressource morte se retire du catalogue, elle ne se devine pas.
+2. **Pistes** — un **choix structurant** (qui contraint les écrans suivants :
+   base de composants, échelle typo, vocabulaire de motion, densité, convention
+   sectorielle) se présente en 2-3 pistes sourcées avec une recommandation ;
+   Baptiste tranche. Un choix local et réversible se tranche seul. Les pistes se
+   groupent en UNE salve au /da — le checkpoint humain reste unique ; un choix
+   structurant surgi pendant un build remonte dans « À décider », il ne rouvre
+   pas de checkpoint. Le brief écrit ne porte jamais un menu : les pistes
+   meurent à l'arbitrage.
+
+Conséquence côté métier : une référence `domain-knowledge` ne porte plus que le
+**noyau régulé** (réglementation, données sensibles, vocabulaire, erreurs
+critiques) + 3 lignes max de contraintes « ce que le domaine impose aux pistes ».
+
+Cette doctrine est écrite dans : `product-builder/constitution.md`,
+`product-builder/commands/da.md`, `product-builder/commands/feature.md`,
+`product-builder/skills/ui-resources/SKILL.md`,
+`product-builder/skills/domain-knowledge/` (skill, `_template.md` et les deux
+références), `product-builder/agents/pattern-researcher.md`. Alignement vérifié
+par `check-doctrine.sh` (blocs « pistes », « ressources UI », « métier ») —
+même règle que les autres doctrines : deux formulations divergentes = incident.
+
 ## /retro
 
 Une session projet ne mute JAMAIS le kit. /retro, exécuté depuis un projet,

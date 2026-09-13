@@ -9,7 +9,16 @@ comme telle. La valeur ne vient pas de « prédire le bon score » mais d'être
 mieux calibré que le marché après retrait de sa marge. Et c'est un domaine
 **régulé** (ANJ) où pousser à parier est un risque légal, pas seulement éthique.
 
-## Confiance & attentes utilisateurs
+## Ce que le domaine impose aux pistes
+
+- L'incertitude est **toujours visible** : aucune piste ne peut afficher un
+  pronostic comme une certitude, quel que soit le registre visuel.
+- Rien qui pousse à parier — pas de compte à rebours, pas de gains clignotants,
+  pas d'urgence fabriquée.
+- Le chiffre doit pouvoir s'expliquer à l'écran : une piste qui masque la
+  provenance du pronostic est éliminée.
+
+## Confiance & honnêteté du modèle
 
 - La confiance vient de la **calibration honnête**, pas de la confiance affichée.
   Un modèle qui dit « 62 % » doit gagner ~62 % du temps sur ces cas. Mieux vaut
@@ -19,12 +28,13 @@ mieux calibré que le marché après retrait de sa marge. Et c'est un domaine
 - **Transparence du modèle** : dire d'où sort le chiffre (Elo, forme, xG, prior
   expert) augmente la confiance. Une boîte noire qui affiche « 3-1 » n'en inspire
   aucune.
+
+## Contraintes réglementaires & légales (France — ANJ)
+
 - **Jamais inciter à parier.** Pas de « pari du jour à ne pas manquer », pas de
   compteur de gains potentiels clignotant. Le produit informe, l'utilisateur
   décide. C'est l'équivalent ici du « no dark pattern » fintech — et c'est cadré
   par l'ANJ.
-
-## Contraintes réglementaires & légales (France — ANJ)
 
 - **Message d'avertissement obligatoire**, visible : « Jouer comporte des risques :
   endettement, isolement, dépendance. Pour être aidé, appelez le 09 74 75 13 13
@@ -52,7 +62,7 @@ mieux calibré que le marché après retrait de sa marge. Et c'est un domaine
 - Le **score pronostiqué** est le mode d'une distribution (Poisson/Dixon-Coles) :
   l'afficher **avec sa probabilité** (« 2-1, p≈11 % »), jamais nu.
 
-## Conventions sectorielles (loi de Jakob)
+## Vocabulaire & conventions du métier (loi de Jakob)
 
 - Notation **1N2 / 1X2** (domicile / nul / extérieur) ; **cotes décimales** en
   France/Europe (pas américaines ni fractionnaires). « Cote », « mise »,

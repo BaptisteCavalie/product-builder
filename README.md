@@ -64,7 +64,8 @@ que l'auto-update en arrière-plan puisse s'authentifier.
 ```
 
 C'est tout. Le pipeline `feature` enchaîne : challenge produit → DA brief
-(s'il manque, /da le crée — seul checkpoint humain) → recherche patterns
+(s'il manque, /da le crée — seul checkpoint humain, où tu tranches les pistes)
+→ recherche patterns
 (library locale puis Mobbin) → build → screenshots (obligatoires : le goût
 se juge sur les pixels) → critics en parallèle, critique comparative contre
 les références du DA brief → boucle de correction (max 3 tours) → rapport final.
@@ -75,9 +76,14 @@ challenge, /da, gates de goût du build, critique) : [`docs/pipeline.md`](docs/p
 `/da` collecte les références multi-sources — bibliothèque d'exemplaires du
 kit, Mobbin (produits réels), Awwwards/Godly/SiteInspire (direction
 artistique web), Dribbble (ambiance uniquement, jamais les layouts), Fonts
-In Use (typographie) — puis tranche UNE direction : ambiance, police nommée,
-palette, élément signature. Le `@theme` du projet en dérive (projet sans
-Tailwind : mêmes noms de tokens dans le `:root` de l'entrypoint CSS).
+In Use (typographie), et le catalogue `ui-resources` pour la structure. Puis il
+te présente les **choix structurants en pistes** : 2-3 options sourcées par
+choix (base de composants, échelle typo, motion, densité, curseur d'audace),
+chacune avec son coût et une recommandation. Tu tranches en une salve, et LA
+direction retenue s'écrit dans `design/da.md` — ambiance, police nommée,
+palette, élément signature. Le brief ne garde jamais le menu. Le `@theme` du
+projet en dérive (projet sans Tailwind : mêmes noms de tokens dans le `:root`
+de l'entrypoint CSS).
 
 ## Comment le système apprend
 
@@ -103,17 +109,21 @@ C'est l'actif du système — ce repo est sa mémoire versionnée.
 | Pipelines | l'orchestration, écrite noir sur blanc | `product-builder/commands/` |
 | Critics | jugement isolé, verdicts par sévérité | `product-builder/agents/` |
 | Connaissance universelle | design-judgment, art-direction, color, ux-writing, anti-slop, a11y — agnostique au domaine | `product-builder/skills/` |
-| Connaissance métier | une référence par domaine, routée par `domain-knowledge` | `product-builder/skills/domain-knowledge/references/` |
+| Connaissance métier | le noyau régulé d'un domaine (réglementation, données sensibles, vocabulaire, erreurs critiques) — plus de conventions UI écrites à la main | `product-builder/skills/domain-knowledge/references/` |
+| Ressources UI | catalogue routé de 15 ressources externes (design systems réels, tokens, composants, motion, audits) — la matière première des pistes | `product-builder/skills/ui-resources/` |
 | Gates | vérifs déterministes, exit 2 = reboucle | `product-builder/hooks/` |
 | Contrat visuel | contrat de tokens (template) — valeurs compilées dans le `@theme` du projet | `product-builder/design-system/` |
 | Goût | bibliothèque d'exemplaires (écrans validés, annotés) + DA brief par projet | `product-builder/design-system/references/` + `design/` (projet) |
 | Côté projet | CLAUDE.md mince (domaine actif), pattern briefs, DA brief, télémétrie, `@theme` | `project-template/` |
 
 **Changer de domaine** = déclarer `Domaine actif : <x>` dans le CLAUDE.md du
-projet. Si la référence n'existe pas encore, le système la bootstrappe
-(pattern-researcher), te la fait valider, puis l'inscrit dans le rapport /retro
-pour l'ajouter au kit (session dédiée) et la partager. `fintech.md` est fournie ;
-chaque nouveau projet dans un nouveau secteur enrichit le deck.
+projet. Si la référence n'existe pas encore, le système bootstrappe son noyau
+régulé (pattern-researcher, 4 axes : réglementation, données sensibles,
+vocabulaire, erreurs critiques), te le fait valider, puis l'inscrit dans le
+rapport /retro pour l'ajouter au kit (session dédiée) et le partager. Les
+conventions UI du secteur ne s'écrivent plus : elles se sourcent au /da via
+`ui-resources` et se tranchent en pistes. `fintech.md` et `paris-sportifs.md`
+sont fournies.
 
 Règle de calibration des critics : s'ils sont trop gentils ou trop sévères,
 ne corrige pas leurs verdicts à la main — amende leur rubrique via `/retro`.

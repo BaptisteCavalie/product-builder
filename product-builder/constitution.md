@@ -23,7 +23,11 @@ Règles d'arbitrage :
 
 Le domaine actif est déclaré dans la section `## Domaine` du CLAUDE.md du
 projet. S'il est absent, le système demande avant de construire (cf. skill
-`domain-knowledge`).
+`domain-knowledge`). Une référence métier ne porte que le **noyau régulé** du
+domaine — réglementation, données sensibles et leur affichage, vocabulaire,
+erreurs critiques du métier. Les conventions UI d'un secteur ne s'écrivent plus
+à la main : elles se sourcent au moment de la décision (skill `ui-resources`) et
+se tranchent en pistes.
 
 ## Stack par défaut
 
@@ -55,6 +59,16 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
 - Aucun build d'UI sans DA brief (`design/da.md` du projet) : s'il manque,
   /da d'abord. Le goût se vérifie sur screenshots, en comparant aux
   références du brief — jamais sur le code seul.
+- **Un choix structurant se présente en pistes, il ne se tranche pas en silence.**
+  Choix structurant = un choix qui contraint les écrans suivants (base de
+  composants, échelle typo, vocabulaire de motion, densité, convention
+  sectorielle). Il se présente en 2-3 **pistes sourcées** — chacune adossée à une
+  ressource réellement ouverte (skill `ui-resources`) — avec une recommandation
+  motivée ; Baptiste tranche. Un choix local et réversible (un radius, une copie,
+  un espacement) se tranche seul : les tokens et les skills décident. Les pistes
+  se groupent en UNE salve au /da, le seul checkpoint humain ; un choix
+  structurant qui surgit après, pendant un build, se tranche avec le DA brief et
+  remonte dans « À décider » du rapport — il ne rouvre pas de checkpoint.
 - Une information produit manquante ne se devine JAMAIS — utilisateurs cibles,
   secteur, contexte d'usage, contrainte métier : on pose la question (une
   seule salve, questions précises), puis on écrit la réponse dans le CLAUDE.md
@@ -67,8 +81,9 @@ projet. S'il est absent, le système demande avant de construire (cf. skill
   par réflexe : socle toujours (`design-judgment`, `a11y`, `anti-slop`) ;
   `art-direction` + `color` dès qu'il y a une surface ou une direction visuelle ;
   `ux-writing` dès qu'il y a de la copie visible ; `domain-knowledge` si un
-  domaine est déclaré. Charger un skill non pertinent, c'est du contexte
-  gaspillé ; n'en sauter un pertinent, c'est retomber sur la moyenne.
+  domaine est déclaré ; `ui-resources` dès qu'un choix structurant se pose (/da,
+  pattern nouveau, motion, base de composants). Charger un skill non pertinent,
+  c'est du contexte gaspillé ; n'en sauter un pertinent, c'est retomber sur la moyenne.
 - WCAG 2.2 AA est un plancher, pas un objectif.
 - Code mort = code supprimé. On ne commente pas du code "au cas où".
 - Pas de `any`, pas de `@ts-ignore` sans justification écrite en commentaire.

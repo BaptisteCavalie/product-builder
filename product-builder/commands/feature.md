@@ -41,9 +41,14 @@ projet (domaine, utilisateurs, spécificités — il ne reçoit pas ce contexte)
 - S'il existe : charge-le. C'est lui qui gouverne le build, avec le `@theme`
   qui en dérive.
 - S'il manque et que la feature a une surface visuelle : exécute /da
-  (références + proposition d'une direction unique). C'est un checkpoint
-  Baptiste — attends sa validation avant de continuer. Une fois `da.md`
-  écrit, tout l'aval est autonome.
+  (références + pistes sourcées sur les choix structurants, puis UNE direction
+  écrite). C'est LE checkpoint Baptiste — attends son arbitrage avant de
+  continuer. Une fois `da.md` écrit, tout l'aval est autonome.
+- **Choix structurant qui surgit après le /da** (base de composants, densité,
+  vocabulaire de motion non tranché par le brief) : tu ne rouvres pas de
+  checkpoint. Tranche avec le DA brief et le catalogue `ui-resources`, puis
+  remonte le choix et l'alternative écartée dans « À décider » du rapport final.
+  Exception : si le choix CONTREDIT le DA brief, stop et pose la question.
 - Feature sans surface visuelle (API, script, migration) : sans objet, note-le.
 
 ## Étape 3 — Recherche de patterns
@@ -53,6 +58,8 @@ projet (domaine, utilisateurs, spécificités — il ne reçoit pas ce contexte)
 2. Sinon, lance le subagent `pattern-researcher` avec le scope retenu.
    Il rend un pattern brief d'une page max.
 3. Sauvegarde ce brief dans `patterns/<sujet>.md` (format de `patterns/_template.md`).
+   Transmets-lui le skill `ui-resources` : c'est là que vivent les ressources
+   à ouvrir pour un pattern complexe (data grid, kanban, filtres, calendrier).
 
 ## Étape 4 — Build
 
@@ -62,7 +69,11 @@ Construis le scope retenu en appliquant le DA brief et les skills **pertinents
 - `art-direction` + `color` : dès qu'il y a une surface ou une direction visuelle ;
 - `ux-writing` : dès qu'il y a de la copie visible à l'utilisateur ;
 - `domain-knowledge` : si un domaine est déclaré dans le CLAUDE.md du projet
-  (il charge la référence métier correspondante).
+  (il charge le noyau régulé correspondant — réglementation, données sensibles,
+  vocabulaire, erreurs critiques ; plus de conventions UI sectorielles) ;
+- `ui-resources` : dès qu'un choix structurant se pose (pattern nouveau, motion,
+  base de composants). Il route vers la bonne ressource et dit, pour chacune,
+  ce qu'on vole et ce qu'on laisse.
 - **Ouvre les exemplaires AVANT d'écrire le premier composant.** Lis (Read) les
   captures du DA brief (`design/references/`) et 1-2 exemplaires du registre
   visé dans la bibliothèque du kit (chemin injecté en début de session). Un
