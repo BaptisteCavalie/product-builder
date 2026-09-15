@@ -93,6 +93,19 @@ req product-builder/commands/da.md               'ui-resources'    "ressources"
 req product-builder/commands/feature.md          'ui-resources'    "ressources"
 req product-builder/agents/pattern-researcher.md 'ui-resources'    "ressources"
 
+echo "→ Source Inspo (MCP) — câblée aux 4 endroits qui la consomment"
+INSPO_FILES="
+product-builder/skills/ui-resources/SKILL.md
+product-builder/commands/da.md
+product-builder/agents/design-critic.md
+product-builder/agents/pattern-researcher.md
+"
+for f in $INSPO_FILES; do
+  req "$f" 'inspo' "inspo"
+done
+# Le critic ne peut interroger Inspo que si le serveur s'appelle bien « inspo ».
+req product-builder/agents/design-critic.md 'mcp__inspo__' "inspo"
+
 echo "→ Doctrine métier (référence = noyau régulé, les conventions UI passent en pistes)"
 req product-builder/constitution.md                                         'noyau régulé'     "metier"
 req product-builder/skills/domain-knowledge/SKILL.md                        'noyau régulé'     "metier"

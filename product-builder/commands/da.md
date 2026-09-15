@@ -41,10 +41,10 @@ existe pour empêcher.
 
 ## 2. Collecter des références — dans cet ordre
 
-> Si une source MCP attendue (Mobbin) est indisponible dans la session
+> Si une source MCP attendue (Inspo, Mobbin) est indisponible dans la session
 > (serveur non monté), NE PAS faire semblant : signale-le explicitement dans le
 > rapport comme limitation, descends la chaîne de repli (exemplaires kit →
-> galeries web), et capture les références web retenues (point 4).
+> l'autre MCP → galeries web), et capture les références web retenues (point 6).
 
 1. **Bibliothèque d'exemplaires du kit** (`design-system/references/` du plugin,
    chemin injecté en début de session) : le goût de Baptiste, consultée EN
@@ -64,7 +64,22 @@ existe pour empêcher.
    retournées (elles arrivent inline) : c'est l'image qui porte la leçon, pas
    les métadonnées. Note la requête et le `mobbin_url` de chaque écran retenu —
    le design-critic ré-interrogera le MCP avec.
-3. **Galeries web** (WebSearch + WebFetch) — pour l'ambiance, la typo, la couleur :
+3. **Inspo (MCP)** — 832 sites de production capturés, interrogeables depuis la
+   session : palette tracée à la source, polices réelles, rampe typo,
+   macrostructure, et le couple desktop + mobile. Là où Mobbin couvre les apps,
+   Inspo couvre le web — landing, marketing, produit. Commence par
+   `get_filters()` (il liste les enums acceptés), puis `recommend(brief)` pour
+   dégrossir et `search_screens` pour affiner ; `get_design_system(slug)` sur un
+   site retenu donne directement la matière d'une piste typo ou palette, et
+   `compare(slugs)` met deux exemplaires côte à côte pour l'arbitrage. REGARDE
+   les images : elles arrivent inline. Note le slug de chaque site retenu — le
+   design-critic ré-interrogera le MCP avec.
+   Ses guidances intégrées (héros dans le premier viewport, 80-160px entre
+   sections) sont saines mais arrivent en pixels : chez nous elles passent par
+   les tokens d'espacement.
+4. **Galeries web** (WebSearch + WebFetch) — pour l'ambiance, la typo, la couleur.
+   Elles viennent APRÈS Inspo et Mobbin : un site shippé bat un concept jamais
+   livré.
    - **Awwwards / Godly / SiteInspire** : sites à forte direction artistique.
      À piller pour la typo, la palette, l'attitude — surtout landing et
      marketing. Attention : l'esthétique "site de l'année" ne se transpose pas
@@ -72,7 +87,7 @@ existe pour empêcher.
    - **Dribbble** : exploration visuelle pure. La plupart des shots sont des
      concepts jamais shippés : voler l'ambiance, la palette, les appariements
      typographiques — JAMAIS les mécaniques de layout ni les patterns de
-     composants (ça, c'est le rôle de Mobbin et de la pattern library).
+     composants (ça, c'est le rôle de Mobbin, d'Inspo et de la pattern library).
    - **Fonts In Use** : typographies réelles classées par secteur — la source
      pour NOMMER la police au lieu de subir celle par défaut.
    - **Hors-UI — l'adjacent** : éditorial print & magazines (Eye, It's Nice
@@ -82,12 +97,12 @@ existe pour empêcher.
      signature fort se vole HORS de la discipline** (une grille de magazine, un
      cadrage photo, un specimen) puis se traduit en UI. Au moins une référence
      hors-UI dès qu'on vise le haut du curseur d'audace (étape 3).
-4. **Catalogue de ressources UI** (skill `ui-resources`) — pas pour l'ambiance,
+5. **Catalogue de ressources UI** (skill `ui-resources`) — pas pour l'ambiance,
    pour la **structure** : échelles de tokens, mécaniques de composants,
    vocabulaire de motion, contenu attendu d'une section. C'est la matière
    première des pistes de l'étape 3. Le skill route par intention et dit, pour
-   chaque ressource, ce qu'on vole et ce qu'on laisse.
-5. Pour chaque référence d'ambiance retenue, sauvegarde une **capture image**
+   chaque ressource, ce qu'on vole et ce qu'on laisse — Inspo y compris.
+6. Pour chaque référence d'ambiance retenue, sauvegarde une **capture image**
    dans `design/references/` — c'est la norme, pas l'option :
    - source web publique → le script de capture du kit (chemin injecté en début
      de session) : `<chemin>/capture-ref.sh <url> design/references/<source>-<app>.png`
@@ -149,7 +164,7 @@ Présente à Baptiste, de façon compacte et **en une seule salve** :
 En tête de salve, liste sans les noyer les **limitations de sourcing**
 rencontrées : bibliothèque d'exemplaires vide (le goût du kit ne s'est ancré sur
 rien), exemplaires seulement *proposés* (sourcés, non validés à l'œil — la DA
-s'appuie sur des candidats), Mobbin indisponible, et/ou ressource du catalogue
+s'appuie sur des candidats), Inspo et/ou Mobbin indisponible, ressource du catalogue
 injoignable (une piste dont la source n'a pas pu être ouverte se présente comme
 telle). Une DA bâtie sans aucun exemplaire kit reste valide mais fragile — c'est
 le signal, répété à chaque /da tant que la bibliothèque reste vide, qu'il faut

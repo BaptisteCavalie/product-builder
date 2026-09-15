@@ -74,11 +74,19 @@ et **dark = rampe sombre dédiée, jamais une inversion** (posée dans
 
 Le kit ne définit plus de bonnes pratiques UI par secteur. Deux pièces :
 
-1. **Catalogue de ressources** — `skills/ui-resources/SKILL.md` : 15 ressources
-   externes routées par intention, chacune avec *ce qu'on vole* / *ce qu'on
-   laisse*. Elles fournissent la matière (échelles, mécaniques, vocabulaire),
-   jamais la forme : le contrat de tokens, le DA brief et anti-slop passent
-   devant. Une ressource morte se retire du catalogue, elle ne se devine pas.
+1. **Catalogue de ressources** — `skills/ui-resources/SKILL.md` : le MCP **Inspo**
+   (832 sites de production interrogeables depuis la session) + 15 ressources web
+   routées par intention, chacune avec *ce qu'on vole* / *ce qu'on laisse*. Elles
+   fournissent la matière (échelles, mécaniques, vocabulaire), jamais la forme :
+   le contrat de tokens, le DA brief et anti-slop passent devant. Une ressource
+   morte se retire du catalogue, elle ne se devine pas.
+   Inspo est câblé en quatre points qui doivent rester alignés :
+   `skills/ui-resources` (la fiche + le routage), `commands/da.md` (source 3 de
+   la collecte, avant les galeries), `agents/design-critic.md` (outils
+   `mcp__inspo__*` en frontmatter, pour la critique comparative) et
+   `agents/pattern-researcher.md` (composants de référence, pages d'un parcours).
+   Le serveur DOIT être enregistré sous le nom `inspo`, sinon les outils déclarés
+   par le critic n'existent pas.
 2. **Pistes** — un **choix structurant** (qui contraint les écrans suivants :
    base de composants, échelle typo, vocabulaire de motion, densité, convention
    sectorielle) se présente en 2-3 pistes sourcées avec une recommandation ;

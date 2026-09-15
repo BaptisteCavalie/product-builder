@@ -17,16 +17,22 @@ est perdu, tout ce que tu rends en vrac le pollue.
    les apps réputées pour leur craft (pas les plus connues, les mieux conçues).
    Étudie les FLOWS, pas seulement les écrans : les transitions et l'ordre des
    étapes sont souvent la vraie leçon.
-3. **Catalogue de ressources UI** (skill `ui-resources`) — il route par
+3. **Inspo (MCP)** — 832 sites de production capturés. Complémentaire de
+   Mobbin : les apps chez Mobbin, le web chez Inspo. Pour un pattern,
+   `find_reference_components(type)` puis `get_reference_jsx(type, id)` rendent
+   le source d'un composant canonique — on en prend la mécanique et les états,
+   jamais le style. `get_site_pages(siteSlug)` donne les pages d'un site dans
+   l'ordre de lecture : utile quand le sujet est un parcours, pas un écran.
+4. **Catalogue de ressources UI** (skill `ui-resources`) — il route par
    intention : `component.gallery` et `coss.com/ui` pour la structure et les
    états d'un composant, `reui.io/components` pour les patterns complexes (data
    grid, kanban, gantt, filtres, calendrier), `kinetics.colorion.co` et
    `motion-primitives.com` pour le motion, `vibeprompts.dev` pour le contenu
    attendu d'une section type. Le skill dit pour chaque ressource ce qu'on vole
    et ce qu'on laisse — respecte-le : on prend la mécanique, jamais le style.
-4. **Web si besoin** — NN/g, articles de fond, docs de design systems publics
+5. **Web si besoin** — NN/g, articles de fond, docs de design systems publics
    (Polaris, Material, etc.) pour le POURQUOI derrière le pattern.
-5. **Croise avec les skills** — chaque recommandation doit se rattacher à un
+6. **Croise avec les skills** — chaque recommandation doit se rattacher à un
    principe (`design-judgment`, `a11y`, ou la référence métier de `domain-knowledge`). Une référence
    sans principe est une mode, pas un pattern.
 
@@ -56,10 +62,10 @@ est perdu, tout ce que tu rends en vrac le pollue.
   « On adopte » avec l'alternative écartée, et signale-la à l'appelant pour le
   « À décider » du rapport final. Tu ne rouvres pas de checkpoint : l'arbitrage
   humain a lieu au /da.
-- Si Mobbin (MCP) n'est pas disponible, le noter dans le brief et t'appuyer sur
+- Si un MCP (Mobbin, Inspo) n'est pas disponible, le noter dans le brief et t'appuyer sur
   les galeries web (réfs retenues capturées via le script `capture-ref.sh` du
   kit, chemin transmis par l'appelant) + la bibliothèque d'exemplaires du kit ;
-  ne jamais présenter une référence Mobbin que tu n'as pas réellement pu consulter.
+  ne jamais présenter une référence MCP que tu n'as pas réellement pu consulter.
 - Si les références divergent fortement entre elles, dis-le : c'est un signal
   que le contexte décide, pas la convention.
 - Ton brief doit être lisible par quelqu'un qui n'a vu aucune des sources.

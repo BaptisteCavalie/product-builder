@@ -36,7 +36,7 @@ flowchart TD
     S2 -->|non| S3{"design/da.md existe ?"}:::dec
     S3 -->|non| R3["/da → pistes sourcées<br/>Baptiste tranche → 1 direction"]:::human
     S3 -->|oui| S4{"Pattern ≥ 70 % couvert ?"}:::dec
-    S4 -->|non| R4["pattern-researcher<br/>local → Mobbin → web"]:::step
+    S4 -->|non| R4["pattern-researcher<br/>local → Mobbin · Inspo → web"]:::step
     S4 -->|oui| S5["Build<br/>skills · tokens · signature"]:::step
     R2 --> S3
     R3 --> S4
@@ -92,7 +92,8 @@ flowchart TD
 ## 2. Direction artistique — `/da`
 
 Le seul checkpoint humain du build. Collecte multi-sources (exemplaires du kit,
-Mobbin, galeries web, catalogue `ui-resources`), puis les **choix structurants**
+Mobbin pour les apps, Inspo pour le web, galeries, catalogue `ui-resources`),
+puis les **choix structurants**
 partent en pistes sourcées — 2-3 options par choix, 5 choix max, groupés en une
 salve. Baptiste tranche, et **le brief écrit ne garde jamais le menu** : une
 seule direction. Le `@theme` du projet en dérive.
@@ -102,7 +103,7 @@ Source : [`commands/da.md`](../product-builder/commands/da.md).
 flowchart TD
     A(["Lancer /da · 1× par projet"]):::step --> B{"Territoire cadré ?<br/>users · secteur · ambiance"}:::dec
     B -->|non| R1["Demande à Baptiste<br/>note, puis reprend"]:::human
-    B -->|oui| C["Collecte de références<br/>exemplaires → Mobbin → web<br/>+ catalogue ui-resources"]:::step
+    B -->|oui| C["Collecte de références<br/>exemplaires → Mobbin → Inspo → web<br/>+ catalogue ui-resources"]:::step
     R1 --> C
     C --> D{"Le choix est-il structurant ?<br/>contraint les écrans suivants"}:::dec
     D -->|non| R2["Tranche seul<br/>tokens · skills décident<br/>(remonté, pas arbitré)"]:::step

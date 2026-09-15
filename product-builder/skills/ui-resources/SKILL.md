@@ -41,13 +41,67 @@ Si un principe du kit tranche déjà (a11y, contrat de tokens, un interdit
 anti-slop), **il n'y a pas de piste**. Présenter comme ouvert un choix déjà
 fermé par la doctrine, c'est faire perdre du temps à l'arbitrage.
 
+## La source interrogeable — Inspo (MCP)
+
+Les 15 ressources du catalogue sont des sites à ouvrir. **Inspo est un serveur
+MCP** : il s'interroge depuis la session, sans navigateur, et renvoie des sites
+réellement shippés avec leur palette, leurs polices réelles, leur rampe typo et
+leurs captures desktop + mobile. C'est la différence qui compte — une référence
+qu'on peut chercher, comparer et regarder en trois appels bat une galerie qu'il
+faut parcourir à la main.
+
+Archive : 832 sites de production, 2 320 pages capturées, 15 outils
+(`inspo-mcp` 0.1.16, MIT, `github.com/Nutlope/inspo`).
+
+**Les outils qui servent ici** :
+- `recommend(brief, …)` — le point d'entrée : macrostructure proposée, shortlist,
+  5 exemplaires, composants de référence, suggestion de palette. Une piste s'en
+  nourrit, elle ne s'y résume pas.
+- `search_screens(query, style?, industry?, vibe?, color?, device?)` — la
+  recherche fine. `get_filters()` (zéro argument) liste les valeurs acceptées :
+  l'appeler d'abord évite trois appels à deviner les enums.
+- `get_design_system(slug)` — polices réelles, palette + variables CSS, rampe
+  typo, tech détectée. La matière la plus directe pour sourcer une piste
+  d'échelle typo ou de palette.
+- `compare(slugs[])` — 2 à 4 sites côte à côte. Fait pour l'arbitrage : deux
+  pistes se présentent mieux avec leurs exemplaires comparés.
+- `find_by_color(hex)` · `find_similar(slug)` · `find_examples_for_macrostructure(name)`
+  — les voisinages, quand une direction est déjà posée.
+- `find_reference_components(type?)` + `get_reference_jsx(type, id)` — le source
+  JSX d'un composant canonique. Pour la mécanique, jamais pour le style.
+
+**Ce qu'on vole** : des sites shippés, pas des concepts. La palette tracée à la
+source, la police nommée, la rampe, la macrostructure, et le couple desktop +
+mobile — c'est lui qui apprend la responsivité plutôt que le seul rendu large.
+
+**Ce qu'on laisse** :
+- Le `recommend()` pris pour une direction. Il produit un moodboard ; la
+  direction, c'est le DA brief, et elle se tranche à l'arbitrage.
+- Les guidances intégrées (`heroGuidance`, `spacingGuidance`) livrées avec chaque
+  `recommend()` : elles sont saines — un héros qui tient dans le premier
+  viewport, des respirations de 80-160px entre sections — mais elles arrivent en
+  pixels. Chez nous elles passent par les tokens d'espacement, jamais en valeur
+  inline. Le contrat de tokens reste devant.
+- La palette telle quelle : elle se reconstruit sur UNE rampe OKLCH (skill
+  `color`).
+
+**Installation** (hébergé, gratuit, sans authentification) :
+`claude mcp add --transport http inspo https://inspomcp.dev/api/mcp`.
+Le serveur doit être enregistré sous le nom **`inspo`** — c'est ce nom qui donne
+les outils `mcp__inspo__*` déclarés par le `design-critic`.
+
+**S'il est absent de la session** : même règle que Mobbin — le dire à
+l'arbitrage comme limitation, descendre le repli (Mobbin → bibliothèque
+d'exemplaires → galeries web), et ne jamais citer un écran qu'on n'a pas vu.
+
 ## Routage par intention
 
 | Le choix porte sur | Ouvrir |
 |---|---|
-| Tokens, échelles, nomenclature | designsystems.one · open-props.style |
+| Référence réelle, ambiance, palette d'un site shippé | **Inspo (MCP)** — `recommend`, `search_screens`, `get_design_system` |
+| Tokens, échelles, nomenclature | designsystems.one · open-props.style · Inspo `get_design_system` |
 | Typo & espacement fluides | utopia.fyi |
-| Structure et états d'un composant | component.gallery · coss.com/ui |
+| Structure et états d'un composant | component.gallery · coss.com/ui · Inspo `get_reference_jsx` |
 | Pattern complexe (data grid, kanban, gantt, filtres, calendrier) | reui.io/components |
 | Vocabulaire de motion | kinetics.colorion.co · motion-primitives.com |
 | Contenu attendu d'une section type | vibeprompts.dev |
@@ -210,8 +264,13 @@ Baptiste garde la main pour le contredire.
 
 ## Statut du catalogue
 
-Les 15 entrées viennent de la sélection de Baptiste (13/09/2026) ; leurs URLs
-n'ont pas pu être vérifiées depuis la session d'écriture (accès réseau refusé
-par la politique d'egress). Une ressource morte ou dérivée **se retire du
+Les 15 entrées web viennent de la sélection de Baptiste (13/09/2026) ; leurs
+URLs n'ont pas pu être ouvertes depuis la session d'écriture (accès réseau
+refusé par la politique d'egress). Une ressource morte ou dérivée **se retire du
 catalogue** — elle ne se contourne pas en devinant ce qu'elle contenait.
+
+Inspo, lui, est vérifié : paquet `inspo-mcp` 0.1.16 lu sur le registre npm le
+15/09/2026 (MIT, `github.com/Nutlope/inspo`, 15 outils). Son endpoint hébergé
+n'était pas joignable depuis cette session — l'installation est donc à faire et
+à tester côté Baptiste.
 Le catalogue s'amende comme le reste du kit : via `/retro`.

@@ -46,7 +46,17 @@ que l'auto-update en arrière-plan puisse s'authentifier.
 - Test du risque : un runner (`vitest`, ou `node --test` natif) si tu shippes
   de la logique à risque (argent, auth, irréversible). Le code-reviewer ne
   réclame un test que là — jamais sur l'UI.
-- Mobbin MCP (plan payant requis) :
+- Inspo MCP (gratuit, sans authentification) — 832 sites de production
+  capturés, interrogeables par le kit : palette tracée à la source, polices
+  réelles, rampe typo, desktop + mobile.
+  ```bash
+  claude mcp add --transport http inspo https://inspomcp.dev/api/mcp
+  ```
+  Le nom du serveur doit rester `inspo` : c'est lui qui donne les outils
+  `mcp__inspo__*` déclarés par le design-critic. Variante tous clients :
+  `npx -y inspo-mcp install`. Source : paquet `inspo-mcp` (MIT,
+  `github.com/Nutlope/inspo`).
+- Mobbin MCP (plan payant requis) — les apps, là où Inspo couvre le web :
   ```bash
   claude mcp add mobbin --scope user --transport http https://api.mobbin.com/mcp
   ```
@@ -74,9 +84,11 @@ Le détail du flux, en arbres de décision oui/non (vue d'ensemble + zooms sur
 challenge, /da, gates de goût du build, critique) : [`docs/pipeline.md`](docs/pipeline.md).
 
 `/da` collecte les références multi-sources — bibliothèque d'exemplaires du
-kit, Mobbin (produits réels), Awwwards/Godly/SiteInspire (direction
-artistique web), Dribbble (ambiance uniquement, jamais les layouts), Fonts
-In Use (typographie), et le catalogue `ui-resources` pour la structure. Puis il
+kit, Mobbin (apps shippées), Inspo (832 sites de production, palette et polices
+tracées à la source), puis seulement ensuite les galeries :
+Awwwards/Godly/SiteInspire (direction artistique web), Dribbble (ambiance
+uniquement, jamais les layouts), Fonts In Use (typographie), et le catalogue
+`ui-resources` pour la structure. Puis il
 te présente les **choix structurants en pistes** : 2-3 options sourcées par
 choix (base de composants, échelle typo, motion, densité, curseur d'audace),
 chacune avec son coût et une recommandation. Tu tranches en une salve, et LA
@@ -110,7 +122,7 @@ C'est l'actif du système — ce repo est sa mémoire versionnée.
 | Critics | jugement isolé, verdicts par sévérité | `product-builder/agents/` |
 | Connaissance universelle | design-judgment, art-direction, color, ux-writing, anti-slop, a11y — agnostique au domaine | `product-builder/skills/` |
 | Connaissance métier | le noyau régulé d'un domaine (réglementation, données sensibles, vocabulaire, erreurs critiques) — plus de conventions UI écrites à la main | `product-builder/skills/domain-knowledge/references/` |
-| Ressources UI | catalogue routé de 15 ressources externes (design systems réels, tokens, composants, motion, audits) — la matière première des pistes | `product-builder/skills/ui-resources/` |
+| Ressources UI | le MCP Inspo (sites de production interrogeables) + un catalogue routé de 15 ressources web (design systems réels, tokens, composants, motion, audits) — la matière première des pistes | `product-builder/skills/ui-resources/` |
 | Gates | vérifs déterministes, exit 2 = reboucle | `product-builder/hooks/` |
 | Contrat visuel | contrat de tokens (template) — valeurs compilées dans le `@theme` du projet | `product-builder/design-system/` |
 | Goût | bibliothèque d'exemplaires (écrans validés, annotés) + DA brief par projet | `product-builder/design-system/references/` + `design/` (projet) |
