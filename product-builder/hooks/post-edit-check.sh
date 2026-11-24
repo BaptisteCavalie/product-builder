@@ -24,8 +24,7 @@ case "$FILE" in
     if [ -f "package.json" ] && [ -f "node_modules/.bin/eslint" ]; then
       # --quiet : seules les ERREURS bloquent (exit 2). Les warnings préexistants
       # d'un fichier touché pour une autre raison ne doivent pas couper la boucle.
-      LINT_OUT=$(npx eslint --quiet "$FILE" 2>&1)
-      if [ $? -ne 0 ]; then
+      if ! LINT_OUT=$(npx eslint --quiet "$FILE" 2>&1); then
         ERRORS="${ERRORS}--- ESLint ---\n${LINT_OUT}\n"
       fi
     fi
@@ -34,14 +33,12 @@ case "$FILE" in
     : ;; # pas de lint dédié — mais la gate anti-slop ci-dessous s'applique
   *.py)
     # Syntaxe (déterministe, zéro faux positif, aucune config requise)
-    COMPILE_OUT=$(python3 -m py_compile "$FILE" 2>&1)
-    if [ $? -ne 0 ]; then
+    if ! COMPILE_OUT=$(python3 -m py_compile "$FILE" 2>&1); then
       ERRORS="${ERRORS}--- py_compile ---\n${COMPILE_OUT}\n"
     fi
     # Lint optionnel : seulement si ruff est installé ET configuré dans le repo
     if command -v ruff >/dev/null 2>&1 && { [ -f "pyproject.toml" ] || [ -f "ruff.toml" ] || [ -f ".ruff.toml" ]; }; then
-      LINT_OUT=$(ruff check "$FILE" 2>&1)
-      if [ $? -ne 0 ]; then
+      if ! LINT_OUT=$(ruff check "$FILE" 2>&1); then
         ERRORS="${ERRORS}--- ruff ---\n${LINT_OUT}\n"
       fi
     fi
@@ -60,8 +57,7 @@ case "$FILE" in
       SLOP_SH="product-builder/scripts/check-slop.sh"
     fi
     if [ -n "$SLOP_SH" ]; then
-      SLOP_OUT=$("$SLOP_SH" "$FILE" 2>&1)
-      if [ $? -ne 0 ]; then
+      if ! SLOP_OUT=$("$SLOP_SH" "$FILE" 2>&1); then
         ERRORS="${ERRORS}--- anti-slop (gate machine) ---\n${SLOP_OUT}\n"
       fi
     fi

@@ -17,7 +17,7 @@ set -uo pipefail
 # fichiers hors du dossier plugin (README racine, CLAUDE.md, project-template/),
 # donc la racine de référence est le repo, deux crans au-dessus.
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-cd "$ROOT"
+cd "$ROOT" || exit 1
 FAIL=0
 
 req() { # $1=fichier  $2=regex (grep -Ei)  $3=doctrine
@@ -79,10 +79,11 @@ req product-builder/commands/retro.md  'ne mute'               "retro"
 echo "→ Chemins injectés (tout <chemin>/script.sh cité par une commande/agent est injecté au SessionStart)"
 # Les commandes disent « chemin injecté en début de session » : si session-start.sh
 # ne l'injecte pas, le modèle invente un chemin ou saute l'étape (cas check-theme).
-for s in $(grep -rhoE '<chemin>/[a-z0-9-]+\.sh' product-builder/commands product-builder/agents | sed 's#<chemin>/##' | sort -u); do
+while IFS= read -r s; do
+  [ -z "$s" ] && continue
   [ -f "product-builder/scripts/$s" ] || { echo "✗ [chemins] script cité mais absent : product-builder/scripts/$s"; FAIL=1; }
   req product-builder/hooks/session-start.sh "scripts/$s" "chemins"
-done
+done < <(grep -rhoE '<chemin>/[a-z0-9-]+\.sh' product-builder/commands product-builder/agents | sed 's#<chemin>/##' | sort -u)
 
 if [ "$FAIL" -ne 0 ]; then
   echo

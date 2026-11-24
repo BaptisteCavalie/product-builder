@@ -48,8 +48,7 @@ fi
 
 FAILURES=""
 run_check() { # $1 = label, $2 = commande
-  OUT=$(eval "$2" 2>&1)
-  if [ $? -ne 0 ]; then
+  if ! OUT=$(eval "$2" 2>&1); then
     FAILURES="${FAILURES}\n--- ${1} ---\n$(echo "$OUT" | tail -30)\n"
   fi
 }

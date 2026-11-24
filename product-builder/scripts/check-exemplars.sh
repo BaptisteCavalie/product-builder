@@ -36,7 +36,7 @@ INDEXED=$(awk '
   | sort -u)
 
 # 3. Fichiers .png réellement présents.
-PRESENT=$(cd "$REF_DIR" && ls -1 ./*.png 2>/dev/null | sed 's#^\./##' | sort -u)
+PRESENT=$(find "$REF_DIR" -maxdepth 1 -name '*.png' ! -type d -exec basename {} \; | sort -u)
 
 MISSING=""   # indexé mais absent du disque = ligne fantôme
 ORPHAN=""    # présent mais non indexé = image sans pourquoi

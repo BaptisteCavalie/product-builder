@@ -30,12 +30,10 @@ jobs:
             bash -n "$f"
           done
 
-      # Non-bloquant pour l'instant : le niveau style/warning n'a jamais été
-      # appliqué au legacy. À passer bloquant (retirer continue-on-error)
-      # une fois les findings existants traités.
-      - name: ShellCheck (informatif)
-        continue-on-error: true
-        run: shellcheck product-builder/hooks/*.sh product-builder/scripts/*.sh
+      # Bloquant depuis le 2026-11-24 : les findings hérités ont été traités.
+      # Couvre aussi le hook de bootstrap copié dans chaque projet.
+      - name: ShellCheck
+        run: shellcheck product-builder/hooks/*.sh product-builder/scripts/*.sh project-template/.claude/hooks/*.sh
 
       - name: Manifests et hooks JSON valides
         run: |
