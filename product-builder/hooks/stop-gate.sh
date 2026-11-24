@@ -10,7 +10,25 @@ INPUT=$(cat)
 MAX_ROUNDS=3
 # Compteur scopé au projet courant : un fichier global collisionnerait entre
 # projets/sessions parallèles (cas courant en exécution distante).
-COUNTER_FILE="/tmp/claude-stop-gate-rounds-$(printf '%s' "$PWD" | cksum | cut -d' ' -f1)"
+STATE_KEY="$(printf '%s' "$PWD" | cksum | cut -d' ' -f1)"
+COUNTER_FILE="${TMPDIR:-/tmp}/claude-stop-gate-rounds-${STATE_KEY}"
+# Empreinte du dernier état VERT : si l'arbre de travail n'a pas bougé depuis,
+# les gates ne peuvent pas avoir changé de verdict → on sort sans relancer
+# typecheck/lint/knip (sinon chaque tour conversationnel paie la suite entière).
+GREEN_FILE="${TMPDIR:-/tmp}/claude-stop-gate-green-${STATE_KEY}"
+fingerprint() { # vide hors repo git → pas de court-circuit
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return 0
+  {
+    git rev-parse HEAD 2>/dev/null
+    git diff HEAD 2>/dev/null
+    git ls-files -o --exclude-standard -z 2>/dev/null | xargs -0 cksum 2>/dev/null
+  } | cksum | cut -d' ' -f1
+}
+FP="$(fingerprint)"
+if [ -n "$FP" ] && [ -f "$GREEN_FILE" ] && [ "$(cat "$GREEN_FILE" 2>/dev/null)" = "$FP" ]; then
+  rm -f "$COUNTER_FILE"
+  exit 0
+fi
 
 # 1. Anti-boucle : si on est déjà dans une continuation déclenchée par ce hook
 #    ET que le plafond est atteint, on laisse passer (l'agent doit alors escalader).
@@ -60,8 +78,16 @@ fi
 if command -v python3 >/dev/null 2>&1; then
   PY_FILES=$(git ls-files '*.py' 2>/dev/null)
   if [ -n "$PY_FILES" ]; then
-    # Syntaxe de tout le repo (déterministe, rapide, zéro faux positif)
-    run_check "Syntaxe (py_compile)" "echo \"$PY_FILES\" | xargs python3 -m py_compile"
+    # Syntaxe de tout le repo (déterministe, rapide, zéro faux positif).
+    # compile() en mémoire : pas de __pycache__ écrit, noms avec espaces OK,
+    # fichiers suivis mais supprimés du disque ignorés.
+    run_check "Syntaxe (py_compile)" "git ls-files -z '*.py' | python3 -c 'import sys,os
+bad=0
+for f in sys.stdin.read().split(chr(0)):
+    if f and os.path.isfile(f):
+        try: compile(open(f,\"rb\").read(), f, \"exec\")
+        except SyntaxError as e: print(e); bad=1
+sys.exit(bad)'"
 
     # Lint global — seulement si ruff configuré
     if command -v ruff >/dev/null 2>&1 && { [ -f "pyproject.toml" ] || [ -f "ruff.toml" ] || [ -f ".ruff.toml" ]; }; then
@@ -98,4 +124,5 @@ if [ -n "$FAILURES" ]; then
 fi
 
 rm -f "$COUNTER_FILE"
+[ -n "$FP" ] && printf '%s' "$FP" > "$GREEN_FILE"
 exit 0

@@ -69,7 +69,8 @@ case "$FILE" in
 esac
 
 if [ -n "$ERRORS" ]; then
-  printf "Le fichier édité ne passe pas les vérifications. Corrige avant de continuer :\n${ERRORS}" >&2
+  # %b : la sortie des outils n'est jamais une chaîne de format (un « % » la corromprait).
+  printf "Le fichier édité ne passe pas les vérifications. Corrige avant de continuer :\n%b" "$ERRORS" >&2
   exit 2
 fi
 exit 0

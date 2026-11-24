@@ -40,16 +40,16 @@ flowchart TD
     R2 --> S3
     R3 --> S4
     R4 --> S5
-    S5 --> S6{"Screenshots faits ?"}:::dec
+    S5 --> S8{"Gates machine OK ?<br/>typecheck · lint · build"}:::dec
+    S8 -->|non| S5
+    S8 -->|oui| S6{"Screenshots faits ?"}:::dec
     S6 -->|non| R6["Hygiène sur le code<br/>pas de verdict ship"]:::dec
     S6 -->|oui| S7["Critique<br/>design-critic + code-reviewer"]:::step
     R6 --> S7
-    S7 --> S8{"Gates machine OK ?<br/>typecheck · lint · code mort"}:::dec
-    S8 -->|non| S5
-    S8 -->|oui| S9{"Blocker ou major ?"}:::dec
+    S7 --> S9{"Blocker ou major ?"}:::dec
     S9 -->|oui| S9b{"3 tours / oscillation ?"}:::dec
     S9b -->|oui| RX["STOP + escalade"]:::stop
-    S9b -->|non| S7
+    S9b -->|non| S5
     S9 -->|non| S10(["Shippé<br/>rapport + télémétrie"]):::ship
     S10 --> RT["/retro<br/>rapport kit → session kit → push"]:::human
     classDef dec fill:#FAEEDA,stroke:#BA7517,color:#633806

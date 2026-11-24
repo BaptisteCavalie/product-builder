@@ -141,6 +141,9 @@ capitaliser :
 
 - Ajoute la ligne de télémétrie de la session dans `telemetry/runs.jsonl` du
   projet si ce n'est pas déjà fait.
+- Compte d'abord, n'estime pas : `<chemin>/telemetry-summary.sh
+  telemetry/runs.jsonl` (chemin injecté en début de session) rend les
+  sévérités, escalades et la fréquence de chaque dimension faible (⚠ dès 3).
 - Si la télémétrie récente montre un pattern (même dimension faible sur ≥3
   runs → trou structurel probable dans un skill), inscris-le comme amendement
   kit dans le rapport ET signale-le dans le bilan.

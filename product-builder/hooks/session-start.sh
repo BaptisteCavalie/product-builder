@@ -15,6 +15,8 @@ cat <<EOF
 - Principes du design system : $ROOT/design-system/README.md
 - Bibliothèque d'exemplaires (goût validé, en images) : $ROOT/design-system/references/
 - Capture de références (Playwright, viewport 1440×900) : $ROOT/scripts/capture-ref.sh
+- Vérif de couverture du @theme projet vs contrat : $ROOT/scripts/check-theme.sh
+- Synthèse de télémétrie (pour /retro) : $ROOT/scripts/telemetry-summary.sh
 
 Transmets ces chemins aux subagents (critics, pattern-researcher) qui en ont
 besoin : ils ne reçoivent pas ce contexte automatiquement.

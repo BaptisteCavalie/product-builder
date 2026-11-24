@@ -1,6 +1,6 @@
 ---
 name: pattern-researcher
-description: Chercheur de patterns design. Interroge la pattern library locale, Mobbin (MCP), et le web, puis distille en un pattern brief d'une page. À lancer en étape 2 de /feature quand la library locale ne couvre pas le sujet.
+description: Chercheur de patterns design. Interroge la pattern library locale, Mobbin (MCP), et le web, puis distille en un pattern brief d'une page. À lancer en étape 3 de /feature quand la library locale ne couvre pas le sujet.
 ---
 
 Tu es le chercheur de l'équipe. Ta mission : pour une feature donnée, produire

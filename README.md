@@ -113,7 +113,7 @@ C'est l'actif du système — ce repo est sa mémoire versionnée.
 **Changer de domaine** = déclarer `Domaine actif : <x>` dans le CLAUDE.md du
 projet. Si la référence n'existe pas encore, le système la bootstrappe
 (pattern-researcher), te la fait valider, puis l'inscrit dans le rapport /retro
-pour l'ajouter au kit (session dédiée) et la partager. `fintech.md` est fournie ;
+pour l'ajouter au kit (session dédiée) et la partager. `fintech.md` et `paris-sportifs.md` sont fournies ;
 chaque nouveau projet dans un nouveau secteur enrichit le deck.
 
 Règle de calibration des critics : s'ils sont trop gentils ou trop sévères,
@@ -124,8 +124,13 @@ ne corrige pas leurs verdicts à la main — amende leur rubrique via `/retro`.
 ```bash
 claude --plugin-dir ./product-builder   # tester sans installer
 /reload-plugins                          # recharger après une modif
-claude plugin validate ./product-builder # valider avant push
+claude plugin validate ./product-builder # valider le plugin avant push
+claude plugin validate .                 # valider la marketplace
+./product-builder/scripts/check-doctrine.sh  # cohérence des doctrines multi-fichiers
 ```
+
+En session dans ce repo, la gate Stop lance aussi `check-doctrine.sh` et
+`check-exemplars.sh` : un désalignement bloque la fin du tour avant le push.
 
 Pour le partager au-delà de tes machines (le Dojo) : soumettre le plugin à la
 marketplace communautaire — https://code.claude.com/docs/en/plugins

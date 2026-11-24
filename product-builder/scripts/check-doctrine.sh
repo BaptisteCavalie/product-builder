@@ -76,6 +76,14 @@ echo "→ Doctrine /retro (une session projet ne mute jamais le kit)"
 req CLAUDE.md                          'ne mute JAMAIS le kit' "retro"
 req product-builder/commands/retro.md  'ne mute'               "retro"
 
+echo "→ Chemins injectés (tout <chemin>/script.sh cité par une commande/agent est injecté au SessionStart)"
+# Les commandes disent « chemin injecté en début de session » : si session-start.sh
+# ne l'injecte pas, le modèle invente un chemin ou saute l'étape (cas check-theme).
+for s in $(grep -rhoE '<chemin>/[a-z0-9-]+\.sh' product-builder/commands product-builder/agents | sed 's#<chemin>/##' | sort -u); do
+  [ -f "product-builder/scripts/$s" ] || { echo "✗ [chemins] script cité mais absent : product-builder/scripts/$s"; FAIL=1; }
+  req product-builder/hooks/session-start.sh "scripts/$s" "chemins"
+done
+
 if [ "$FAIL" -ne 0 ]; then
   echo
   echo "DOCTRINE DÉSALIGNÉE — corrige les fichiers ci-dessus dans le même commit."
